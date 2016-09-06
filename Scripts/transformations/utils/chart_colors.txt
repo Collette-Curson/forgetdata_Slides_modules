@@ -1,0 +1,4 @@
+"Top 2",200,200,200
+"Bottom 2",100,100,100
+"Average Score (0 is Neutral)",255,0,0
+"Strongly Disagree",0,0,255

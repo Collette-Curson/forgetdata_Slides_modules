@@ -1,0 +1,39 @@
+transformations package
+=======================
+
+Submodules
+----------
+
+transformations class
+---------------------
+
+.. automodule:: transformations
+    :members: 
+    :inherited-members: series, categories, labels.format_labels, data, sorting, pptxdata
+    :show-inheritance:
+
+
+transformations.utils.utilities module
+--------------------------------------
+
+.. automodule:: transformations.utils.utilities
+    :members: 
+    :undoc-members:
+    :show-inheritance:
+
+transformations.utils.logger module
+-----------------------------------
+
+.. automodule:: transformations.utils.logger
+    :members: 
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: Scripts.transformations
+    :members:
+    :undoc-members:
+    :show-inheritance:

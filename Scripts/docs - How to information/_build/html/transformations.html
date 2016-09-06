@@ -1,0 +1,280 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>transformations package &mdash; Slides! 4.3.0 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Slides! 4.3.0 documentation" href="index.html"/>
+        <link rel="up" title="Slides! Packages And Modules" href="modules.html"/>
+        <link rel="next" title="Scripts package" href="Scripts.html"/>
+        <link rel="prev" title="Slides! Packages And Modules" href="modules.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="index.html" class="fa fa-home"> Slides!</a>
+        
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="InstallingPython.html">Documentation of Slides - Installation of Python/Sphinx and Documenting modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="InstallingPython.html#installing-python">Installing Python:</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="InstallingPython.html#installation-help">Installation Help:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="InstallingPython.html#installation-path">Installation Path:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="InstallingPython.html#documentation">Documentation:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="InstallingPython.html#checking-that-python-is-installed-correctly">Checking that Python is installed correctly:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="InstallingPython.html#modules">Modules:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="InstallingPython.html#pythonpath-environment-variable">PYTHONPATH environment variable:</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="InstallingPython.html#installing-multiple-versions-or-copies-of-python">Installing multiple versions or copies of Python:</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="InstallingPython.html#making-a-python-virtual-environment-virtualenv">Making a Python virtual environment. (virtualenv)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="InstallingPython.html#installing-site-packages">Installing site-packages</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="InstallingPython.html#making-the-re-distributable-module-and-setup-file">Making the re-distributable module, and setup file</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="InstallingPython.html#distributing-modules">Distributing modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="InstallingPython.html#use-pip-to-install-module-packages-into-python">Use pip to install module packages into python.</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="InstallingPython.html#install-ipython-pandas-numpy-using-pip">Install ipython, pandas, numpy using pip</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="InstallingPython.html#to-install">To Install</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="InstallingPython.html#ipython-notebook">IPython notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="InstallingPython.html#ironpython">IronPython</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="InstallingPython.html#id1">To Install</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="InstallingPython.html#getting-started-guides">Getting started guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Sphinx.html">Sphinx</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Sphinx.html#readthedocs">ReadTheDocs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Sphinx.html#installing-sphinx-and-publishing-modules-and-packages">Installing sphinx and publishing modules and packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Sphinx.html#setting-a-theme-for-your-documentation-site">Setting a theme for your documentation site</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Sphinx.html#update-the-sphinx-documentation-site">Update the Sphinx Documentation Site</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Sphinx.html#add-the-packages-and-modules-to-the-table-of-contents-page">Add the packages and modules to the Table Of Contents page</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Sphinx.html#add-sphinx-readable-documentation-comments-to-your-modules-and-packages">Add sphinx readable documentation comments to your modules and packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Sphinx.html#making-a-setuptools-setup-for-your-module-eg-mymodule-py">Making a setuptools setup for your module, eg mymodule.py</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Sphinx.html#using-python-3">Using Python 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Sphinx.html#installing-easyinstall">Installing EasyInstall</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Sphinx.html#module-distribution-installing-your-module-at-a-clientsite-using-python-setup-py-file">Module distribution - Installing your module at a clientsite using python setup.py file</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Sphinx.html#other-sphinx-things-to-do">OTHER SPHINX THINGS TO DO:</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">Slides! Packages And Modules</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="">transformations package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Scripts.html">Scripts package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OtherModules.html">OtherModules package</a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Slides!</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="modules.html">Slides! Packages And Modules</a> &raquo;</li>
+      
+    <li>transformations package</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="_sources/transformations.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="transformations-package">
+<h1>transformations package<a class="headerlink" href="#transformations-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="transformations-class">
+<h2>transformations class<a class="headerlink" href="#transformations-class" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="transformations-utils-utilities-module">
+<h2>transformations.utils.utilities module<a class="headerlink" href="#transformations-utils-utilities-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="transformations-utils-logger-module">
+<h2>transformations.utils.logger module<a class="headerlink" href="#transformations-utils-logger-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-Scripts.transformations">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-Scripts.transformations" title="Permalink to this headline">¶</a></h2>
+<p>Provides a class which merges the series/categories/data and pptx_data
+modules into one class called MatrixManipulator.</p>
+<p>Updated August 2016
+&#64;author: ccurson</p>
+<dl class="class">
+<dt id="Scripts.transformations.MatrixManipulator">
+<em class="property">class </em><tt class="descclassname">Scripts.transformations.</tt><tt class="descname">MatrixManipulator</tt><big>(</big><em>matrix</em><big>)</big><a class="headerlink" href="#Scripts.transformations.MatrixManipulator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">Scripts.transformations.series.MatrixSeriesManipulator</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">Scripts.transformations.categories.MatrixCategoryManipulator</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">Scripts.transformations.data.MatrixDataManipulator</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">Scripts.transformations.pptx_data.PowerPointDataManipulator</span></tt></p>
+<p>Class for manipulating labels or values from the series, categories,
+or data values of a matrix.</p>
+<p>This class will import all of the functions from the classes in the parameters list.  
+It is called with a matrix parameter, eg _my_class=MatrixManipulator(matrix)</p>
+<p>Examples:</p>
+<div class="line-block">
+<div class="line">&gt;&gt;&gt; import utils.matrixfuncs as matrixfuncs</div>
+<div class="line">&gt;&gt;&gt; m = matrixfuncs.create_test_matrix()</div>
+<div class="line">&gt;&gt;&gt; _my_class = MatrixManipulator(m)</div>
+<div class="line">&gt;&gt;&gt; utilities.print_matrix(m)</div>
+<div class="line">&lt;BLANKLINE&gt;</div>
+<div class="line">Label : None</div>
+<div class="line">XXXXXXXXXX|myColumn 0|myColumn 1|myColumn 2|myColumn 3|myColumn 4|</div>
+<div class="line">==================================================================</div>
+<div class="line-block">
+<div class="line">myRow 0|         4|        20|        33|       102|        51|</div>
+<div class="line">myRow 1|         6|         7|       108|         9|        10|</div>
+<div class="line">myRow 2|         1|       102|         3|         4|         5|</div>
+<div class="line">myRow 3|       100|        10|        12|        13|        14|</div>
+<div class="line">myRow 4|         5|         6|         7|         8|       109|</div>
+</div>
+<div class="line">Matrix Label =  </div>
+<div class="line">&gt;&gt;&gt; print _my_class.get_series_labels()  #taken from series module</div>
+<div class="line">[u&#8217;myRow 0&#8217;, u&#8217;myRow 1&#8217;, u&#8217;myRow 2&#8217;, u&#8217;myRow 3&#8217;, u&#8217;myRow 4&#8217;]</div>
+<div class="line">&gt;&gt;&gt; print _my_class.get_category_labels() #taken from categories module</div>
+<div class="line">[u&#8217;myColumn 0&#8217;, u&#8217;myColumn 1&#8217;, u&#8217;myColumn 2&#8217;, u&#8217;myColumn 3&#8217;, u&#8217;myColumn 4&#8217;]</div>
+<div class="line">&gt;&gt;&gt; print _my_class.get_series_base_summary() </div>
+<div class="line">myRow 0: 4, myRow 1: 6, myRow 2: 1, myRow 3: 100, myRow 4: 5</div>
+<div class="line">&gt;&gt;&gt; print _my_class.get_category_base_summary()</div>
+<div class="line">myColumn 0: 4, myColumn 1: 20, myColumn 2: 33, myColumn 3: 102, myColumn 4: 51</div>
+<div class="line">&gt;&gt;&gt; _my_class.get_data_values() #taken from data module</div>
+<div class="line">[u&#8216;4&#8217;, u&#8216;20&#8217;, u&#8216;33&#8217;, u&#8216;102&#8217;, u&#8216;51&#8217;, u&#8216;6&#8217;, u&#8216;7&#8217;, u&#8216;108&#8217;, u&#8216;9&#8217;, u&#8216;10&#8217;, u&#8216;1&#8217;, u&#8216;102&#8217;, u&#8216;3&#8217;, u&#8216;4&#8217;, u&#8216;5&#8217;, u&#8216;100&#8217;, u&#8216;10&#8217;, u&#8216;12&#8217;, u&#8216;13&#8217;, u&#8216;14&#8217;, u&#8216;5&#8217;, u&#8216;6&#8217;, u&#8216;7&#8217;, u&#8216;8&#8217;, u&#8216;109&#8217;]</div>
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Scripts.html" class="btn btn-neutral float-right" title="Scripts package">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="modules.html" class="btn btn-neutral" title="Slides! Packages And Modules"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014, Collette Curson.
+    </p>
+  </div>
+
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'4.3.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,1594 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Scripts package &mdash; Slides! 4.3.0 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Slides! 4.3.0 documentation" href="index.html"/>
+        <link rel="up" title="Slides! Packages And Modules" href="modules.html"/>
+        <link rel="prev" title="Slides! Packages And Modules" href="modules.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="index.html" class="fa fa-home"> Slides!</a>
+        
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">Slides! Packages And Modules</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="">Scripts package</a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Slides!</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="modules.html">Slides! Packages And Modules</a> &raquo;</li>
+      
+    <li>Scripts package</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="_sources/Scripts.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="scripts-package">
+<h1>Scripts package<a class="headerlink" href="#scripts-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-Scripts.charts">
+<span id="scripts-charts-module"></span><h2>Scripts.charts module<a class="headerlink" href="#module-Scripts.charts" title="Permalink to this headline">¶</a></h2>
+<p>Provides a series of functions which will run against Chart shapes within
+PowerPoint, after the Chart Shape has been filled.</p>
+<dl class="function">
+<dt id="Scripts.charts.add_axis_labels_to_bar_chart">
+<tt class="descclassname">Scripts.charts.</tt><tt class="descname">add_axis_labels_to_bar_chart</tt><big>(</big><em>Chart=None</em><big>)</big><a class="headerlink" href="#Scripts.charts.add_axis_labels_to_bar_chart" title="Permalink to this definition">¶</a></dt>
+<dd><p>On a Bar chart, generate text shapes within the Chart shape, to the left
+of the plot area, and place the labels of the axis within these shapes.
+This enables more formatting within the labels, for example,
+left/right/center justification.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>Chart</strong> &#8211; Chart shape, default = None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="Scripts.charts.convert_glyphs_to_color_wingdings">
+<tt class="descclassname">Scripts.charts.</tt><tt class="descname">convert_glyphs_to_color_wingdings</tt><big>(</big><em>Chart</em>, <em>Matrix=None</em><big>)</big><a class="headerlink" href="#Scripts.charts.convert_glyphs_to_color_wingdings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert your significant results into up and down arrows within the
+chart.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>Chart</strong> &#8211; Chart shape</td>
+</tr>
+</tbody>
+</table>
+<p>Used in conjunction with a script which sets the significant results to
+display the correct character values, chr(0xE9), chr(0xEA).</p>
+<p>For example, convert_significance_results_to_arrows() in
+transformationsdata.py.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Scripts.charts.make_topN_shapes_on_chart">
+<tt class="descclassname">Scripts.charts.</tt><tt class="descname">make_topN_shapes_on_chart</tt><big>(</big><em>Chart</em>, <em>Matrix</em>, <em>list_of_topN_scores</em><big>)</big><a class="headerlink" href="#Scripts.charts.make_topN_shapes_on_chart" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make and align TopN text shapes within the chart to the top or side of
+each category column or bar within a clustered or stacked chart.</p>
+<p>The topN text shape will be placed outside the top or side of the plot area, 
+within the chart shape.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>Chart</strong> &#8211; Chart shape</li>
+<li><strong>Matrix</strong> &#8211; Matrix associated with the Chart</li>
+<li><strong>list_of_topN_scores</strong> &#8211; the Top N scores from the Matrix, or calculated</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>For example:</p>
+<div class="line-block">
+<div class="line">list_of_topN_scores = [&#8216;10.3%&#8217;, &#8216;12.5%&#8217;, &#8216;8.7%&#8217;, &#8216;29.6%&#8217;, &#8216;22.2%&#8217;, &#8216;30.0%&#8217;]</div>
+<div class="line">charts.make_topN_shapes_on_chart(Chart, Matrix, globallist_of_top2)</div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="Scripts.charts.set_colors_on_chart">
+<tt class="descclassname">Scripts.charts.</tt><tt class="descname">set_colors_on_chart</tt><big>(</big><em>Chart</em>, <em>Matrix</em>, <em>fileName=None</em><big>)</big><a class="headerlink" href="#Scripts.charts.set_colors_on_chart" title="Permalink to this definition">¶</a></dt>
+<dd><p>Assign a specific color to each brand within a column, bar, pie, line
+chart, based upon an input text file.</p>
+<p>It is often used when a chart has been sorted as the display order will be
+updated between refreshes of data.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>Chart</strong> &#8211; Chart shape</li>
+<li><strong>Matrix</strong> &#8211; Matrix associated with the Chart</li>
+<li><strong>fileName</strong> &#8211; path and file containing the colours to be used for the
+chart for each series.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>The script expects an input file to be passed as a parameter, or else will
+use &#8220;colors.txt&#8221; in the same folder as the pptx file, and contains the
+following format:</p>
+<p>&#8220;Brand Name&#8221;,Red,Green,Blue.</p>
+<p>Example:</p>
+<div class="line-block">
+<div class="line">colors.txt contains:</div>
+<div class="line"><br /></div>
+<div class="line">&#8220;Brand name 1&#8221;,0,154,130</div>
+<div class="line">&#8220;Brand name 2&#8221;,0,131,190</div>
+<div class="line">&#8220;Brand name 3&#8221;,154,158,31</div>
+<div class="line">&#8220;Brand name 4&#8221;,170,22,62</div>
+<div class="line"><br /></div>
+<div class="line">set_colors_on_chart(Chart, Matrix, colors.txt)</div>
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="module-Scripts.shapes">
+<span id="scripts-shapes-module"></span><h2>Scripts.shapes module<a class="headerlink" href="#module-Scripts.shapes" title="Permalink to this headline">¶</a></h2>
+<p>Provides a series of functions which will run against any PowerPoint shape,
+after the Shape has been filled.</p>
+<dl class="function">
+<dt id="Scripts.shapes.RGB">
+<tt class="descclassname">Scripts.shapes.</tt><tt class="descname">RGB</tt><big>(</big><em>r</em>, <em>g</em>, <em>b</em><big>)</big><a class="headerlink" href="#Scripts.shapes.RGB" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert RGB values to ColorTranslator value for PowerPoint.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Scripts.shapes.find_shape">
+<tt class="descclassname">Scripts.shapes.</tt><tt class="descname">find_shape</tt><big>(</big><em>Shapes</em>, <em>shape_name</em><big>)</big><a class="headerlink" href="#Scripts.shapes.find_shape" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find a shape with a specific name within your PowerPoint slide.</p>
+<p>It can be used to delete existing shapes, so that they can be re-generated,
+or to select a specific shape to apply a function to.</p>
+<p>Example:</p>
+<div class="line-block">
+<div class="line">labelShape =find_shape(slide.Shapes,&#8221;mySlideName&#8221;)</div>
+<div class="line">if(labelShape != None):</div>
+<div class="line-block">
+<div class="line">labelShape.Delete()</div>
+</div>
+<div class="line">else:</div>
+<div class="line-block">
+<div class="line">break</div>
+</div>
+</div>
+<p>param: Shapes: PowerPoint Shapes.
+param: shape_name: Text name of the shape.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Scripts.shapes.set_background_color">
+<tt class="descclassname">Scripts.shapes.</tt><tt class="descname">set_background_color</tt><big>(</big><em>Shape</em>, <em>red</em>, <em>green</em>, <em>blue</em><big>)</big><a class="headerlink" href="#Scripts.shapes.set_background_color" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the background colour for the shape to an RGB value.</p>
+<p>Example:</p>
+<div class="line-block">
+<div class="line">shapes.set_background_color(Shape, 255, 255, 255)</div>
+<div class="line">or</div>
+<div class="line">shapes.set_background_color(cell.Shape, 255, 255, 255)</div>
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="module-Scripts.tables">
+<span id="scripts-tables-module"></span><h2>Scripts.tables module<a class="headerlink" href="#module-Scripts.tables" title="Permalink to this headline">¶</a></h2>
+<p>Provides a series of functions which will run against Tables shapes within
+PowerPoint, after the Tables Shape has been filled.</p>
+<dl class="function">
+<dt id="Scripts.tables.add_group_names_to_table_column_header">
+<tt class="descclassname">Scripts.tables.</tt><tt class="descname">add_group_names_to_table_column_header</tt><big>(</big><em>Table</em>, <em>Matrix=None</em><big>)</big><a class="headerlink" href="#Scripts.tables.add_group_names_to_table_column_header" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds group names to first row, and merges the headings per group.</p>
+<p>NOTE: This MUST be run with delete_table_row_before_fill() which will
+delete any previous cell merging from the table.  Otherwise the cell
+merges will be applied to the rows of the filled table.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>Table</strong> &#8211; Table shape</li>
+<li><strong>Matrix</strong> &#8211; Matrix associated with the Table. Default is None</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="Scripts.tables.delete_table_row_before_fill">
+<tt class="descclassname">Scripts.tables.</tt><tt class="descname">delete_table_row_before_fill</tt><big>(</big><big>)</big><a class="headerlink" href="#Scripts.tables.delete_table_row_before_fill" title="Permalink to this definition">¶</a></dt>
+<dd><p>Manipulate the table before it is filled.
+Delete first row so that any merged cells are removed before the fill.</p>
+<p>NOTE: This needs to be run from the transformations script, and is run
+before any script that will merge cells in the first row.</p>
+<p>Note, the Table object is not available from the Transformation
+script, and therefore the active object is used to find the Table.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Scripts.tables.indent_net_items">
+<tt class="descclassname">Scripts.tables.</tt><tt class="descname">indent_net_items</tt><big>(</big><em>Table</em>, <em>Matrix=None</em><big>)</big><a class="headerlink" href="#Scripts.tables.indent_net_items" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indent Net items within a table. Supported up to 1 level of net in the 
+axis</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>Table</strong> &#8211; Table shape</li>
+<li><strong>Matrix</strong> &#8211; Matrix associated with the Table. Default is None</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="Scripts.tables.insert_rows_for_group_labels">
+<tt class="descclassname">Scripts.tables.</tt><tt class="descname">insert_rows_for_group_labels</tt><big>(</big><em>Table</em>, <em>Matrix=None</em><big>)</big><a class="headerlink" href="#Scripts.tables.insert_rows_for_group_labels" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add in a new row for group headings (including nested group headings)
+for rows of the table.</p>
+<p>The new row will be inserted at the top of each new group or nested group.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>Table</strong> &#8211; Table shape</li>
+<li><strong>Matrix</strong> &#8211; Matrix associated with the Table. Default is None</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="Scripts.tables.replace_row_labels_with_group_names">
+<tt class="descclassname">Scripts.tables.</tt><tt class="descname">replace_row_labels_with_group_names</tt><big>(</big><em>Table</em>, <em>Matrix=None</em><big>)</big><a class="headerlink" href="#Scripts.tables.replace_row_labels_with_group_names" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pre-pend every row in the table with the Group Name.</p>
+<p>This is typically used with making a summary table, for example displaying
+Top 2 scores from a selection of scores or tables.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>Table</strong> &#8211; Table shape</li>
+<li><strong>Matrix</strong> &#8211; Matrix associated with the Table. Default is None</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-Scripts.texts">
+<span id="scripts-texts-module"></span><h2>Scripts.texts module<a class="headerlink" href="#module-Scripts.texts" title="Permalink to this headline">¶</a></h2>
+<p>Provides a series of functions which will run against Text shapes within
+PowerPoint, after the Text Shape has been filled.</p>
+<dl class="function">
+<dt id="Scripts.texts.set_bg_image">
+<tt class="descclassname">Scripts.texts.</tt><tt class="descname">set_bg_image</tt><big>(</big><em>_image_file_path</em>, <em>Shape=None</em><big>)</big><a class="headerlink" href="#Scripts.texts.set_bg_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the Background image of this shape to the _image_file_path.</p>
+<p>Used by set_bg_image_and_size.</p>
+<p>Example:</p>
+<div class="line-block">
+<div class="line">_image_file_path = &#8220;transformations\utils\images\greenarrow.png&#8221;</div>
+<div class="line">set_bg_image(_image_file_path)</div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="Scripts.texts.set_bg_image_and_size">
+<tt class="descclassname">Scripts.texts.</tt><tt class="descname">set_bg_image_and_size</tt><big>(</big><em>_image_file_path</em>, <em>Shape=None</em><big>)</big><a class="headerlink" href="#Scripts.texts.set_bg_image_and_size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the background of the shape to the image passed in, and resize.</p>
+<p>Example:</p>
+<div class="line-block">
+<div class="line">_image_file_path = &#8220;transformations\utils\images\greenarrow.png&#8221;</div>
+<div class="line">set_bg_image_and_size(_image_file_path)</div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="Scripts.texts.set_bg_picture_center_tile">
+<tt class="descclassname">Scripts.texts.</tt><tt class="descname">set_bg_picture_center_tile</tt><big>(</big><em>_image_file_path</em>, <em>Shape</em><big>)</big><a class="headerlink" href="#Scripts.texts.set_bg_picture_center_tile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Centres the Background image within the shape, and tile.</p>
+<p>Rescale the image to the current shape.</p>
+<p>Example:</p>
+<div class="line-block">
+<div class="line">_image_file_path = &#8220;transformations\utils\images\greenarrow.png&#8221;</div>
+<div class="line">set_bg_picture_center(Shape,_image_file_path)</div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="Scripts.texts.set_image_based_on_limit">
+<tt class="descclassname">Scripts.texts.</tt><tt class="descname">set_image_based_on_limit</tt><big>(</big><em>green_limit</em>, <em>yellow_limit</em>, <em>file_name_list</em>, <em>Matrix=None</em><big>)</big><a class="headerlink" href="#Scripts.texts.set_image_based_on_limit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select which image to display based upon limits, for example a traffic 
+light system or up and down arrows.</p>
+<p>This should be run per text shape to set the background image and size 
+based on the image selected.</p>
+<p>Example:</p>
+<div class="line-block">
+<div class="line">file_name_list = list()</div>
+<div class="line">file_name_list.append(&#8220;traffic-light-green.jpg&#8221;)</div>
+<div class="line">file_name_list.append(&#8220;traffic-light-yellow.jpg&#8221;)</div>
+<div class="line">file_name_list.append(&#8220;traffic-light-red.jpg&#8221;)</div>
+<div class="line"><br /></div>
+<div class="line">texts.set_image_based_on_limit(0.3, 0.2, file_name_list, Matrix)</div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="Scripts.texts.set_image_in_table_column_based_on_limit">
+<tt class="descclassname">Scripts.texts.</tt><tt class="descname">set_image_in_table_column_based_on_limit</tt><big>(</big><em>Table</em>, <em>Matrix</em>, <em>image_list</em>, <em>green_limit</em>, <em>yellow_limit</em><big>)</big><a class="headerlink" href="#Scripts.texts.set_image_in_table_column_based_on_limit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Within a Table, select which image to display in the last column, based 
+upon limits, for example a traffic light system or up and down arrows.</p>
+<p>This should be run per Table, and the background of each cell in the last
+column will be updated to set the background image and size  based on the
+image selected.</p>
+<p>Example:</p>
+<div class="line-block">
+<div class="line">image_list= [&#8220;greenarrow.jpg&#8221;,&#8221;greyarrow.jpg&#8221;,&#8221;redarrow.jpg&#8221;]</div>
+<div class="line">texts.set_image_in_table_column_based_on_limit(Table, Matrix, image_list, 0.2, 0.1)</div>
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="module-Scripts.transformations">
+<span id="scripts-transformations-class"></span><h2>Scripts.transformations class<a class="headerlink" href="#module-Scripts.transformations" title="Permalink to this headline">¶</a></h2>
+<p>Provides a class which merges the series/categories/data and pptx_data
+modules into one class called MatrixManipulator.</p>
+<dl class="class">
+<dt id="Scripts.transformations.MatrixManipulator">
+<em class="property">class </em><tt class="descclassname">Scripts.transformations.</tt><tt class="descname">MatrixManipulator</tt><big>(</big><em>matrix</em><big>)</big><a class="headerlink" href="#Scripts.transformations.MatrixManipulator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">Scripts.transformations.series.MatrixSeriesManipulator</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">Scripts.transformations.categories.MatrixCategoryManipulator</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">Scripts.transformations.data.MatrixDataManipulator</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">Scripts.transformations.pptx_data.PowerPointDataManipulator</span></tt></p>
+<p>Class for manipulating labels or values from the series, categories,
+or data values of a matrix, or PowerPoint Chart or Table.</p>
+<p>This class will import all of the functions from the classes in the parameters list.  
+It is called with a matrix parameter.</p>
+<p>Example:</p>
+<p>_my_class = MatrixManipulator(Matrix)</p>
+<p>Examples from Script:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">utils.matrixfuncs</span> <span class="kn">as</span> <span class="nn">matrixfuncs</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">matrixfuncs</span><span class="o">.</span><span class="n">create_test_matrix</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_my_class</span> <span class="o">=</span> <span class="n">MatrixManipulator</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">utilities</span><span class="o">.</span><span class="n">print_matrix</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+
+<span class="go">Label : None</span>
+<span class="go">XXXXXXXXXX|myColumn 0|myColumn 1|myColumn 2|myColumn 3|myColumn 4|</span>
+<span class="go">==================================================================</span>
+<span class="go">   myRow 0|         4|        20|        33|       102|        51|</span>
+<span class="go">   myRow 1|         6|         7|       108|         9|        10|</span>
+<span class="go">   myRow 2|         1|       102|         3|         4|         5|</span>
+<span class="go">   myRow 3|       100|        10|        12|        13|        14|</span>
+<span class="go">   myRow 4|         5|         6|         7|         8|       109|</span>
+<span class="go">Matrix Label =  </span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">_my_class</span><span class="o">.</span><span class="n">get_series_labels</span><span class="p">()</span>  <span class="c">#taken from series module</span>
+<span class="go">[u&#39;myRow 0&#39;, u&#39;myRow 1&#39;, u&#39;myRow 2&#39;, u&#39;myRow 3&#39;, u&#39;myRow 4&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">_my_class</span><span class="o">.</span><span class="n">get_category_labels</span><span class="p">()</span> <span class="c">#taken from categories module</span>
+<span class="go">[u&#39;myColumn 0&#39;, u&#39;myColumn 1&#39;, u&#39;myColumn 2&#39;, u&#39;myColumn 3&#39;, u&#39;myColumn 4&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">_my_class</span><span class="o">.</span><span class="n">get_series_base_summary</span><span class="p">()</span> 
+<span class="go">myRow 0: 4, myRow 1: 6, myRow 2: 1, myRow 3: 100, myRow 4: 5</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">_my_class</span><span class="o">.</span><span class="n">get_category_base_summary</span><span class="p">()</span>
+<span class="go">myColumn 0: 4, myColumn 1: 20, myColumn 2: 33, myColumn 3: 102, myColumn 4: 51</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_my_class</span><span class="o">.</span><span class="n">get_data_values</span><span class="p">()</span> <span class="c">#taken from data module</span>
+<span class="go">[u&#39;4&#39;, u&#39;20&#39;, u&#39;33&#39;, u&#39;102&#39;, u&#39;51&#39;, u&#39;6&#39;, u&#39;7&#39;, u&#39;108&#39;, u&#39;9&#39;, u&#39;10&#39;, u&#39;1&#39;, u&#39;102&#39;, u&#39;3&#39;, u&#39;4&#39;, u&#39;5&#39;, u&#39;100&#39;, u&#39;10&#39;, u&#39;12&#39;, u&#39;13&#39;, u&#39;14&#39;, u&#39;5&#39;, u&#39;6&#39;, u&#39;7&#39;, u&#39;8&#39;, u&#39;109&#39;]</span>
+</pre></div>
+</div>
+<dl class="method">
+<dt id="Scripts.transformations.MatrixManipulator.category_difference">
+<tt class="descname">category_difference</tt><big>(</big><em>*args</em><big>)</big><a class="headerlink" href="#Scripts.transformations.MatrixManipulator.category_difference" title="Permalink to this definition">¶</a></dt>
+<dd><p>Insert a new column and insert the difference between the
+2 selected categories, y-x</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>x</strong> &#8211; First Column in the difference calculation</li>
+<li><strong>y</strong> &#8211; Second Column in the difference calculation</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="line-block">
+<div class="line">tr = transformations.MatrixManipulator(Matrix)</div>
+<div class="line">tr.category_difference(0,1)</div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="Scripts.transformations.MatrixManipulator.clone_matrix">
+<tt class="descname">clone_matrix</tt><big>(</big><em>*args</em><big>)</big><a class="headerlink" href="#Scripts.transformations.MatrixManipulator.clone_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clone a matrix into another object for use when manipulating data.</p>
+<p>Example:</p>
+<div class="line-block">
+<div class="line">tr = transformations.MatrixManipulator(Matrix)</div>
+<div class="line">clone_matrix = tr.clone_matrix()</div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="Scripts.transformations.MatrixManipulator.convert_significance_results_to_arrows">
+<tt class="descname">convert_significance_results_to_arrows</tt><big>(</big><em>*args</em><big>)</big><a class="headerlink" href="#Scripts.transformations.MatrixManipulator.convert_significance_results_to_arrows" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert your significant results into up and down arrows within
+your chart.</p>
+<p>This script is used in conjunction with
+charts.convert_glyphs_to_color_wingdings(Chart) function as this
+changes the font to display the arrows in the data label of the chart.</p>
+<p>This example script assumes that the number of cell Items in the table
+is 1, plus the significance test result is present where appropriate.</p>
+<p>This was created using a table which showed significant difference
+between one column (wave) and the next column (wave) only, so maximum
+result per cell is 1. In addition, the significance was displayed in
+the current column if it was significantly higher or lower (sometimes
+significance results are displayed in the higher column).</p>
+<p>Example:</p>
+<div class="line-block">
+<div class="line">tr = transformations.MatrixManipulator(Matrix)</div>
+<div class="line">tr.convert_significance_results_to_arrows()</div>
+</div>
+<p>In the Afterfill action, you will now need to run:</p>
+<div class="line-block">
+<div class="line">charts.convert_glyphs_to_color_wingdings(Chart)</div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="Scripts.transformations.MatrixManipulator.del_base_category">
+<tt class="descname">del_base_category</tt><big>(</big><em>*args</em><big>)</big><a class="headerlink" href="#Scripts.transformations.MatrixManipulator.del_base_category" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete any column containing the word &#8216;Base&#8217;.</p>
+<p>The Texts used as &#8216;Base&#8217; can be amended as required using a list 
+parameter.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>_list_of_bases</strong> &#8211; list of texts to be treated as bases. 
+Default = &#8216;Base&#8217;</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="line-block">
+<div class="line">tr = transformations.MatrixManipulator(Matrix)</div>
+<div class="line">tr.del_base_category()</div>
+<div class="line">or</div>
+<div class="line">_list_of_bases = [&#8216;Total&#8217;, &#8216;Base&#8217;, &#8216;All Respondents&#8217;]</div>
+<div class="line">tr.del_base_category(_list_of_bases)</div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="Scripts.transformations.MatrixManipulator.del_base_series">
+<tt class="descname">del_base_series</tt><big>(</big><em>*args</em><big>)</big><a class="headerlink" href="#Scripts.transformations.MatrixManipulator.del_base_series" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete any row containing the word &#8216;Base&#8217;</p>
+<p>The Texts used as &#8216;Base&#8217; can be amended as required using a list 
+parameter.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Param:</th><td class="field-body">_list_of_bases: list of texts to be treated as bases. 
+Default = &#8216;Base&#8217;</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="line-block">
+<div class="line">tr = transformations.MatrixManipulator(Matrix)</div>
+<div class="line">tr.del_base_series()</div>
+<div class="line">or</div>
+<div class="line">_list_of_bases = [&#8216;Total&#8217;, &#8216;Base&#8217;, &#8216;All Respondents&#8217;]</div>
+<div class="line">tr.del_base_series(_list_of_bases)</div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="Scripts.transformations.MatrixManipulator.del_categories">
+<tt class="descname">del_categories</tt><big>(</big><em>*args</em><big>)</big><a class="headerlink" href="#Scripts.transformations.MatrixManipulator.del_categories" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove specific categories (columns) labels or indexes from a
+selection.</p>
+<p>For example, delete Don&#8217;t know columns from a selection.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>_list_to_del</strong> &#8211; This is an array containing text labels or
+indexes.</td>
+</tr>
+</tbody>
+</table>
+<p>It is assumed that if a label is found then the _list_to_del
+is a list of labels, else it is a list of Indexes.</p>
+<p>Example:</p>
+<div class="line-block">
+<div class="line">tr = transformations.MatrixManipulator(Matrix)</div>
+<div class="line">tr.del_categories([&#8220;myColumn 1&#8221;, &#8220;myColumn 2&#8221;])</div>
+<div class="line">or</div>
+<div class="line">tr.del_categories([1,2])</div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="Scripts.transformations.MatrixManipulator.del_series">
+<tt class="descname">del_series</tt><big>(</big><em>*args</em><big>)</big><a class="headerlink" href="#Scripts.transformations.MatrixManipulator.del_series" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove specific series (row) labels or indexes from a selection.</p>
+<p>For example, delete Top 2 / Bottom 2 rows after they have been used for
+calculating Diff scores.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>_list_to_del</strong> &#8211; array containing an array of text labels
+or indexes.</td>
+</tr>
+</tbody>
+</table>
+<p>It is assumed that if a label is found then the _list_to_del
+is a list of labels, else it is a list of Indexes.</p>
+<p>Example:</p>
+<div class="line-block">
+<div class="line">tr = transformations.MatrixManipulator(Matrix)</div>
+<div class="line">tr.del_series([&#8220;myRow 1&#8221;, &#8220;myRow 2&#8221;])</div>
+<div class="line">or</div>
+<div class="line">tr.del_series([1,2])</div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="Scripts.transformations.MatrixManipulator.get_base_column_values">
+<tt class="descname">get_base_column_values</tt><big>(</big><em>*args</em><big>)</big><a class="headerlink" href="#Scripts.transformations.MatrixManipulator.get_base_column_values" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list of base values from the base (first) row of the
+matrix</p>
+<p>Example:</p>
+<div class="line-block">
+<div class="line">tr = transformations.MatrixManipulator(Matrix)</div>
+<div class="line">base_column_values = tr.get_base_column_values()</div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="Scripts.transformations.MatrixManipulator.get_base_row_values">
+<tt class="descname">get_base_row_values</tt><big>(</big><em>*args</em><big>)</big><a class="headerlink" href="#Scripts.transformations.MatrixManipulator.get_base_row_values" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list of base values from the base (first) column of the
+matrix</p>
+<p>Example:</p>
+<div class="line-block">
+<div class="line">tr = transformations.MatrixManipulator(Matrix)</div>
+<div class="line">base_row_values = tr.get_base_row_values()</div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="Scripts.transformations.MatrixManipulator.get_category_base_summary">
+<tt class="descname">get_category_base_summary</tt><big>(</big><em>*args</em><big>)</big><a class="headerlink" href="#Scripts.transformations.MatrixManipulator.get_category_base_summary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the Base summary of the Row, using the format:
+Column Label: Base, Column Label: Base</p>
+<p>Example:</p>
+<div class="line-block">
+<div class="line">myclass = transformations.MatrixManipulator(Matrix)</div>
+<div class="line">base_summary = myclass.get_category_base_summary()</div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="Scripts.transformations.MatrixManipulator.get_category_group_labels">
+<tt class="descname">get_category_group_labels</tt><big>(</big><em>*args</em><big>)</big><a class="headerlink" href="#Scripts.transformations.MatrixManipulator.get_category_group_labels" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list containing the category (column) group labels</p>
+<p>Example:</p>
+<div class="line-block">
+<div class="line">myclass = transformations.MatrixManipulator(Matrix)</div>
+<div class="line">group_labels = myclass.get_category_group_labels()</div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="Scripts.transformations.MatrixManipulator.get_category_labels">
+<tt class="descname">get_category_labels</tt><big>(</big><em>*args</em><big>)</big><a class="headerlink" href="#Scripts.transformations.MatrixManipulator.get_category_labels" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list containing the category (column) labels</p>
+<p>Example:</p>
+<div class="line-block">
+<div class="line">myclass = transformations.MatrixManipulator(Matrix)</div>
+<div class="line">labels = myclass.get_category_labels()</div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="Scripts.transformations.MatrixManipulator.get_data_values">
+<tt class="descname">get_data_values</tt><big>(</big><em>*args</em><big>)</big><a class="headerlink" href="#Scripts.transformations.MatrixManipulator.get_data_values" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list of lists containing the data values for each row
+of the matrix.
+Only the first cell item will be returned.</p>
+<p>Example:</p>
+<div class="line-block">
+<div class="line">tr = transformations.MatrixManipulator(Matrix)</div>
+<div class="line">data_values = tr.get_data_values()</div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="Scripts.transformations.MatrixManipulator.get_dict_cell_values">
+<tt class="descname">get_dict_cell_values</tt><big>(</big><em>*args</em><big>)</big><a class="headerlink" href="#Scripts.transformations.MatrixManipulator.get_dict_cell_values" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a dictionary containing the row/column and data values for
+each cell within the matrix.
+All cell items will be returned.</p>
+<p>Dictionary format:</p>
+<div class="line-block">
+<div class="line">{</div>
+<div class="line">&#8216;row1&#8217;:</div>
+<div class="line-block">
+<div class="line">{</div>
+<div class="line">&#8216;col1&#8217;: [cellValue1, cellValue2],</div>
+<div class="line">&#8216;col2&#8217;: [cellValue1, cellValue2]</div>
+<div class="line">},</div>
+</div>
+<div class="line">&#8216;row2&#8217;:</div>
+<div class="line-block">
+<div class="line">{</div>
+<div class="line">&#8216;col1&#8217;: [cellValue1, cellValue2],</div>
+<div class="line">&#8216;col2&#8217;: [cellValue1, cellValue2]</div>
+<div class="line">}</div>
+</div>
+<div class="line">}</div>
+</div>
+<p>Example:</p>
+<div class="line-block">
+<div class="line">tr = transformations.MatrixManipulator(Matrix)</div>
+<div class="line">cell_value_dict = tr.get_dict_cell_values()</div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="Scripts.transformations.MatrixManipulator.get_series_base_summary">
+<tt class="descname">get_series_base_summary</tt><big>(</big><em>*args</em><big>)</big><a class="headerlink" href="#Scripts.transformations.MatrixManipulator.get_series_base_summary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the Base summary of the Row with base taken from the first
+column, using the format:
+Row Label: Base, Row Label: Base</p>
+<p>Example:</p>
+<div class="line-block">
+<div class="line">tr = transformations.MatrixManipulator(Matrix)</div>
+<div class="line">series_base_labels = tr.get_series_base_summary()</div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="Scripts.transformations.MatrixManipulator.get_series_group_labels">
+<tt class="descname">get_series_group_labels</tt><big>(</big><em>*args</em><big>)</big><a class="headerlink" href="#Scripts.transformations.MatrixManipulator.get_series_group_labels" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list containing the series (row) group labels.</p>
+<p>Example:</p>
+<div class="line-block">
+<div class="line">tr = transformations.MatrixManipulator(Matrix)</div>
+<div class="line">group_labels = tr.get_series_group_labels()</div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="Scripts.transformations.MatrixManipulator.get_series_labels">
+<tt class="descname">get_series_labels</tt><big>(</big><em>*args</em><big>)</big><a class="headerlink" href="#Scripts.transformations.MatrixManipulator.get_series_labels" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list containing the series (row) labels.</p>
+<p>Example:</p>
+<div class="line-block">
+<div class="line">tr = transformations.MatrixManipulator(Matrix)</div>
+<div class="line">labels = tr.get_series_labels()</div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="Scripts.transformations.MatrixManipulator.insert_category">
+<tt class="descname">insert_category</tt><big>(</big><em>row_number=0</em>, <em>column_number=0</em>, <em>label=''</em>, <em>*args</em><big>)</big><a class="headerlink" href="#Scripts.transformations.MatrixManipulator.insert_category" title="Permalink to this definition">¶</a></dt>
+<dd><p>Insert a column into the matrix.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>column_number</strong> &#8211; position to insert the column. Default = 0</li>
+<li><strong>label</strong> &#8211; label for the inserted column. Default = &#8220;&#8221;</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="line-block">
+<div class="line">tr = transformations.MatrixManipulator(Matrix)</div>
+<div class="line">tr.insert_category(column_number=3, label = &#8220;Inserted Column&#8221;)</div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="Scripts.transformations.MatrixManipulator.insert_gap_between_category_groups">
+<tt class="descname">insert_gap_between_category_groups</tt><big>(</big><em>*args</em><big>)</big><a class="headerlink" href="#Scripts.transformations.MatrixManipulator.insert_gap_between_category_groups" title="Permalink to this definition">¶</a></dt>
+<dd><p>Insert a blank column between category groups within the Matrix for
+charts or tables</p>
+<p>Example:</p>
+<div class="line-block">
+<div class="line">tr = transformations.MatrixManipulator(Matrix)</div>
+<div class="line">tr.insert_gap_between_category_groups()</div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="Scripts.transformations.MatrixManipulator.insert_gap_between_series_groups">
+<tt class="descname">insert_gap_between_series_groups</tt><big>(</big><em>*args</em><big>)</big><a class="headerlink" href="#Scripts.transformations.MatrixManipulator.insert_gap_between_series_groups" title="Permalink to this definition">¶</a></dt>
+<dd><p>Insert a blank row between series groups within the Matrix for
+charts or tables</p>
+<p>Example:</p>
+<div class="line-block">
+<div class="line">tr = transformations.MatrixManipulator(Matrix)</div>
+<div class="line">tr.insert_gap_between_series_groups()</div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="Scripts.transformations.MatrixManipulator.insert_series">
+<tt class="descname">insert_series</tt><big>(</big><em>row_number=0</em>, <em>col_number=0</em>, <em>label=''</em>, <em>*args</em><big>)</big><a class="headerlink" href="#Scripts.transformations.MatrixManipulator.insert_series" title="Permalink to this definition">¶</a></dt>
+<dd><p>Insert a row into the matrix.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>row_number</strong> &#8211; position to insert the row. Default = 0</li>
+<li><strong>label</strong> &#8211; label for the inserted row. Default = &#8220;&#8221;</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="line-block">
+<div class="line">tr = transformations.MatrixManipulator(Matrix)</div>
+<div class="line">tr.insert_series(row_number=2, label = &#8220;Inserted Row&#8221;)</div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="Scripts.transformations.MatrixManipulator.insert_topN_into_series">
+<tt class="descname">insert_topN_into_series</tt><big>(</big><em>*args</em><big>)</big><a class="headerlink" href="#Scripts.transformations.MatrixManipulator.insert_topN_into_series" title="Permalink to this definition">¶</a></dt>
+<dd><p>Insert a new row at the top of the series containing
+topN result</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>N</strong> &#8211; This is the number of rows to include in the summary
+row.</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="line-block">
+<div class="line">tr = transformations.MatrixManipulator(Matrix)</div>
+<div class="line">tr.insert_topN_into_series(4)</div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="Scripts.transformations.MatrixManipulator.logger">
+<tt class="descname">logger</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#Scripts.transformations.MatrixManipulator.logger" title="Permalink to this definition">¶</a></dt>
+<dd><p>Logging functions for writing Log.* messages when run from within PowerPoint
+or warnings.* messages if run from the command line</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Scripts.transformations.MatrixManipulator.make_series_from_grid_slices">
+<tt class="descname">make_series_from_grid_slices</tt><big>(</big><em>*args</em><big>)</big><a class="headerlink" href="#Scripts.transformations.MatrixManipulator.make_series_from_grid_slices" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs a gridification of a flat table where you have grid slices
+appended down the side of the table, and wish these selections to 
+appear as one series.</p>
+<p>For example (3 series):</p>
+<div class="line-block">
+<div class="line">Statement 1 - Top2   X</div>
+<div class="line">Statement 2 - Top2   X</div>
+<div class="line">Statement 3 - Top2   X</div>
+<div class="line"><br /></div>
+</div>
+<p>This will appear as (1 series):</p>
+<div class="line-block">
+<div class="line-block">
+<div class="line">Statement 1, Statement 2, Statement 3</div>
+</div>
+<div class="line">Top2           X            X            X</div>
+<div class="line"><br /></div>
+</div>
+<p>Note, this does not work when there is nesting or concatenation on the
+top axis.</p>
+<p>Example:</p>
+<div class="line-block">
+<div class="line">tr = transformations.MatrixManipulator(Matrix)</div>
+<div class="line">tr.make_series_from_grid_slices()</div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="Scripts.transformations.MatrixManipulator.merge_categories_by_label">
+<tt class="descname">merge_categories_by_label</tt><big>(</big><em>*args</em><big>)</big><a class="headerlink" href="#Scripts.transformations.MatrixManipulator.merge_categories_by_label" title="Permalink to this definition">¶</a></dt>
+<dd><p>Merges the categories (columns) in the active matrix by their labels.</p>
+<p>For example:</p>
+<div class="line-block">
+<div class="line">_________|January|Februar|  March|January|Februar|  March|</div>
+<div class="line">Brand 1|</div>
+<div class="line">Brand 2|</div>
+<div class="line"><br /></div>
+</div>
+<p>will merge to:</p>
+<div class="line-block">
+<div class="line">_________|January|Februar|  March|</div>
+<div class="line">Brand 1|</div>
+<div class="line">Brand 2|</div>
+<div class="line"><br /></div>
+</div>
+<p>Example:</p>
+<div class="line-block">
+<div class="line">tr = transformations.MatrixManipulator(Matrix)</div>
+<div class="line">tr.merge_categories_by_label()</div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="Scripts.transformations.MatrixManipulator.merge_series_by_label">
+<tt class="descname">merge_series_by_label</tt><big>(</big><em>*args</em><big>)</big><a class="headerlink" href="#Scripts.transformations.MatrixManipulator.merge_series_by_label" title="Permalink to this definition">¶</a></dt>
+<dd><p>Merges the series (rows) in the active matrix by their labels.</p>
+<p>For example:</p>
+<div class="line-block">
+<div class="line">_________|January|Februar|  March|  April|    May|   June|</div>
+<div class="line">Brand 1|</div>
+<div class="line">Brand 1|</div>
+<div class="line"><br /></div>
+</div>
+<p>will merge to:</p>
+<div class="line-block">
+<div class="line">_________|January|Februar|  March|  April|    May|   June|</div>
+<div class="line">Brand 1|</div>
+<div class="line"><br /></div>
+</div>
+<p>Example:</p>
+<div class="line-block">
+<div class="line">tr = transformations.MatrixManipulator(Matrix)</div>
+<div class="line">tr.merge_series_by_label()</div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="Scripts.transformations.MatrixManipulator.number_series">
+<tt class="descname">number_series</tt><big>(</big><em>*args</em><big>)</big><a class="headerlink" href="#Scripts.transformations.MatrixManipulator.number_series" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number the questions in sequential order in the row headings</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>delimiter</strong> &#8211; Value to be placed after the statement number, eg &#8221;.&#8221;
+Default &#8220;&#8221;</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="line-block">
+<div class="line">tr = transformations.MatrixManipulator(Matrix)</div>
+<div class="line">tr.number_series()</div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="Scripts.transformations.MatrixManipulator.renumber_sig_tests">
+<tt class="descname">renumber_sig_tests</tt><big>(</big><em>*args</em><big>)</big><a class="headerlink" href="#Scripts.transformations.MatrixManipulator.renumber_sig_tests" title="Permalink to this definition">¶</a></dt>
+<dd><p>Renumber stats test results to ABC order for the selected columns.</p>
+<p>If the selection made only contains some columns, then the original
+Sig test result column names will be confusing when displayed on the
+slide. You can renumber them to the ABC order before presenting the
+results on the slide.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>_warn_when_no_stats</strong> &#8211; If no Statistics results are present in the
+Matrix, a warning will be issued. Default value is False</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="line-block">
+<div class="line">tr = transformations.MatrixManipulator(Matrix)</div>
+<div class="line">_warn_when_no_stats = True</div>
+<div class="line">tr.renumber_sig_tests(_warn_when_no_stats)</div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="Scripts.transformations.MatrixManipulator.select_categories">
+<tt class="descname">select_categories</tt><big>(</big><em>*args</em><big>)</big><a class="headerlink" href="#Scripts.transformations.MatrixManipulator.select_categories" title="Permalink to this definition">¶</a></dt>
+<dd><p>Keep the categories (columns) found in the array <cite>[_list_to_keep]</cite>,
+and delete all other columns not in this selection.</p>
+<p>This is useful for a select all selection, and then you can pass in an
+array for which columns you wish to keep for each chart.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>_list_to_keep</strong> &#8211; Array containing an array of text labels.</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="line-block">
+<div class="line">tr = transformations.MatrixManipulator(Matrix)</div>
+<div class="line">tr.select_categories([[&#8220;myColumn 1&#8221;, &#8220;myColumn 2&#8221;]])</div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="Scripts.transformations.MatrixManipulator.select_series">
+<tt class="descname">select_series</tt><big>(</big><em>*args</em><big>)</big><a class="headerlink" href="#Scripts.transformations.MatrixManipulator.select_series" title="Permalink to this definition">¶</a></dt>
+<dd><p>Keep the rows found in the array <cite>[_list_to_keep]</cite>, and delete all
+other rows not in this selection.</p>
+<p>This is useful for a select all selection, and then you can pass in an
+array for which rows you wish to keep for each chart.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>_list_to_keep</strong> &#8211; Array containing an array of text labels.</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="line-block">
+<div class="line">tr = transformations.MatrixManipulator(Matrix)</div>
+<div class="line">tr.select_series([[&#8220;myRow 1&#8221;, &#8220;myRow 2&#8221;]])</div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="Scripts.transformations.MatrixManipulator.set_category_base_summary">
+<tt class="descname">set_category_base_summary</tt><big>(</big><em>*args</em><big>)</big><a class="headerlink" href="#Scripts.transformations.MatrixManipulator.set_category_base_summary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set Labels to category (column) labels with Base Value</p>
+<p>Example:</p>
+<div class="line-block">
+<div class="line">myclass = transformations.MatrixManipulator(Matrix)</div>
+<div class="line">myclass.set_category_base_summary()</div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="Scripts.transformations.MatrixManipulator.set_category_formatted_labels">
+<tt class="descname">set_category_formatted_labels</tt><big>(</big><em>label_format='{0}'</em>, <em>cell_format='{0}'</em>, <em>*args</em><big>)</big><a class="headerlink" href="#Scripts.transformations.MatrixManipulator.set_category_formatted_labels" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set Labels to contain formatted labels of the users choice.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>label_format</strong> &#8211; Text format using FormatSettings class to format
+the labels.</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="line-block">
+<div class="line">myclass = transformations.MatrixManipulator(Matrix)</div>
+<div class="line">myclass.set_categories_formatted_labels(</div>
+<div class="line-block">
+<div class="line">label_format=&#8221;{0.TopMember.Group.Label} :: {0.TopMember.Label}&#8221;)</div>
+</div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="Scripts.transformations.MatrixManipulator.set_category_groups_formatted_labels">
+<tt class="descname">set_category_groups_formatted_labels</tt><big>(</big><em>label_format='{0}'</em>, <em>cell_format='{0}'</em>, <em>*args</em><big>)</big><a class="headerlink" href="#Scripts.transformations.MatrixManipulator.set_category_groups_formatted_labels" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set Group Labels to contain formatted labels of the users choice.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>label_format</strong> &#8211; Text format using FormatSettings class to format
+the labels.</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="line-block">
+<div class="line">myclass = transformations.MatrixManipulator(Matrix)</div>
+<div class="line">myclass.set_categories_groups_formatted_labels(</div>
+<div class="line-block">
+<div class="line">label_format=&#8221;{0.Label} :: {0.SortIndex})</div>
+</div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="Scripts.transformations.MatrixManipulator.set_data_formatted_labels">
+<tt class="descname">set_data_formatted_labels</tt><big>(</big><em>matrix=None</em>, <em>logger=None</em>, <em>label_format='{0}'</em>, <em>cell_format='{0}'</em>, <em>*args</em><big>)</big><a class="headerlink" href="#Scripts.transformations.MatrixManipulator.set_data_formatted_labels" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set Labels of the data cells to contain formatted labels of the
+users choice.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>cell_format</strong> &#8211; Text format using FormatSettings class to format
+the cell values.</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="line-block">
+<div class="line">myclass = transformations.MatrixManipulator(Matrix)</div>
+<div class="line">myclass.set_data_formatted_labels(cell_format =</div>
+<div class="line-block">
+<div class="line">&#8220;{0[0].Value} - {0.SideMember.Label} : {0.TopMember.Label}&#8221;)</div>
+</div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="Scripts.transformations.MatrixManipulator.set_series_base_summary">
+<tt class="descname">set_series_base_summary</tt><big>(</big><em>*args</em><big>)</big><a class="headerlink" href="#Scripts.transformations.MatrixManipulator.set_series_base_summary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set Labels to contain the series (row) labels with Base Value</p>
+<p>Example:</p>
+<div class="line-block">
+<div class="line">tr = transformations.MatrixManipulator(Matrix)</div>
+<div class="line">tr.set_series_base_summary()</div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="Scripts.transformations.MatrixManipulator.set_series_formatted_labels">
+<tt class="descname">set_series_formatted_labels</tt><big>(</big><em>label_format='{0}'</em>, <em>cell_format='{0}'</em>, <em>*args</em><big>)</big><a class="headerlink" href="#Scripts.transformations.MatrixManipulator.set_series_formatted_labels" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set Labels to contain formatted labels of the users choice.</p>
+<p>Example:</p>
+<div class="line-block">
+<div class="line">myclass = transformations.MatrixManipulator(Matrix)</div>
+<div class="line">myclass.set_series_formatted_labels(label_format =</div>
+<div class="line-block">
+<div class="line">&#8220;{0.SideMember.Group.Label} :: {0.SideMember.Label}&#8221;)</div>
+</div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="Scripts.transformations.MatrixManipulator.set_series_groups_formatted_labels">
+<tt class="descname">set_series_groups_formatted_labels</tt><big>(</big><em>label_format='{0}'</em>, <em>cell_format='{0}'</em>, <em>*args</em><big>)</big><a class="headerlink" href="#Scripts.transformations.MatrixManipulator.set_series_groups_formatted_labels" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set Group Labels to contain formatted labels of the users choice.</p>
+<p>Example:</p>
+<div class="line-block">
+<div class="line">myclass = transformations.MatrixManipulator(Matrix)</div>
+<div class="line">myclass.set_series_groups_formatted_labels(label_format =</div>
+<div class="line-block">
+<div class="line">&#8220;{0.Label} :: {0.SortIndex}&#8221;)</div>
+</div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="Scripts.transformations.MatrixManipulator.sort_columns">
+<tt class="descname">sort_columns</tt><big>(</big><em>matrix=None</em>, <em>logger=None</em>, <em>by_column=0</em>, <em>by_row=0</em>, <em>using_cell_value=0</em>, <em>descending=True</em>, <em>file_name=None</em>, <em>client_name=None</em>, <em>sort_row=None</em>, <em>*args</em><big>)</big><a class="headerlink" href="#Scripts.transformations.MatrixManipulator.sort_columns" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sorts the columns in the active matrix numerically, sort within nets
+and sort nets if present.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>by_row</strong> &#8211; Use the values in this row to determine the sort
+order of the columns. Default = 0</li>
+<li><strong>using_cell_value</strong> &#8211; When there are multiple values within a cell
+use this to control which value row within each cell is used
+for sorting (zero-based). Default = 0</li>
+<li><strong>descending</strong> &#8211; Determines the order in which the values should be
+sorted. Default = True</li>
+<li><strong>file_name</strong> &#8211; text file containing a list of row names to fix at
+the end of the sort order on the table/chart.  
+file_name is located in the pptx folder, and contains a comma
+separated row, e.g.: &#8220;Other&#8221;,&#8221;Don&#8217;t know&#8221;,&#8221;None of these&#8221;
+Default = None</li>
+<li><strong>client_name</strong> &#8211; client_name is a text string which must match the
+column label exactly. This column will be placed first in the 
+sort order.  Default = None</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="line-block">
+<div class="line">tr = transformations.MatrixManipulator(Matrix)</div>
+<div class="line">tr.sort_columns()</div>
+<div class="line">or</div>
+<div class="line">tr.sort_columns(by_row = 1, client_name = &#8220;Brand A&#8221;)</div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="Scripts.transformations.MatrixManipulator.sort_rows">
+<tt class="descname">sort_rows</tt><big>(</big><em>matrix=None</em>, <em>logger=None</em>, <em>by_column=0</em>, <em>by_row=0</em>, <em>using_cell_value=0</em>, <em>descending=True</em>, <em>file_name=None</em>, <em>client_name=None</em>, <em>sort_row=None</em>, <em>*args</em><big>)</big><a class="headerlink" href="#Scripts.transformations.MatrixManipulator.sort_rows" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sorts the rows in the active matrix numerically, sort within nets
+and sort nets if present.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>by_column</strong> &#8211; Use the values in this column to determine the sort
+order of the rows. Default = 0</li>
+<li><strong>using_cell_value</strong> &#8211; When there are multiple values within a cell
+use this to control which value row within each cell is used
+for sorting (zero-based). Default = 0</li>
+<li><strong>descending</strong> &#8211; Determines the order in which the values should be
+sorted. Default = True</li>
+<li><strong>file_name</strong> &#8211; text file containing a list of row names to fix at
+the end of the sort order on the table/chart.  
+file_name is located in the pptx folder, and contains a comma
+separated row, e.g.: &#8220;Other&#8221;,&#8221;Don&#8217;t know&#8221;,&#8221;None of these&#8221;
+Default = None</li>
+<li><strong>client_name</strong> &#8211; client_name is a text string which must match the
+row label exactly. This row will be placed first in the sort 
+order.  Default = None</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="line-block">
+<div class="line">tr = transformations.MatrixManipulator(Matrix)</div>
+<div class="line">tr.sort_rows()</div>
+<div class="line">or</div>
+<div class="line">tr.sort_rows(by_column = 1, client_name = &#8220;Brand A&#8221;)</div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-Scripts.transformations.utils.utilities">
+<span id="scripts-transformations-utils-utilities-module"></span><h2>Scripts.transformations.utils.utilities module<a class="headerlink" href="#module-Scripts.transformations.utils.utilities" title="Permalink to this headline">¶</a></h2>
+<p>Provides utility functions for use with the Scripts installed with Slides!</p>
+<dl class="function">
+<dt id="Scripts.transformations.utils.utilities.print_matrix">
+<tt class="descclassname">Scripts.transformations.utils.utilities.</tt><tt class="descname">print_matrix</tt><big>(</big><em>matrix</em>, <em>colWidth=11</em>, <em>maxWidth=80</em><big>)</big><a class="headerlink" href="#Scripts.transformations.utils.utilities.print_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print a friendly output representing the current Matrix</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Scripts.transformations.utils.utilities.read_comma_separated_file">
+<tt class="descclassname">Scripts.transformations.utils.utilities.</tt><tt class="descname">read_comma_separated_file</tt><big>(</big><em>_file_name</em>, <em>val=None</em><big>)</big><a class="headerlink" href="#Scripts.transformations.utils.utilities.read_comma_separated_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read a named csv file and return the values</p>
+<p>This is used within the sort_columns() and sort_rows() functions for reading
+from a fixed.txt file for fixed position rows/columns within the sorting.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Scripts.transformations.utils.utilities.read_js_file">
+<tt class="descclassname">Scripts.transformations.utils.utilities.</tt><tt class="descname">read_js_file</tt><big>(</big><em>InputFile</em><big>)</big><a class="headerlink" href="#Scripts.transformations.utils.utilities.read_js_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provides basic functions for reading and writing to json/java script files.</p>
+<p>Use this function to read a js file. 
+The function returns the file.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>InputFile</strong> &#8211; the file location of the  file you wish to read.</td>
+</tr>
+</tbody>
+</table>
+<p>Examples:</p>
+<div class="line-block">
+<div class="line">input = C:\temp\inputFile.js</div>
+<div class="line">json_file=read_js_file(input)</div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="Scripts.transformations.utils.utilities.write_js_file">
+<tt class="descclassname">Scripts.transformations.utils.utilities.</tt><tt class="descname">write_js_file</tt><big>(</big><em>list</em>, <em>OutputFile</em><big>)</big><a class="headerlink" href="#Scripts.transformations.utils.utilities.write_js_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provides basic functions for reading and writing to json/java script files.</p>
+<p>Use this function to write out a js file.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>list</strong> &#8211; the information to be stored in the file.</li>
+<li><strong>OutputFile</strong> &#8211; the location you wish to store the file</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Examples:</p>
+<div class="line-block">
+<div class="line">a=list()</div>
+<div class="line">a.append(dict(inp=&#8221;Some text&#8221;, outp=&#8221;Some Replacement Text&#8221;))</div>
+<div class="line">a.append(dict(inp=&#8221;Some other text&#8221;, outp=&#8221;Some Other Replacement Text&#8221;))</div>
+<div class="line">...</div>
+<div class="line">file = &#8220;C:\temp\outputfile.js&#8221;</div>
+<div class="line">writeJSfile(a,file)</div>
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="module-Scripts.transformations.utils.logger">
+<span id="scripts-transformations-utils-logger-module"></span><h2>Scripts.transformations.utils.logger module<a class="headerlink" href="#module-Scripts.transformations.utils.logger" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Scripts.transformations.utils.logger.logger">
+<tt class="descclassname">Scripts.transformations.utils.logger.</tt><tt class="descname">logger</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#Scripts.transformations.utils.logger.logger" title="Permalink to this definition">¶</a></dt>
+<dd><p>Logging functions for writing Log.* messages when run from within PowerPoint
+or warnings.* messages if run from the command line</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Scripts.transformations.utils.logger.wrap_func_names">
+<tt class="descclassname">Scripts.transformations.utils.logger.</tt><tt class="descname">wrap_func_names</tt><big>(</big><em>func</em><big>)</big><a class="headerlink" href="#Scripts.transformations.utils.logger.wrap_func_names" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-Scripts.v4_2_support">
+<span id="scripts-v4-2-support-module"></span><h2>Scripts.v4_2_support module<a class="headerlink" href="#module-Scripts.v4_2_support" title="Permalink to this headline">¶</a></h2>
+<p>Provides backwards compatibility support for modules that were 
+released with Slides 4.2.</p>
+<dl class="function">
+<dt id="Scripts.v4_2_support.BaseSummaryToCategoryHeadings">
+<tt class="descclassname">Scripts.v4_2_support.</tt><tt class="descname">BaseSummaryToCategoryHeadings</tt><big>(</big><em>Matrix=None</em><big>)</big><a class="headerlink" href="#Scripts.v4_2_support.BaseSummaryToCategoryHeadings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adding Backwards compatibility support for v4.2 script</p>
+<p>Use transformations.categories.set_category_base_summary()</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Scripts.v4_2_support.BaseSummaryToSeriesHeadings">
+<tt class="descclassname">Scripts.v4_2_support.</tt><tt class="descname">BaseSummaryToSeriesHeadings</tt><big>(</big><em>Matrix=None</em><big>)</big><a class="headerlink" href="#Scripts.v4_2_support.BaseSummaryToSeriesHeadings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adding Backwards compatibility support for v4.2 script</p>
+<p>Use transformations.series.set_series_base_summary()</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Scripts.v4_2_support.BaseSummaryToTableRows">
+<tt class="descclassname">Scripts.v4_2_support.</tt><tt class="descname">BaseSummaryToTableRows</tt><big>(</big><em>Matrix=None</em><big>)</big><a class="headerlink" href="#Scripts.v4_2_support.BaseSummaryToTableRows" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adding Backwards compatibility support for v4.2 script</p>
+<p>Use transformations.labels.format_labels</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Scripts.v4_2_support.ColumnDifference">
+<tt class="descclassname">Scripts.v4_2_support.</tt><tt class="descname">ColumnDifference</tt><big>(</big><em>x</em>, <em>y</em>, <em>Matrix=None</em><big>)</big><a class="headerlink" href="#Scripts.v4_2_support.ColumnDifference" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adding Backwards compatibility support for v4.2 script</p>
+<p>Use transformations.data.category_difference()</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Scripts.v4_2_support.FindShape">
+<tt class="descclassname">Scripts.v4_2_support.</tt><tt class="descname">FindShape</tt><big>(</big><em>Shapes</em>, <em>shape_name</em><big>)</big><a class="headerlink" href="#Scripts.v4_2_support.FindShape" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adding Backwards compatibility support for v4.2 script</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Scripts.v4_2_support.GenerateOverlayAxisLabels">
+<tt class="descclassname">Scripts.v4_2_support.</tt><tt class="descname">GenerateOverlayAxisLabels</tt><big>(</big><em>Chart=None</em><big>)</big><a class="headerlink" href="#Scripts.v4_2_support.GenerateOverlayAxisLabels" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adding Backwards compatibility support for v4.2 script.</p>
+<p>NOTE: This script will add the shapes within the chart shape, rather than as
+independent shapes on the slide.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Scripts.v4_2_support.GetCsvVal">
+<tt class="descclassname">Scripts.v4_2_support.</tt><tt class="descname">GetCsvVal</tt><big>(</big><em>file</em>, <em>name</em><big>)</big><a class="headerlink" href="#Scripts.v4_2_support.GetCsvVal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adding Backwards compatibility support for v4.2 script</p>
+<p>Use transformations.utils.utilities.read_comma_separated_file(_file_name,val)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Scripts.v4_2_support.GetPptImageSize">
+<tt class="descclassname">Scripts.v4_2_support.</tt><tt class="descname">GetPptImageSize</tt><big>(</big><em>fileName</em>, <em>Shape=None</em><big>)</big><a class="headerlink" href="#Scripts.v4_2_support.GetPptImageSize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adding Backwards compatibility support for v4.2 script</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Scripts.v4_2_support.InsertColumn">
+<tt class="descclassname">Scripts.v4_2_support.</tt><tt class="descname">InsertColumn</tt><big>(</big><em>colIndex</em>, <em>name=''</em>, <em>label=''</em>, <em>Matrix=None</em><big>)</big><a class="headerlink" href="#Scripts.v4_2_support.InsertColumn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adding Backwards compatibility support for v4.2 script</p>
+<p>Use transformations.categories.insert_category()</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Scripts.v4_2_support.InsertRow">
+<tt class="descclassname">Scripts.v4_2_support.</tt><tt class="descname">InsertRow</tt><big>(</big><em>rowIndex</em>, <em>name=''</em>, <em>label=''</em>, <em>Matrix=None</em><big>)</big><a class="headerlink" href="#Scripts.v4_2_support.InsertRow" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adding Backwards compatibility support for v4.2 script</p>
+<p>Use transformations.series.insert_series()</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Scripts.v4_2_support.MergeColumnsByLabel">
+<tt class="descclassname">Scripts.v4_2_support.</tt><tt class="descname">MergeColumnsByLabel</tt><big>(</big><em>Matrix=None</em><big>)</big><a class="headerlink" href="#Scripts.v4_2_support.MergeColumnsByLabel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adding Backwards compatibility support for v4.2 script</p>
+<p>Use transformations.data.merge_categories_by_label()</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Scripts.v4_2_support.MergeRowsByLabel">
+<tt class="descclassname">Scripts.v4_2_support.</tt><tt class="descname">MergeRowsByLabel</tt><big>(</big><em>Matrix=None</em><big>)</big><a class="headerlink" href="#Scripts.v4_2_support.MergeRowsByLabel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adding Backwards compatibility support for v4.2 script</p>
+<p>Use transformations.data.merge_series_by_label()</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Scripts.v4_2_support.NumberDownbreaks">
+<tt class="descclassname">Scripts.v4_2_support.</tt><tt class="descname">NumberDownbreaks</tt><big>(</big><em>delimiter</em>, <em>Matrix=None</em><big>)</big><a class="headerlink" href="#Scripts.v4_2_support.NumberDownbreaks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adding Backwards compatibility support for v4.2 script</p>
+<p>Use transformations.series.number_series()</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Scripts.v4_2_support.NumberStatementsInMatrix">
+<tt class="descclassname">Scripts.v4_2_support.</tt><tt class="descname">NumberStatementsInMatrix</tt><big>(</big><em>Matrix=None</em><big>)</big><a class="headerlink" href="#Scripts.v4_2_support.NumberStatementsInMatrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adding Backwards compatibility support for v4.2 script</p>
+<p>Use transformations.series.number_series()</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Scripts.v4_2_support.RGB">
+<tt class="descclassname">Scripts.v4_2_support.</tt><tt class="descname">RGB</tt><big>(</big><em>r</em>, <em>g</em>, <em>b</em><big>)</big><a class="headerlink" href="#Scripts.v4_2_support.RGB" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adding Backwards compatibility support for v4.2 script</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Scripts.v4_2_support.RenumberSigTests">
+<tt class="descclassname">Scripts.v4_2_support.</tt><tt class="descname">RenumberSigTests</tt><big>(</big><em>Matrix=None</em><big>)</big><a class="headerlink" href="#Scripts.v4_2_support.RenumberSigTests" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adding Backwards compatibility support for v4.2 script</p>
+<p>Use transformations.data.renumber_sig_tests()</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Scripts.v4_2_support.SetBackgroundColor">
+<tt class="descclassname">Scripts.v4_2_support.</tt><tt class="descname">SetBackgroundColor</tt><big>(</big><em>Shape</em>, <em>red</em>, <em>green</em>, <em>blue</em><big>)</big><a class="headerlink" href="#Scripts.v4_2_support.SetBackgroundColor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adding Backwards compatibility support for v4.2 script</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Scripts.v4_2_support.SetBgImage">
+<tt class="descclassname">Scripts.v4_2_support.</tt><tt class="descname">SetBgImage</tt><big>(</big><em>fileName</em>, <em>Shape=None</em><big>)</big><a class="headerlink" href="#Scripts.v4_2_support.SetBgImage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adding Backwards compatibility support for v4.2 script</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Scripts.v4_2_support.SetBgImageAndSize">
+<tt class="descclassname">Scripts.v4_2_support.</tt><tt class="descname">SetBgImageAndSize</tt><big>(</big><em>fileName</em>, <em>Shape=None</em><big>)</big><a class="headerlink" href="#Scripts.v4_2_support.SetBgImageAndSize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adding Backwards compatibility support for v4.2 script</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Scripts.v4_2_support.SetBgPictureCenter">
+<tt class="descclassname">Scripts.v4_2_support.</tt><tt class="descname">SetBgPictureCenter</tt><big>(</big><em>Shape</em>, <em>fileName</em><big>)</big><a class="headerlink" href="#Scripts.v4_2_support.SetBgPictureCenter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adding Backwards compatibility support for v4.2 script</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Scripts.v4_2_support.SetMatrixLabelToStatement">
+<tt class="descclassname">Scripts.v4_2_support.</tt><tt class="descname">SetMatrixLabelToStatement</tt><big>(</big><em>whichstatement</em>, <em>Matrix=None</em><big>)</big><a class="headerlink" href="#Scripts.v4_2_support.SetMatrixLabelToStatement" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adding Backwards compatibility support for v4.2 script</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Scripts.v4_2_support.SetTrafficLights">
+<tt class="descclassname">Scripts.v4_2_support.</tt><tt class="descname">SetTrafficLights</tt><big>(</big><em>greenLimit</em>, <em>yellowLimit</em>, <em>file_name_list=None</em>, <em>Matrix=None</em><big>)</big><a class="headerlink" href="#Scripts.v4_2_support.SetTrafficLights" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adding Backwards compatibility support for v4.2 script.</p>
+<p>NOTE: This script will add the shapes within the chart shape, rather than as
+independent shapes on the slide.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Scripts.v4_2_support.SetTrafficLightsFromMatrix">
+<tt class="descclassname">Scripts.v4_2_support.</tt><tt class="descname">SetTrafficLightsFromMatrix</tt><big>(</big><em>selectrow</em>, <em>selectcolumn</em>, <em>green_limit</em>, <em>yellow_limit</em>, <em>Table=None</em>, <em>Matrix=None</em>, <em>image_list=None</em><big>)</big><a class="headerlink" href="#Scripts.v4_2_support.SetTrafficLightsFromMatrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adding Backwards compatibility support for v4.2 script.</p>
+<p>This script will update all shapes within the last column of the table, 
+rather than one at a time.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Scripts.v4_2_support.SortColumns">
+<tt class="descclassname">Scripts.v4_2_support.</tt><tt class="descname">SortColumns</tt><big>(</big><em>byRow=0</em>, <em>usingCellValue=0</em>, <em>descending=True</em>, <em>Matrix=None</em><big>)</big><a class="headerlink" href="#Scripts.v4_2_support.SortColumns" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adding Backwards compatibility support for v4.2 script</p>
+<p>Support for sorting rows using transformations.sorting.sort_columns()</p>
+<p>Note: after 4.2 sorting within Nets has been added, and therefore this will
+give a different result if nets are found.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Scripts.v4_2_support.SortRows">
+<tt class="descclassname">Scripts.v4_2_support.</tt><tt class="descname">SortRows</tt><big>(</big><em>byColumn=0</em>, <em>usingCellValue=0</em>, <em>descending=True</em>, <em>Matrix=None</em><big>)</big><a class="headerlink" href="#Scripts.v4_2_support.SortRows" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adding Backwards compatibility support for v4.2 script</p>
+<p>Support for sorting rows using transformations.sorting.sort_rows()</p>
+<p>Note: after 4.2 sorting within Nets has been added, and therefore this will
+give a different result if nets are found.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Scripts.v4_2_support.TopNStackedBarAlign">
+<tt class="descclassname">Scripts.v4_2_support.</tt><tt class="descname">TopNStackedBarAlign</tt><big>(</big><em>shapeToAlign</em>, <em>chartName</em>, <em>categoryNumber</em>, <em>topN</em><big>)</big><a class="headerlink" href="#Scripts.v4_2_support.TopNStackedBarAlign" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adding Backwards compatibility support for v4.2 script.</p>
+<p>As an alternative, use the following, which can be called once per chart:</p>
+<p>charts.make_topN_shapes_on_chart(Chart, Matrix, list_of_topN_scores)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Scripts.v4_2_support.TopNStackedColumnAlign">
+<tt class="descclassname">Scripts.v4_2_support.</tt><tt class="descname">TopNStackedColumnAlign</tt><big>(</big><em>shapeToAlign</em>, <em>chartName</em>, <em>categoryNumber</em>, <em>topN</em><big>)</big><a class="headerlink" href="#Scripts.v4_2_support.TopNStackedColumnAlign" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adding Backwards compatibility support for v4.2 script.</p>
+<p>As an alternative, use the following, which can be called once per chart:</p>
+<p>charts.make_topN_shapes_on_chart(Chart, Matrix, list_of_topN_scores)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Scripts.v4_2_support.TopNSummary">
+<tt class="descclassname">Scripts.v4_2_support.</tt><tt class="descname">TopNSummary</tt><big>(</big><em>N</em>, <em>Matrix=None</em><big>)</big><a class="headerlink" href="#Scripts.v4_2_support.TopNSummary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adding Backwards compatibility support for v4.2 script</p>
+<p>Use transformations.series.insert_topN_into_series(N)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Scripts.v4_2_support.UngroupRows">
+<tt class="descclassname">Scripts.v4_2_support.</tt><tt class="descname">UngroupRows</tt><big>(</big><em>Matrix=None</em><big>)</big><a class="headerlink" href="#Scripts.v4_2_support.UngroupRows" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adding Backwards compatibility support for v4.2 script</p>
+<p>Use transformations.data.make_series_from_grid_slices()</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-Scripts">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-Scripts" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="modules.html" class="btn btn-neutral" title="Slides! Packages And Modules"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Collette Curson.
+    </p>
+  </div>
+
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'4.3.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

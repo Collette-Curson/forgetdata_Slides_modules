@@ -1,0 +1,496 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Documentation of Slides - Installation of Python/Sphinx and Documenting modules &mdash; Slides! 4.3.0 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Slides! 4.3.0 documentation" href="index.html"/>
+        <link rel="next" title="Sphinx" href="Sphinx.html"/>
+        <link rel="prev" title="Welcome to Slides!’s How to install documentation!" href="index.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="index.html" class="fa fa-home"> Slides!</a>
+        
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="">Documentation of Slides - Installation of Python/Sphinx and Documenting modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#installing-python">Installing Python:</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#installation-help">Installation Help:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installation-path">Installation Path:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#documentation">Documentation:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#checking-that-python-is-installed-correctly">Checking that Python is installed correctly:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#modules">Modules:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pythonpath-environment-variable">PYTHONPATH environment variable:</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#installing-multiple-versions-or-copies-of-python">Installing multiple versions or copies of Python:</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#making-a-python-virtual-environment-virtualenv">Making a Python virtual environment. (virtualenv)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installing-site-packages">Installing site-packages</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#making-the-re-distributable-module-and-setup-file">Making the re-distributable module, and setup file</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#distributing-modules">Distributing modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#use-pip-to-install-module-packages-into-python">Use pip to install module packages into python.</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#install-ipython-pandas-numpy-using-pip">Install ipython, pandas, numpy using pip</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#to-install">To Install</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#ipython-notebook">IPython notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#ironpython">IronPython</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">To Install</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#getting-started-guides">Getting started guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Sphinx.html">Sphinx</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Sphinx.html#readthedocs">ReadTheDocs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Sphinx.html#installing-sphinx-and-publishing-modules-and-packages">Installing sphinx and publishing modules and packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Sphinx.html#setting-a-theme-for-your-documentation-site">Setting a theme for your documentation site</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Sphinx.html#update-the-sphinx-documentation-site">Update the Sphinx Documentation Site</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Sphinx.html#add-the-packages-and-modules-to-the-table-of-contents-page">Add the packages and modules to the Table Of Contents page</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Sphinx.html#add-sphinx-readable-documentation-comments-to-your-modules-and-packages">Add sphinx readable documentation comments to your modules and packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Sphinx.html#making-a-setuptools-setup-for-your-module-eg-mymodule-py">Making a setuptools setup for your module, eg mymodule.py</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Sphinx.html#using-python-3">Using Python 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Sphinx.html#installing-easyinstall">Installing EasyInstall</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Sphinx.html#module-distribution-installing-your-module-at-a-clientsite-using-python-setup-py-file">Module distribution - Installing your module at a clientsite using python setup.py file</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Sphinx.html#other-sphinx-things-to-do">OTHER SPHINX THINGS TO DO:</a></li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Slides!</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Documentation of Slides - Installation of Python/Sphinx and Documenting modules</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="_sources/InstallingPython.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="documentation-of-slides-installation-of-python-sphinx-and-documenting-modules">
+<h1>Documentation of Slides - Installation of Python/Sphinx and Documenting modules<a class="headerlink" href="#documentation-of-slides-installation-of-python-sphinx-and-documenting-modules" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="installing-python">
+<h1>Installing Python:<a class="headerlink" href="#installing-python" title="Permalink to this headline">¶</a></h1>
+<p>The latest version is currently version 2.7.8.</p>
+<p>The latest version of Python can be downloaded and installed from <a class="reference external" href="https:/www.python.org/downloads/windows/">https:/www.python.org/downloads/windows/</a></p>
+<p>Link to media.readthedocs which is a useful guide for using python:  <a class="reference external" href="https://media.readthedocs.org/pdf/python-guide/latest/python-guide.pdf">https://media.readthedocs.org/pdf/python-guide/latest/python-guide.pdf</a></p>
+<div class="section" id="installation-help">
+<h2>Installation Help:<a class="headerlink" href="#installation-help" title="Permalink to this headline">¶</a></h2>
+<p>Help is available on the same link – see latest version link.</p>
+<ul class="simple">
+<li>The HELP chm files cannot be viewed by default – see <a class="reference external" href="http:/stackoverflow.com/questions/11438634/opening-a-chm-file-produces-navigation-to-the-webpage-was-canceled">http:/stackoverflow.com/questions/11438634/opening-a-chm-file-produces-navigation-to-the-webpage-was-canceled</a> for more information.</li>
+<li>The short cut is to save chm to local folder, right-click and select Properties, and select Unblock on the General tab.</li>
+</ul>
+</div>
+<div class="section" id="installation-path">
+<h2>Installation Path:<a class="headerlink" href="#installation-path" title="Permalink to this headline">¶</a></h2>
+<p>The default installation path is C:/Python27/, and this can be optionally added to the Path during the installation.</p>
+</div>
+<div class="section" id="documentation">
+<h2>Documentation:<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h2>
+<p>Latest Documentation is available here: <a class="reference external" href="http:/docs.python.org">http:/docs.python.org</a>.</p>
+</div>
+<div class="section" id="checking-that-python-is-installed-correctly">
+<h2>Checking that Python is installed correctly:<a class="headerlink" href="#checking-that-python-is-installed-correctly" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Open a command prompt:</li>
+<li>Check that Python is on your path, type:</li>
+</ol>
+<div class="line-block">
+<div class="line">C:&gt;Python</div>
+</div>
+<p>If this is not recognised, type:</p>
+<div class="line-block">
+<div class="line">set path=%path%;C:/python27</div>
+</div>
+<p>Running Python should return the following:</p>
+<div class="line-block">
+<div class="line">C:&gt;python</div>
+<div class="line">Python 2.7.8 (default, Jun 30 2014, 16:03:49) [MSC v.1500 32 bit (Intel)] on win32</div>
+<div class="line">Type &#8220;help&#8221;, &#8220;copyright&#8221;, &#8220;credits&#8221; or &#8220;license&#8221; for more information.</div>
+<div class="line">&gt;&gt;&gt;</div>
+</div>
+<p>Python is now installed correctly</p>
+</div>
+<div class="section" id="modules">
+<h2>Modules:<a class="headerlink" href="#modules" title="Permalink to this headline">¶</a></h2>
+<p>The default Python library would be installed to C:/Python27/Lib/.
+Third-party modules should be stored in&nbsp;C:/Python27/Lib/site-packages/.</p>
+<p>(Other modules are installed to C:/Python27/Scripts)</p>
+</div>
+<div class="section" id="pythonpath-environment-variable">
+<h2>PYTHONPATH environment variable:<a class="headerlink" href="#pythonpath-environment-variable" title="Permalink to this headline">¶</a></h2>
+<p>PYTHONPATH can be used to define an alternative module path. See environment variables here <a class="reference external" href="https:/docs.python.org/2.7/using/cmdline.html#envvar-PYTHONPATH">https:/docs.python.org/2.7/using/cmdline.html#envvar-PYTHONPATH</a></p>
+<p>sys.path uses this PYTHONPATH to define where the default modules and site-packages are found.</p>
+</div>
+</div>
+<div class="section" id="installing-multiple-versions-or-copies-of-python">
+<h1>Installing multiple versions or copies of Python:<a class="headerlink" href="#installing-multiple-versions-or-copies-of-python" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="making-a-python-virtual-environment-virtualenv">
+<h2>Making a Python virtual environment. (virtualenv)<a class="headerlink" href="#making-a-python-virtual-environment-virtualenv" title="Permalink to this headline">¶</a></h2>
+<p>For full details on installation and uses for virtualenv, see: <a class="reference external" href="http:/virtualenv.readthedocs.org/en/latest/virtualenv.html">http:/virtualenv.readthedocs.org/en/latest/virtualenv.html</a></p>
+<div class="section" id="virtualenv">
+<h3>Virtualenv<a class="headerlink" href="#virtualenv" title="Permalink to this headline">¶</a></h3>
+<p>virtualenv&nbsp;is a tool to create isolated Python environments.
+The basic problem being addressed is one of dependencies and versions, and indirectly permissions. Imagine you have an application that needs different versions of Python or it’s modules. How can you use both these applications? It’s easy to end up in a situation where you unintentionally upgrade an application.
+virtualenv creates an environment that has its own installation directories, that doesn’t share libraries with other virtualenv environments.</p>
+</div>
+<div class="section" id="pip">
+<h3>PIP<a class="headerlink" href="#pip" title="Permalink to this headline">¶</a></h3>
+<p>&#8220;pip&#8221; is a package management system used to install and manage software packages written in Python. Many packages can be found in the Python Package Index (PyPI).
+pip.exe is installed with Python.
+pip install options can be found here: <a class="reference external" href="https:/pip.pypa.io/en/latest/reference/pip_install.html#cmdoption-t">https:/pip.pypa.io/en/latest/reference/pip_install.html#cmdoption-t</a></p>
+<p>Note: if pip is not installed for some reason, see here: <a class="reference external" href="http:/pip.readthedocs.org/en/latest/installing.html">http:/pip.readthedocs.org/en/latest/installing.html</a> - download get-pip.py, and run python get-pip.py
+When running pip install manually, you might find that pip goes into the Python27/Scripts folder, rather than the Python27/Tools/Scripts folder.  You will probably need to also run:
+PATH=%PATH%;C:/Python27/Scripts for it to be recognised.</p>
+</div>
+<div class="section" id="to-install-virtualenv-from-a-command-prompt">
+<h3>To install virtualenv, from a command prompt:<a class="headerlink" href="#to-install-virtualenv-from-a-command-prompt" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Run the following</li>
+</ul>
+<div class="line-block">
+<div class="line">c:/pip install virtualenv</div>
+</div>
+<p>This will install virtualenv into the C:/pythonXY/Scripts and C:/pythonXY/Lib/site-packages folder.</p>
+<ul class="simple">
+<li>Then run the following:</li>
+</ul>
+<div class="line-block">
+<div class="line">c:/virtualenv ENV</div>
+</div>
+<p>This will create an ENV folder at the top level c:/ENV/ containing Include, Lib and Scripts folder.
+Python.exe is installed into the Scripts folder.</p>
+<p>If you run python from the default location the paths used will be as follows:</p>
+<div class="line-block">
+<div class="line">C:/&gt;python</div>
+<div class="line">Python 2.7.8 (default, Jun 30 2014, 16:03:49) [MSC v.1500 32 bit (Intel)] on win32</div>
+<div class="line">Type &#8220;help&#8221;, &#8220;copyright&#8221;, &#8220;credits&#8221; or &#8220;license&#8221; for more information.</div>
+<div class="line">&gt;&gt;&gt; import sys</div>
+<div class="line">&gt;&gt;&gt; sys.path</div>
+<div class="line">[&#8216;&#8217;, &#8216;C:/Windows/system32/python27.zip&#8217;, &#8216;C:/Python27/DLLs&#8217;, &#8216;C:/Python27/</div>
+<div class="line">/lib&#8217;, &#8216;C:/Python27/lib/plat-win&#8217;, &#8216;C:/Python27/lib/lib-tk&#8217;, &#8216;C:/Python27</div>
+<div class="line">&#8216;, &#8216;C:/Python27/lib/site-packages&#8217;, &#8216;C:/Python27/lib/site-packages/win32&#8217;</div>
+<div class="line">, &#8216;C:/Python27/lib/site-packages/win32/lib&#8217;, &#8216;C:/Python27/lib/site-packages/Pythonwin&#8217;]</div>
+<div class="line"><br /></div>
+</div>
+<p>If you do the same, using the ENV version, the paths used for your modules/site-packages will be altered:</p>
+<div class="line-block">
+<div class="line">C:/env/scripts/python</div>
+<div class="line">Python 2.7.8 (default, Jun 30 2014, 16:03:49) [MSC v.1500 32 bit (Intel)] on win32</div>
+<div class="line">Type &#8220;help&#8221;, &#8220;copyright&#8221;, &#8220;credits&#8221; or &#8220;license&#8221; for more information.</div>
+<div class="line">&gt;&gt;&gt; import sys</div>
+<div class="line">&gt;&gt;&gt; sys.path</div>
+<div class="line">[&#8216;&#8217;, &#8216;C:/Windows/system32/python27.zip&#8217;, &#8216;c:/env/DLLs&#8217;, &#8216;c:/env/lib&#8217;, &#8216;c:</div>
+<div class="line">/env/lib/plat-win&#8217;, &#8216;c:/env/lib/lib-tk&#8217;, &#8216;c:/env/scripts&#8217;, &#8216;C:/Python27</div>
+<div class="line">/Lib&#8217;, &#8216;C:/Python27/DLLs&#8217;, &#8216;C:/Python27/Lib/lib-tk&#8217;, &#8216;c:/env&#8217;, &#8216;c:/env/lib/site-packages&#8217;]</div>
+<div class="line"><br /></div>
+</div>
+</div>
+<div class="section" id="to-set-the-path-to-always-use-this-virtualenv-path">
+<h3>To set the path to always use this virtualenv path<a class="headerlink" href="#to-set-the-path-to-always-use-this-virtualenv-path" title="Permalink to this headline">¶</a></h3>
+<div class="line-block">
+<div class="line">C:/&gt;env/scripts/activate</div>
+<div class="line">(ENV) C:/</div>
+<div class="line"><br /></div>
+</div>
+<p>and to undo these changes tun:</p>
+<div class="line-block">
+<div class="line">(ENV) C:/env/scripts/deactivate</div>
+<div class="line">C:/</div>
+<div class="line"><br /></div>
+</div>
+</div>
+<div class="section" id="using-the-default-site-packages-those-installed-into-the-main-python-location">
+<h3>Using the default site-packages, those installed into the main Python location:<a class="headerlink" href="#using-the-default-site-packages-those-installed-into-the-main-python-location" title="Permalink to this headline">¶</a></h3>
+<p>Use this option when creating the virtualenv folder:</p>
+<div class="line-block">
+<div class="line">C:/virtualenv &#8211;system-site-packages ENV</div>
+<div class="line"><br /></div>
+</div>
+<p>For other information on settings paths, or config options, see the link at the top of this section.</p>
+</div>
+</div>
+<div class="section" id="installing-site-packages">
+<h2>Installing site-packages<a class="headerlink" href="#installing-site-packages" title="Permalink to this headline">¶</a></h2>
+<p>Info on installing Python modules and Python Distribution Utilities, can be found here: <a class="reference external" href="https://docs.python.org/2/install/">https://docs.python.org/2/install/</a></p>
+<ul class="simple">
+<li>To install a site-package module into default site-packages folder:</li>
+</ul>
+<ol class="arabic simple">
+<li>unzip the module zip into a folder, this should contain a setup.py file.</li>
+<li>Then type:</li>
+</ol>
+<div class="line-block">
+<div class="line">C:/&gt;python setup.py install</div>
+<div class="line"><br /></div>
+</div>
+<p>This will place the module into the site-package folder, eg C:/Python27/Lib/site-packages</p>
+<ul class="simple">
+<li>To install a site-package module into virtualenv site-packages folder:</li>
+</ul>
+<ol class="arabic">
+<li><p class="first">Activate the virtualenv environment:</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line">C:/env/scripts/activate</div>
+<div class="line">(ENV) C:/</div>
+<div class="line"><br /></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first">Then unzip the module into a folder, this should contain a setup.py file.</p>
+</li>
+<li><p class="first">Next type:</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line">(ENV) C:/&gt;python setup.py install</div>
+<div class="line"><br /></div>
+</div>
+</div></blockquote>
+</li>
+</ol>
+<p>This will place the module into the site-package folder within the virtualenv environment, eg C:/ENV/Lib/site-packages</p>
+</div>
+</div>
+<div class="section" id="making-the-re-distributable-module-and-setup-file">
+<h1>Making the re-distributable module, and setup file<a class="headerlink" href="#making-the-re-distributable-module-and-setup-file" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="https://docs.python.org/2/distutils/introduction.html">https://docs.python.org/2/distutils/introduction.html</a></p>
+<div class="section" id="distributing-modules">
+<h2>Distributing modules<a class="headerlink" href="#distributing-modules" title="Permalink to this headline">¶</a></h2>
+<p>If you have a module which is to be distributed within the Python, or virtualenv environment, then you must make a zip file containing the module and a setup.py file.</p>
+<p>A basic setup.py file will look like this:</p>
+<div class="line-block">
+<div class="line">from distutils.core import setup</div>
+<div class="line">setup(name=&#8217;my_module&#8217;,</div>
+<div class="line-block">
+<div class="line">version=&#8216;1.0&#8217;,</div>
+<div class="line">py_modules=[&#8216;my_module&#8217;],</div>
+<div class="line">)</div>
+<div class="line"><br /></div>
+</div>
+</div>
+</div>
+<div class="section" id="use-pip-to-install-module-packages-into-python">
+<h2>Use pip to install module packages into python.<a class="headerlink" href="#use-pip-to-install-module-packages-into-python" title="Permalink to this headline">¶</a></h2>
+<p>Note: If pip isn&#8217;t then&nbsp;download the windows binary from <a class="reference external" href="https://pypi.python.org/pypi">https://pypi.python.org/pypi</a></p>
+<p>See here for information on Pip installing packages: <a class="reference external" href="https://docs.python.org/3.4/installing/index.html">https://docs.python.org/3.4/installing/index.html</a></p>
+<ul>
+<li><p class="first">To install type:</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line">(ENV) C:&gt;python -m pip install SomePackage, eg &#8220;python -m pip install Sphinx&#8221;</div>
+<div class="line"><br /></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+<p>This will install Sphinx into the virualenv, eg C:ENVLibsite-packagesSphinx</p>
+<p>Note: the &#8220;SomePackage&#8221; is taken from the Python Packaging Index, found here:   <a class="reference external" href="https://pypi.python.org/pypi">https://pypi.python.org/pypi</a>, where it will download the latest version available, with all of its dependencies.</p>
+</div>
+</div>
+<div class="section" id="install-ipython-pandas-numpy-using-pip">
+<h1>Install ipython, pandas, numpy using pip<a class="headerlink" href="#install-ipython-pandas-numpy-using-pip" title="Permalink to this headline">¶</a></h1>
+<p>These modules are installed using <a class="reference external" href="https://pypi.python.org/pypi/">https://pypi.python.org/pypi/</a>
+<a class="reference external" href="http://ipython.org/">http://ipython.org/</a> - IPython is a command shell for interactive computing in multiple programming languages, originally developed for the Python programming language, that offers enhanced introspection, rich media, additional shell syntax, tab completion, and rich history. IPython currently provides the following features:</p>
+<p><a class="reference external" href="http://pandas.pydata.org/">http://pandas.pydata.org/</a> - Pandas is an open source, BSD-licensed library providing high-performance, easy-to-use data structures and data analysis tools for the Python programming language.</p>
+<p><a class="reference external" href="http://www.numpy.org/">http://www.numpy.org/</a> - NumPy is the fundamental package for scientific computing with Python.</p>
+<div class="section" id="to-install">
+<h2>To Install<a class="headerlink" href="#to-install" title="Permalink to this headline">¶</a></h2>
+<div class="line-block">
+<div class="line">python -m pip install IPython or pip install IPython.</div>
+<div class="line">pip install numpy</div>
+<div class="line">pip install pandas</div>
+</div>
+<p>Note: some of these depend on MS Visual Studio v9.0 components and will not run without them.
+The C++ compiler that&#8217;s needed can be installed from here:
+<a class="reference external" href="http://www.microsoft.com/en-gb/download/details.aspx?id=44266">http://www.microsoft.com/en-gb/download/details.aspx?id=44266</a></p>
+</div>
+</div>
+<div class="section" id="ipython-notebook">
+<h1>IPython notebook<a class="headerlink" href="#ipython-notebook" title="Permalink to this headline">¶</a></h1>
+<p>To install IPython notebook, you must first install the following dependencies:</p>
+<div class="line-block">
+<div class="line">pip install jinja2</div>
+<div class="line">pip install pyzmq</div>
+<div class="line">pip install tornado</div>
+<div class="line"><br /></div>
+</div>
+<p>The following will now start a browser session:</p>
+<div class="line-block">
+<div class="line">C:&gt;IPython notebook</div>
+<div class="line"><br /></div>
+</div>
+<p>or alternatively, start it with the following to use network notebooks:</p>
+<div class="line-block">
+<div class="line">C:&gt;IPython notebook &#8211;notebook-dir=u&#8217;\FDNas01\Media\TestDataNotebooks&#8217;</div>
+<div class="line-block">
+<div class="line">Default: u&#8217;C:\ENV\Scripts&#8217;</div>
+<div class="line">The directory to use for notebooks and kernels.</div>
+<div class="line"><br /></div>
+</div>
+</div>
+<p><a class="reference external" href="http://ipython.org/notebook.html">http://ipython.org/notebook.html</a> - The IPython Notebook is a web-based interactive computational environment where you can combine code execution, text, mathematics, plots and rich media into a single document.</p>
+</div>
+<div class="section" id="ironpython">
+<h1>IronPython<a class="headerlink" href="#ironpython" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id1">
+<h2>To Install<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>IronPython can be installed from here:
+<a class="reference external" href="http://ironpython.net/download/">http://ironpython.net/download/</a></p>
+<p>IronPython is an open-source implementation of the Python programming language which is tightly integrated with the .NET Framework.
+IronPython can use the .NET Framework and Python libraries, and other .NET languages can use Python code just as easily.</p>
+</div>
+</div>
+<div class="section" id="getting-started-guides">
+<h1>Getting started guides<a class="headerlink" href="#getting-started-guides" title="Permalink to this headline">¶</a></h1>
+<p>numPy - <a class="reference external" href="http://wiki.scipy.org/Tentative_NumPy_Tutorial">http://wiki.scipy.org/Tentative_NumPy_Tutorial</a> - see <a class="reference external" href="http://localhost:8888/notebooks/numPY%20tutorial">http://localhost:8888/notebooks/numPY%20tutorial</a>.ipynb#
+and <a class="reference external" href="http://wiki.scipy.org/Numpy_Example_List">http://wiki.scipy.org/Numpy_Example_List</a></p>
+<p>SciPy - <a class="reference external" href="http://docs.scipy.org/doc/scipy/reference/tutorial/index.html">http://docs.scipy.org/doc/scipy/reference/tutorial/index.html</a>
+Pandas - <a class="reference external" href="http://pandas.pydata.org/pandas-docs/version/0.15.1/10min.html#min">http://pandas.pydata.org/pandas-docs/version/0.15.1/10min.html#min</a></p>
+<p>Using Python Decorators - <a class="reference external" href="http://simeonfranklin.com/blog/2012/jul/1/python-decorators-in-12-steps/">http://simeonfranklin.com/blog/2012/jul/1/python-decorators-in-12-steps/</a>
+and <a class="reference external" href="http://www.artima.com/weblogs/viewpost.jsp?thread=240808">http://www.artima.com/weblogs/viewpost.jsp?thread=240808</a>
+and <a class="reference external" href="http://www.brianholdefehr.com/decorators-and-functional-python">http://www.brianholdefehr.com/decorators-and-functional-python</a></p>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Sphinx.html" class="btn btn-neutral float-right" title="Sphinx">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Welcome to Slides!’s How to install documentation!"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Collette Curson.
+    </p>
+  </div>
+
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'4.3.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

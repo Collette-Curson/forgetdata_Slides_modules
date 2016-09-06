@@ -1,0 +1,45 @@
+"""The following describes how to run a manual test of the transformations package and diff the output files.
+"""
+
+TEST 1
+======
+Step 1. Open test_manual_transformations.pptx in PowerPoint, and run Refresh all.
+
+Save the file.
+
+Step 2. From a command line run:
+>>diff_pptx_files -p1 "test_manual_transformations.pptx" -p2 "test_manual_transformations_known_good_results.pptx"
+
+
+NOTE: diff_pptx_files can be found here: https://github.com/swinstanley/slides-modules/
+
+
+Output file should be found here:
+\diff_output_files\diff_test_manual_transformations_known_good_results_test_manual_transformations.html
+
+No differences should be found
+
+TEST 2
+======
+Step 1. Open test_manual_shapes.pptx in PowerPoint, and run Refresh all.
+
+Save the file.
+
+Step 2. From a command line run:
+>>diff_pptx_files -p1 "test_manual_shapes.pptx" -p2 "test_manual_shapes_known_good_results.pptx"
+
+Output file should be found here:
+\diff_output_files\diff_test_manual_shapes_known_good_results_test_manual_shapes.html
+
+
+TEST 3
+======
+Step 1. Open test_manual_v4.2_support_module.pptx in PowerPoint, and run Refresh all.
+
+Save the file.
+
+Step 2. From a command line run:
+>>diff_pptx_files -p1 "test_manual_v4.2_support_module.pptx" -p2 "test_manual_v4.2_support_module_results_from_4.2_scripts.pptx"
+
+Output file should be found here:
+\diff_output_files\diff_test_manual_v4.2_support_module_test_manual_v4.2_support_module_results_from_4.2_scripts.html

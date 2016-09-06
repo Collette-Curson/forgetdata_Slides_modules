@@ -1,0 +1,612 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Sphinx &mdash; Slides! 4.3.0 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Slides! 4.3.0 documentation" href="index.html"/>
+        <link rel="prev" title="Documentation of Slides - Installation of Python/Sphinx and Documenting modules" href="InstallingPython.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="index.html" class="fa fa-home"> Slides!</a>
+        
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="InstallingPython.html">Documentation of Slides - Installation of Python/Sphinx and Documenting modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="InstallingPython.html#installing-python">Installing Python:</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="InstallingPython.html#installation-help">Installation Help:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="InstallingPython.html#installation-path">Installation Path:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="InstallingPython.html#documentation">Documentation:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="InstallingPython.html#checking-that-python-is-installed-correctly">Checking that Python is installed correctly:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="InstallingPython.html#modules">Modules:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="InstallingPython.html#pythonpath-environment-variable">PYTHONPATH environment variable:</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="InstallingPython.html#installing-multiple-versions-or-copies-of-python">Installing multiple versions or copies of Python:</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="InstallingPython.html#making-a-python-virtual-environment-virtualenv">Making a Python virtual environment. (virtualenv)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="InstallingPython.html#installing-site-packages">Installing site-packages</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="InstallingPython.html#making-the-re-distributable-module-and-setup-file">Making the re-distributable module, and setup file</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="InstallingPython.html#distributing-modules">Distributing modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="InstallingPython.html#use-pip-to-install-module-packages-into-python">Use pip to install module packages into python.</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="InstallingPython.html#install-ipython-pandas-numpy-using-pip">Install ipython, pandas, numpy using pip</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="InstallingPython.html#to-install">To Install</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="InstallingPython.html#ipython-notebook">IPython notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="InstallingPython.html#ironpython">IronPython</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="InstallingPython.html#id1">To Install</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="InstallingPython.html#getting-started-guides">Getting started guides</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Sphinx</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#readthedocs">ReadTheDocs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installing-sphinx-and-publishing-modules-and-packages">Installing sphinx and publishing modules and packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#setting-a-theme-for-your-documentation-site">Setting a theme for your documentation site</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#update-the-sphinx-documentation-site">Update the Sphinx Documentation Site</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#add-the-packages-and-modules-to-the-table-of-contents-page">Add the packages and modules to the Table Of Contents page</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#add-sphinx-readable-documentation-comments-to-your-modules-and-packages">Add sphinx readable documentation comments to your modules and packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#making-a-setuptools-setup-for-your-module-eg-mymodule-py">Making a setuptools setup for your module, eg mymodule.py</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#using-python-3">Using Python 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installing-easyinstall">Installing EasyInstall</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-distribution-installing-your-module-at-a-clientsite-using-python-setup-py-file">Module distribution - Installing your module at a clientsite using python setup.py file</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#other-sphinx-things-to-do">OTHER SPHINX THINGS TO DO:</a></li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Slides!</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Sphinx</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="_sources/Sphinx.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="sphinx">
+<h1>Sphinx<a class="headerlink" href="#sphinx" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="readthedocs">
+<h2>ReadTheDocs<a class="headerlink" href="#readthedocs" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://read-the-docs.readthedocs.org/">http://read-the-docs.readthedocs.org/</a></p>
+<p>This readthedocs getting started will walk you through the basics of getting started with Sphinx- <a class="reference external" href="http://read-the-docs.readthedocs.org/en/latest/getting_started.html">http://read-the-docs.readthedocs.org/en/latest/getting_started.html</a></p>
+<p>Read the Docs hosts documentation, making it fully searchable and easy to find. You can import your docs using any major version control system, including Mercurial, Git, Subversion, and Bazaar. We support webhooks so your docs get built when you commit code. There&#8217;s also support for versioning so you can build docs from tags and branches of your code in your repository. A full list of features is available.</p>
+</div>
+<div class="section" id="installing-sphinx-and-publishing-modules-and-packages">
+<h2>Installing sphinx and publishing modules and packages<a class="headerlink" href="#installing-sphinx-and-publishing-modules-and-packages" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://sphinx-doc.org/">http://sphinx-doc.org/</a>
+Sphinx is a tool that makes it easy to create intelligent and beautiful documentation. It has excellent facilities for the documentation of Python projects.  Extensions include automatic testing of code snippets, inclusion of docstrings from Python modules.</p>
+<div class="section" id="install-sphinx">
+<h3>Install sphinx<a class="headerlink" href="#install-sphinx" title="Permalink to this headline">¶</a></h3>
+<div class="line-block">
+<div class="line">C:/python -m pip install Sphinx</div>
+<div class="line"><br /></div>
+</div>
+</div>
+<div class="section" id="create-a-python-module">
+<h3>Create a Python module<a class="headerlink" href="#create-a-python-module" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>For example:</dt>
+<dd><div class="first line-block">
+<div class="line">mymodule.py</div>
+<div class="line">&#8220;&#8221;&#8220;</div>
+<div class="line">This is mymodule module test file</div>
+<div class="line">==================================</div>
+<div class="line"><br /></div>
+<div class="line">&#8220;&#8221;&#8220;</div>
+</div>
+<div class="line-block">
+<div class="line">def main():</div>
+<div class="line-block">
+<div class="line">&#8216;&#8217;&#8216;Script to be run on start up&#8217;&#8216;&#8217;</div>
+<div class="line">print dir()</div>
+</div>
+</div>
+<div class="last line-block">
+<div class="line">def myFunction():</div>
+<div class="line-block">
+<div class="line">&#8216;&#8217;&#8216;This is my function&#8217;&#8216;&#8217;</div>
+<div class="line">import sys</div>
+<div class="line">print sys.path</div>
+<div class="line"><br /></div>
+</div>
+<div class="line">if __name__ == &#8216;__main__&#8217;:</div>
+<div class="line-block">
+<div class="line">main()</div>
+<div class="line"><br /></div>
+</div>
+</div>
+</dd>
+</dl>
+</div>
+<div class="section" id="create-a-sphinx-documentation-site">
+<h3>Create a sphinx Documentation site<a class="headerlink" href="#create-a-sphinx-documentation-site" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li>cd C:/pathtomodule/&gt;</li>
+<li>mkdir docs</li>
+<li>cd docs</li>
+<li>sphinx-quickstart  - use default options, except autodoc, set this to yes. You will also be prompted for a project name and version.</li>
+</ol>
+<p>Note, sometimes sphinx-quickstart is not found on the path - run the following to include it:</p>
+<div class="line-block">
+<div class="line">set PATH=%PATH%;C:/Python27/Lib/site-packages/sphinx</div>
+<div class="line"><br /></div>
+</div>
+<p>This will generate an index.rst, conf.py among other files.</p>
+</div>
+<div class="section" id="add-your-own-documentation-files-to-your-sphinx-documentation-site">
+<h3>Add your own documentation files to  your Sphinx Documentation site<a class="headerlink" href="#add-your-own-documentation-files-to-your-sphinx-documentation-site" title="Permalink to this headline">¶</a></h3>
+<p>Open the index.rst file
+You can edit this file to include documentation files which are not modules/packages, for example, a myintrofile.rst file. This is added like this:</p>
+<div class="line-block">
+<div class="line">Contents:</div>
+<div class="line"><br /></div>
+<div class="line">.. toctree::</div>
+<div class="line-block">
+<div class="line">:maxdepth: 2</div>
+<div class="line"><br /></div>
+<div class="line-block">
+<div class="line">myintrofile</div>
+<div class="line"><br /></div>
+</div>
+</div>
+</div>
+<p>Where myintrofile.rst would be a sphinx formatted file containing text or links for the side menu.</p>
+<p>Note, as we will be using the readthedocs &#8220;theme&#8221; for the layout, you must add all links to the index.rst file for it to appear on the side menu. Other themes would automatically add modules to the side menu.</p>
+</div>
+<div class="section" id="include-your-modules-and-packages-into-your-sphinx-documentation-site">
+<h3>Include your modules and packages into your Sphinx Documentation site<a class="headerlink" href="#include-your-modules-and-packages-into-your-sphinx-documentation-site" title="Permalink to this headline">¶</a></h3>
+<p>To include your modules&#8217; documentation into the Sphinx documentation, edit the conf.py file and uncomment the following:</p>
+<ol class="arabic">
+<li><p class="first">In conf.py, set the sys.path to include the path to your py modules:</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line"># If extensions (or modules to document with autodoc) are in another directory,</div>
+<div class="line"># add these directories to sys.path here. If the directory is relative to the</div>
+<div class="line"># documentation root, use os.path.abspath to make it absolute, like shown here.</div>
+<div class="line">sys.path.insert(0, os.path.abspath(&#8216;..&#8217;))    #note this sets the path to the modules to be the level above the docs folder.</div>
+<div class="line">#or</div>
+<div class="line">#sys.path.insert(0, os.path.abspath(&#8216;../..&#8217;)) # used in the example for importing an entire package which is 2 levels above doc, rather than the individual modules.</div>
+<div class="line"><br /></div>
+</div>
+</div></blockquote>
+</li>
+<li><dl class="first docutils">
+<dt>Include sphinx.ext.autodoc to the extensions list.</dt>
+<dd><div class="first last line-block">
+<div class="line"># Add any Sphinx extension module names here, as strings. They can be</div>
+<div class="line"># extensions coming with Sphinx (named &#8216;sphinx.ext.*&#8217;) or your custom</div>
+<div class="line"># ones.</div>
+<div class="line">extensions = [</div>
+<div class="line-block">
+<div class="line">&#8216;sphinx.ext.autodoc&#8217;,</div>
+</div>
+<div class="line">]</div>
+<div class="line"><br /></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><div class="first line-block">
+<div class="line"># If false, no module index is generated.</div>
+<div class="line">html_domain_indices = True</div>
+<div class="line"><br /></div>
+</div>
+</li>
+<li><div class="first line-block">
+<div class="line"># If false, no module index is generated.</div>
+<div class="line">texinfo_domain_indices = True</div>
+<div class="line"><br /></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="generate-an-rst-file-for-each-package-or-module">
+<h3>Generate an rst file for each Package or Module<a class="headerlink" href="#generate-an-rst-file-for-each-package-or-module" title="Permalink to this headline">¶</a></h3>
+<p>Next, to include your module in the documentation, you need to generate an rst file for each module, or package, and also generate a modules.rst file.</p>
+<p>This can be autogenerated, using:</p>
+<ol class="arabic">
+<li><p class="first">C:/.../scripts&gt; sphinx-apidoc -o docs .     #This is the level where the package or modules are contained.</p>
+</li>
+<li><p class="first">C:/.../OtherModules&gt; sphinx-apidoc -o ../Scripts/docs .     #This is the level where the package or modules are contained.</p>
+<blockquote>
+<div><p>This has generated an rst file per package,plus a modules.rst file in your docs folder.</p>
+</div></blockquote>
+</li>
+<li><dl class="first docutils">
+<dt>If you run this from more than one folder, then the modules.rst will have only been updated for the first package.</dt>
+<dd><p class="first">Edit the modules.rst, and add the additional packages or modules.</p>
+<div class="last line-block">
+<div class="line">.</div>
+<div class="line">=</div>
+<div class="line"><br /></div>
+<div class="line">.. toctree::</div>
+<div class="line-block">
+<div class="line">:maxdepth: 4</div>
+<div class="line"><br /></div>
+<div class="line">Scripts</div>
+<div class="line">OtherModules</div>
+</div>
+</div>
+</dd>
+</dl>
+</li>
+<li><p class="first">Once this has been run, the and the rst files exist, the process will not overwrite them. You will need to edit the files manually or remove them to regenerate them.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="setting-a-theme-for-your-documentation-site">
+<h2>Setting a theme for your documentation site<a class="headerlink" href="#setting-a-theme-for-your-documentation-site" title="Permalink to this headline">¶</a></h2>
+<p>Set the theme template to match the sphinx documentation</p>
+<ol class="arabic">
+<li><p class="first">You will also need to download the &#8216;sphinx_rtd_theme&#8217; folder and place it into your docs folder.  For example from here: <a class="reference external" href="https://github.com/snide/sphinx_rtd_theme">https://github.com/snide/sphinx_rtd_theme</a></p>
+<blockquote>
+<div><p>Copy the &#8216;sphinx_rtd_theme&#8217; folder into your top level folder where your packages or modules are contained, for example:
+C:/Projects/RepSuite/Releases/4.3/Forgetdata/Libraries/Lib/forgetdata/sphinx_rtd_theme</p>
+<p>This folder contains a theme.conf and a number of .html files.</p>
+</div></blockquote>
+</li>
+<li><p class="first">In conf.py, update the following:</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line"># &#8211; Options for HTML output &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-</div>
+<div class="line"><br /></div>
+<div class="line"># The theme to use for HTML and HTML Help pages.  See the documentation for</div>
+<div class="line"># a list of builtin themes.</div>
+<div class="line">#html_theme = &#8216;default&#8217;</div>
+<div class="line"># on_rtd is whether we are on readthedocs.org</div>
+<div class="line">on_rtd = os.environ.get(&#8216;READTHEDOCS&#8217;, None) == &#8216;True&#8217;</div>
+<div class="line"><br /></div>
+<div class="line">if not on_rtd:  # only import and set the theme if we&#8217;re building docs locally</div>
+<div class="line"><br /></div>
+<div class="line-block">
+<div class="line">import sphinx_rtd_theme</div>
+<div class="line">html_theme = &#8216;sphinx_rtd_theme&#8217;</div>
+<div class="line">html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]</div>
+</div>
+</div>
+<div class="line-block">
+<div class="line"># otherwise, readthedocs.org uses their theme by default, so no need to specify it</div>
+</div>
+</div></blockquote>
+</li>
+</ol>
+</div>
+<div class="section" id="update-the-sphinx-documentation-site">
+<h2>Update the Sphinx Documentation Site<a class="headerlink" href="#update-the-sphinx-documentation-site" title="Permalink to this headline">¶</a></h2>
+<p>Run the following batch script:
+| cd docs
+| c:/.../docs&gt;make html
+|</p>
+<p>This generates a number of folders and files. To see your documentation open:
+| C:/.../docs/_build/html/index.html
+|</p>
+<p>Note, if you include a package rather than an individual module, then then entire package is imported to documentation as one.</p>
+<p>Note: sometimes, &#8220;make html&#8221; cannot find sphinx-build, if you want to run it using sphinx-build, you can do so using:
+sphinx-build -b html src_folder doc_folder   where src_folder and doc_folder cannot be the same folder.</p>
+<p>For more info on getting started with sphinx and all of the options for creating documentation files, see <a class="reference external" href="http://sphinx-doc.org">http://sphinx-doc.org</a>, and for getting started: <a class="reference external" href="http://sphinx-doc.org/tutorial.html">http://sphinx-doc.org/tutorial.html</a></p>
+<p>NOTE: you can rerun &#8220;make html&#8221; whenever a change has been made.</p>
+</div>
+<div class="section" id="add-the-packages-and-modules-to-the-table-of-contents-page">
+<h2>Add the packages and modules to the Table Of Contents page<a class="headerlink" href="#add-the-packages-and-modules-to-the-table-of-contents-page" title="Permalink to this headline">¶</a></h2>
+<p>Adding the modules and packages to the Table of Contents page in index.html.
+NOTE: If you are using the sphinx_rtd_theme template, then the sidebar/Table of contents needs to be set up manually to include the modules, if required.</p>
+<ol class="arabic">
+<li><p class="first">Edit the modules.rst and update the following:</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line">.</div>
+<div class="line">=</div>
+</div>
+<p>and include a title to appear in the Table of Contents, for example, if your Packages are called Scripts and OtherModules:</p>
+<div class="line-block">
+<div class="line">Packages And Modules</div>
+<div class="line">====================</div>
+</div>
+<div class="line-block">
+<div class="line">.. toctree::</div>
+<div class="line-block">
+<div class="line">:maxdepth: 4</div>
+</div>
+</div>
+<div class="line-block">
+<div class="line">Scripts</div>
+<div class="line">OtherModules</div>
+<div class="line"><br /></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first">Edit the index.rst and include the modules.rst file, for example:</p>
+</li>
+<li><p class="first">Also update the maxdepth setting to 3.</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line">Contents:</div>
+<div class="line"><br /></div>
+<div class="line">.. toctree::</div>
+<div class="line-block">
+<div class="line">:maxdepth: 3</div>
+<div class="line"><br /></div>
+<div class="line">myintrofile</div>
+<div class="line">modules</div>
+<div class="line"><br /></div>
+</div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first">Re-run the &#8220;make html&#8221; and the sidebar will have been updated.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="add-sphinx-readable-documentation-comments-to-your-modules-and-packages">
+<h1>Add sphinx readable documentation comments to your modules and packages<a class="headerlink" href="#add-sphinx-readable-documentation-comments-to-your-modules-and-packages" title="Permalink to this headline">¶</a></h1>
+<p>Make sure that comments within your modules are suitable to be read by Sphinx.
+Guidelines are here:  <a class="reference external" href="http://sphinx-doc.org/rest.html">http://sphinx-doc.org/rest.html</a></p>
+</div>
+<div class="section" id="making-a-setuptools-setup-for-your-module-eg-mymodule-py">
+<h1>Making a setuptools setup for your module, eg mymodule.py<a class="headerlink" href="#making-a-setuptools-setup-for-your-module-eg-mymodule-py" title="Permalink to this headline">¶</a></h1>
+<p>Setuptools is a package development process library designed to facilitate packaging Python projects by enhancing the Python standard library distutils (distribution utilities).
+It includes: Python package and module definitions. Distribution package metadata. Test hooks.</p>
+<p>Easy Install is a python module (easy_install) bundled with setuptools that lets you automatically download, build, install, and manage Python packages.</p>
+<p><a class="reference external" href="https://pypi.python.org/pypi/setuptools">https://pypi.python.org/pypi/setuptools</a>
+<a class="reference external" href="http://pythonhosted.org//setuptools/">http://pythonhosted.org//setuptools/</a>
+<a class="reference external" href="https://pythonhosted.org/setuptools/easy_install.html#using-easy-install">https://pythonhosted.org/setuptools/easy_install.html#using-easy-install</a></p>
+<p>Full Setup Tools dos here:
+<a class="reference external" href="http://peak.telecommunity.com/DevCenter/setuptools">http://peak.telecommunity.com/DevCenter/setuptools</a></p>
+<div class="section" id="using-python-3">
+<h2>Using Python 3<a class="headerlink" href="#using-python-3" title="Permalink to this headline">¶</a></h2>
+<p>Note, by default this will support Python2.*, if you require Python3 support, you will need to run a script on the code, which can be set up as a parameter, use_2to3 = True.  See <a class="reference external" href="http://pythonhosted.org//setuptools/python3.html">http://pythonhosted.org//setuptools/python3.html</a> for more information.</p>
+</div>
+<div class="section" id="installing-easyinstall">
+<h2>Installing EasyInstall<a class="headerlink" href="#installing-easyinstall" title="Permalink to this headline">¶</a></h2>
+<p>i. To install, run:
+pip install ez_setup</p>
+<ul class="simple">
+<li>TODO:  look into this more!!   THIS SECTION IS NOT COMPLETE</li>
+</ul>
+</div>
+<div class="section" id="module-distribution-installing-your-module-at-a-clientsite-using-python-setup-py-file">
+<h2>Module distribution - Installing your module at a clientsite using python setup.py file<a class="headerlink" href="#module-distribution-installing-your-module-at-a-clientsite-using-python-setup-py-file" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://docs.python.org/2/distutils/introduction.html">https://docs.python.org/2/distutils/introduction.html</a></p>
+<div class="section" id="instructions-to-make-the-zip-file-for-distribution">
+<h3>Instructions to make the zip file for distribution<a class="headerlink" href="#instructions-to-make-the-zip-file-for-distribution" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Create a setup.py containing your module names:</p>
+<blockquote>
+<div><p>from distutils.core import setup
+setup(name=&#8217;AutoCreatePresentation_tabsml&#8217;,</p>
+<blockquote>
+<div><p>version=&#8216;1.0&#8217;,
+py_modules=[&#8216;myModuleName&#8217;,&#8217;anotherModuleName&#8217;]
+)</p>
+</div></blockquote>
+</div></blockquote>
+</li>
+<li><p class="first">Generate the zip file by typing:
+python setup.py sdist   (TODO This is a source distribution, should use dist?)</p>
+<p>This will create a folder called dist which will contain a zip file called myModuleName-1.0.zip</p>
+<p>Send this file to your customer.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="instructions-to-install-the-module-at-the-client-site">
+<h3>Instructions to install the module at the client site<a class="headerlink" href="#instructions-to-install-the-module-at-the-client-site" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li>unzip the pdistribution file onto the local machine.</li>
+</ol>
+<p>If running Python:
+#. run:</p>
+<blockquote>
+<div><p>python setup.py install</p>
+<p>This will install the module into your Python install site-package folder ( the appropriate directory for third-party modules in their Python installation)</p>
+</div></blockquote>
+<p>If running Iron Python, you install it using:
+&gt;ipy setup.py install</p>
+<p>and then you can run the installed modules from the command prompt.</p>
+<ul class="simple">
+<li>TODO _ installing a package</li>
+<li>TODO INstalling and making egg files</li>
+<li>TODO installing additional files.</li>
+<li>TODO including additional dependencies in setup.py.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="other-sphinx-things-to-do">
+<h1>OTHER SPHINX THINGS TO DO:<a class="headerlink" href="#other-sphinx-things-to-do" title="Permalink to this headline">¶</a></h1>
+<ul>
+<li><p class="first">DONE -  review transformations scripts, and turn repeated scripts into a class or one function with parameters.</p>
+</li>
+<li><p class="first">DONE -  Make the documentation of Scripts testable automatically.  write guidelines on this</p>
+</li>
+<li><p class="first">TODO: Find out about testing other script snippets.  write guidelines on this</p>
+</li>
+<li><p class="first">TODO: How to add in other text for documentation (porting the forgetdata.com/documentation), and make it testable.</p>
+</li>
+<li><p class="first">TODO: adding modules and packages to docs.</p>
+</li>
+<li><p class="first">DONE: find out about adding classes vs packages / modules to docs.</p>
+</li>
+<li><dl class="first docutils">
+<dt>TODO: How to cross reference material on Sphinx. - see <a class="reference external" href="https://github.com/numpy/numpy/blob/master/doc/example.py">https://github.com/numpy/numpy/blob/master/doc/example.py</a> <tt class="docutils literal"><span class="pre">var</span></tt> will reference existing documentation.</dt>
+<dd><p class="first last">eg The <tt class="xref py py-func docutils literal"><span class="pre">GetPptImageSize()</span></tt> can be used for...
+<a class="reference external" href="http://sphinx-doc.org/domains.html#cross-referencing-syntax">http://sphinx-doc.org/domains.html#cross-referencing-syntax</a>
+<a class="reference external" href="http://sphinx-doc.org/domains.html#cross-referencing-python-objects">http://sphinx-doc.org/domains.html#cross-referencing-python-objects</a></p>
+</dd>
+</dl>
+</li>
+<li><p class="first">TODO: How to upload to documentation to readthedocs.</p>
+</li>
+<li><p class="first">TODO: Releasing modules (including docs) using setup tools</p>
+</li>
+<li><p class="first">TODO: General guidlines on using sphinx for our docs.</p>
+</li>
+<li><p class="first">TODO Turn this page into appropriate documentation for getting started with using Python for docs.</p>
+</li>
+<li><p class="first">TODO: How to add documentation from multiple sources into one doc site on readthedocs.. eg scripts/api/faqs</p>
+</li>
+<li><dl class="first docutils">
+<dt>TODO Other implementations for Python can be found here:</dt>
+<dd><p class="first last">IronPython, PyPy, WinPython, etc - <a class="reference external" href="https://www.python.org/download/alternatives">https://www.python.org/download/alternatives</a>
+IPython - <a class="reference external" href="http://ipython.org/">http://ipython.org/</a>
+Pandas - <a class="reference external" href="http://pandas.pydata.org/index.html">http://pandas.pydata.org/index.html</a></p>
+</dd>
+</dl>
+</li>
+</ul>
+<p>TODO? installing python modules:
+<a class="reference external" href="https://docs.python.org/2/install/#inst-alt-install">https://docs.python.org/2/install/#inst-alt-install</a></p>
+<p>TODO:
+See  style guide -&nbsp;<a class="reference external" href="http://legacy.python.org/dev/peps/pep-0008/">http://legacy.python.org/dev/peps/pep-0008/</a></p>
+<p>Please install these things:
+<a class="reference external" href="https://www.python.org/download/releases/2.7/">https://www.python.org/download/releases/2.7/</a>
+<a class="reference external" href="http://sourceforge.net/projects/pywin32/files/pywin32/Build%20219/pywin32-219.win32-py2.7.exe/download">http://sourceforge.net/projects/pywin32/files/pywin32/Build%20219/pywin32-219.win32-py2.7.exe/download</a>
+Then do at command prompt:
+Pip&nbsp;install numpy
+Pip&nbsp;install ipython
+Pip&nbsp;install nose
+PyDev (packaged python in eclipse) easiest way is :<a class="reference external" href="http://brainwy.github.io/liclipse/download.html#windows">http://brainwy.github.io/liclipse/download.html#windows</a>&nbsp;you might need to install a java runtime first</p>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="InstallingPython.html" class="btn btn-neutral" title="Documentation of Slides - Installation of Python/Sphinx and Documenting modules"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Collette Curson.
+    </p>
+  </div>
+
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'4.3.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
