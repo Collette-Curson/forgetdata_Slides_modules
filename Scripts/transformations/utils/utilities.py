@@ -10,7 +10,7 @@ def read_comma_separated_file(_file_name, val = None):
 
     import _csv
     global _f
-    print _file_name
+    print ("_file_name: ", str(_file_name))
     try:
         _f = _csv.reader(open(_file_name, "r"))
         for row in _f:
@@ -24,7 +24,7 @@ def read_comma_separated_file(_file_name, val = None):
         print ("_file_name was not found: " + str(_file_name))
         _file_name = None
         return
-    
+
 def write_js_file(list, OutputFile):
     r"""Provides basic functions for reading and writing to json/java script files. 
 
@@ -131,3 +131,19 @@ def print_matrix(matrix,colWidth=11,maxWidth=80):
     except:
         pass
     print ""
+
+def find_table(Connections, query_item):
+    """Using the Queryitems, look up the Table name and return the connected
+    table.  For example:
+    
+    >>>for i in range(0, Query.Items.Count):
+    >>>    table = findTable(Query.Items[i]) 
+    >>>    if table is not None:
+    >>>        return table
+    
+    """
+    
+    for conn in Connections:
+        if(conn.Name == query_item.ConnectionName):
+            return conn[query_item.TableName]
+    return None    
