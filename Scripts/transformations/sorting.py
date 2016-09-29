@@ -10,6 +10,7 @@ my_class.sort_rows(Matrix, by_column = 0)
 
 Updated August 2016
 @author: ccurson
+
 """
 
 __version__ = '4.3.0'
@@ -62,10 +63,12 @@ class MatrixDataSortManipulator():
     logger = log.logger
 
     def wrap_matrix_logger_sort(func):
-        # Wrapper function - Wrap all functions within the class so that
-        # the matrix and logger and all sorting parameters are passed to
-        # functions with given parameters. This wrapper also passes the
-        # sorting variables for sorting functions.
+        """Wrapper function - Wrap all functions within the class so that
+        the matrix and logger and all sorting parameters are passed to
+        functions with given parameters. This wrapper also passes the
+        sorting variables for sorting functions.
+        
+        """
 
 
         @wraps(func)
@@ -82,6 +85,85 @@ class MatrixDataSortManipulator():
                         sort_row, args)
         return func_wrapper
 
+    def _update_labels_with_groups(self, sort_row):
+        """Update the labels to include group labels as otherwise multi group
+        selections for sorting will end up with confused group labels. For
+        example a Top 2 summary table.
+        
+        """
+        from labels.format_labels import FormatSettings
+        
+        if sort_row:
+            for row in self.matrix:
+                if row.Member.Group.Label != "":
+                    settings = FormatSettings(label_format="Group: {0.Group}::: {0.Label}")
+                else:
+                    settings = FormatSettings(label_format="{0.Label}")
+                label = settings.label_format(row.Member)
+                row.Member.Label = label
+        else:
+            for col in self.matrix[0]:
+                if col.TopMember.Group.Label != "":
+                    settings = FormatSettings(label_format="Group: {0.Group}::: {0.Label}")
+                else:
+                    settings = FormatSettings(label_format="{0.Label}")
+                label = settings.label_format(col.TopMember)
+                col.TopMember.Label = label
+
+    def _update_labels_remove_groups(self, sort_row):
+        """Update the labels to remove the group labels added by
+        _update_labels_with_groups.   
+        
+        NOTE: Do not remove the group labels in some multi-group selections.
+        
+        """
+        
+        if sort_row:
+            # Only undo grp labels if the group count matches the number of
+            # rows or group count = 1. If multiple items selected from multiple
+            # groups then you will not be able to tell which is which without 
+            # the group text.
+            
+            group_count = self.matrix.SideAxis.Groups.Count
+            row_count = self.matrix.SideAxis.DataMembers.Count
+            if group_count == row_count or group_count == 1:
+                for row in self.matrix:
+                    try:
+                        full_label = row.Member.Label.split("::: ")
+                        row.Member.Label = full_label[1]
+                        _grp = full_label[0].split("Group: ")[1].split("::: ")[0]                        
+                        row.Member.Group.Label = _grp
+                    except:
+                        pass
+                    
+            else: # blank out groups labels as they are likely to be in wrong order.
+                for row in self.matrix:
+                    row.Member.Label = row.Member.Label.split("Group:")[1].replace("::: ", " : ")
+                    row.Member.Group.Label = ""
+                
+        else:  
+            # Only undo grp labels if the group count matches the number of
+            # columns or group count = 1. If multiple items selected from
+            # multiple groups then you will not be able to tell which is which 
+            # without the group text.
+            
+            group_count = self.matrix.TopAxis.Groups.Count
+            col_count = self.matrix.TopAxis.DataMembers.Count
+            if group_count == col_count or group_count == 1:         
+                for col in self.matrix[0]:
+                    try:
+                        full_label = col.TopMember.Label.split("::: ")
+                        col.TopMember.Label = full_label[1]
+                        _grp = full_label[0].split("Group:")[1].split("::: ")[0]
+                        col.TopMember.Group.Label = _grp
+                    except:
+                        pass
+                        
+            else: # blank out groups labels as they are likely to be in wrong order.
+                for col in self.matrix[0]:
+                    col.TopMember.Label = col.TopMember.Label.split("Group:")[1].replace("::: ", " : ")
+                    col.TopMember.Group.Label = ""
+                
     @wrap_matrix_logger_sort
     def _make_dictionary_from_axis(self, matrix, logger, by_column, by_row,
                                    using_cell_value, descending, file_name,
@@ -103,7 +185,7 @@ class MatrixDataSortManipulator():
         dict[NetIndex][InnerNetIndex][ElementIndex][Value]
 
         """
-
+                
         def _make_dict(_d, member, val):
 
             _index = member.DataIndex
@@ -182,6 +264,7 @@ class MatrixDataSortManipulator():
                                             for c in re.split('(-[0-9]+)', key)]
 
                 _lst = sorted(l, key=alphanum_key, reverse=descending)
+                
                 _ret_list = list()
                 for i in _lst:
                     for j in _list:
@@ -193,7 +276,9 @@ class MatrixDataSortManipulator():
 
             _list_of_tuples = [(k, _d[k]["Label"], _d[k]["Value"]) for k
                                in _d.keys() if k != "Value" and k != "Label"]
+            
             _order = [l[2] for l in _list_of_tuples]
+            
             if len(_list_of_tuples) > 0:
 
                 for row in _sort_tuple_nicely(_order, _list=_list_of_tuples):
@@ -211,7 +296,7 @@ class MatrixDataSortManipulator():
                             pass
                     except:
                         pass
-            
+                                
             return sorted_list
 
         sorted_list = add_to_list(_dict)
@@ -230,35 +315,40 @@ class MatrixDataSortManipulator():
             """
 
             # move client_name to start of list.
+            
+            # Note Matrix labels have been updated to include group name at
+            # this point, so comparison is made to the split("::: ")
             if client_name is not None:
                 if sort_row:
                     _keep_start = [x for x in sorted_list
-                                   if matrix[int(x[0])].Member.Label
-                                   == client_name]
+                                   if client_name == matrix[int(x[0])].Member.Label.split("::: ")[1]]
                 else:
                     _keep_start = [x for x in sorted_list
-                                   if matrix[0][int(x[0])].TopMember.Label
-                                   == client_name]
+                                   if client_name == matrix[0][int(x[0])].TopMember.Label.split("::: ")[1]]
                 if len(_keep_start) > 0:
                     sorted_list.remove(_keep_start[0])
                     sorted_list.insert(0, _keep_start[0])
 
             # move _keep_at_end  items to end of list.
+            # Note Matrix labels have been updated to include group name at
+            # this point, so comparison is made to the split("::: ")
             if file_name is not None:
                 try:
                     # read the file_name file.
                     from utils.utilities import read_comma_separated_file
                     _keep_at_end = read_comma_separated_file(file_name)
-
+                    
+                    print "_keep_at_end: ", _keep_at_end
+                    
                     if _keep_at_end is not None:
                         if sort_row:
                             _keep_end = [x for x in sorted_list for item
                                          in _keep_at_end if item
-                                         == matrix[int(x[0])].Member.Label]
+                                         == matrix[int(x[0])].Member.Label.split("::: ")[1]]
                         else:
                             _keep_end = [x for x in sorted_list for item
                                          in _keep_at_end if item ==
-                                         matrix[0][int(x[0])].TopMember.Label]
+                                         matrix[0][int(x[0])].TopMember.Label.split("::: ")[1]]
 
                         if len(_keep_end) > 0:
                             for item in _keep_end:
@@ -277,47 +367,49 @@ class MatrixDataSortManipulator():
         from operator import itemgetter
 
         if sort_row:
+            new_position = sorted_list.__len__()-1 # start at last row
             for required_row in reversed(sorted_list):
                 # matrix labels will be rechecked on each iteration as the
                 # positions of the rows can move each time.
                 matrix_labels = [(r.Member.Label, r.Member.DataIndex)
                                  for r in matrix]
-
+                
                 for r in matrix_labels:
                     label = required_row[1]
                     current_position = r[1]
-                    new_position = required_row.index(label)-1
 
                     if r[0] == label:
                         if current_position < new_position:
-                            for i in range(current_position, new_position):
-                                matrix.SwitchRows(i, i+1)
-
+                            for _i in range(current_position, new_position):
+                                matrix.SwitchRows(_i, _i+1)
                         elif current_position > new_position:
                             for i in reversed(range(new_position,
                                                     current_position)):
-                                matrix.SwitchRows(i+1, i)
+                                matrix.SwitchRows(_i+1, _i)                        
+                new_position -= 1
         else:
+            
+            new_position = sorted_list.__len__()-1 # start at last column
             for required_col in reversed(sorted_list):
                 # matrix labels will be rechecked on each iteration as the
-                # positions of the rows can move each time.
+                # positions of the columns can move each time.
                 matrix_labels = [(c.TopMember.Label, c.TopMember.DataIndex)
                                  for c in matrix[0]]
+                
                 for c in matrix_labels:
                     label = required_col[1]
                     current_position = c[1]
-                    new_position = required_col.index(label) - 1
 
                     if c[0] == label:
                         if current_position < new_position:
-                            for i in range(current_position, new_position):
-                                matrix.SwitchColumns(i, i+1)
-
+                            for _i in range(current_position, new_position):
+                                matrix.SwitchColumns(_i, _i+1)
                         elif current_position > new_position:
                             for i in reversed(range(new_position,
                                                     current_position)):
-                                matrix.SwitchColumns(i+1, i)
-
+                                matrix.SwitchColumns(_i+1, _i)                        
+                new_position -= 1
+            
         return
 
     @wrap_matrix_logger_sort
@@ -352,8 +444,9 @@ class MatrixDataSortManipulator():
         """
 
         if (matrix.Count < 2):
-            raise IndexError("index out of range " +
+            print IndexError("index out of range " +
                              str(matrix.Count) + " row in table")
+            pass
 
         if (matrix.TopAxis.DataMembers.Count <= by_column):
             raise IndexError("index out of range " +
@@ -366,6 +459,7 @@ class MatrixDataSortManipulator():
 
         # Sort the rows
         sort_row = True
+        self._update_labels_with_groups(sort_row)
         _dict_from_axis = self._make_dictionary_from_axis(matrix, logger,
                                           by_column=by_column,
                                           using_cell_value=using_cell_value,
@@ -374,18 +468,12 @@ class MatrixDataSortManipulator():
         _ordered_list = self._sorted_list_from_dict(matrix, descending,
                                                     file_name, client_name,
                                                     _dict_from_axis, sort_row)
+        
         self._reorder_rows_and_cols(matrix, _ordered_list, sort_row)
 
-        del _dict_from_axis
-        del _ordered_list
-        del args
-        del by_column
-        del by_row
-        del descending
-        del sort_row
-        del using_cell_value
-        del client_name
-        del file_name
+        # This will only remove the group labels if the number of groups
+        # matches the number of rows. 
+        self._update_labels_remove_groups(sort_row)
 
     @wrap_matrix_logger_sort
     def sort_columns(self, matrix, logger, by_column, by_row,
@@ -433,6 +521,7 @@ class MatrixDataSortManipulator():
 
         # Sort the columns
         sort_row = False
+        self._update_labels_with_groups(sort_row)
         _dict_from_axis = self._make_dictionary_from_axis(matrix, logger,
                                           by_row=by_row,
                                           using_cell_value=using_cell_value,
@@ -442,17 +531,8 @@ class MatrixDataSortManipulator():
                                                     file_name, client_name,
                                                     _dict_from_axis, sort_row)
         self._reorder_rows_and_cols(matrix, _ordered_list, sort_row)
+        self._update_labels_remove_groups(sort_row)
 
-        del _dict_from_axis
-        del _ordered_list
-        del args
-        del by_column
-        del by_row
-        del descending
-        del sort_row
-        del using_cell_value
-        del client_name
-        del file_name
 
     #   End of class
 
