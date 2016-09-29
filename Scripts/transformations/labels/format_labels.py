@@ -1,16 +1,15 @@
 class FormatSettings:
-    """ this class is used by a filler whist outputting text into a chart
+    """This class is used by a filler whilst outputting text into a chart
     * the default implementation will a basic str.format approach
-    * more complex implementation should override the formatter
-    * function.
+    * more complex implementation should override the formatter function.
     
-     For example, the label_format will expect a matrix, member, or group.
-     The cell_format will expect a Cell.
+    For example, the label_format will expect a matrix, member, or group.
+    The cell_format will expect a Cell.
      
-     The label_format string can contain whatever the matrix/group/member/cell can 
-     format,  for example  label_format = "{0.Group}: {0}"
-     The cell_format string can contain whatever the cell can format, eg
-     cell_format = "${0[0].Value} XXX"
+    The label_format string can contain whatever the matrix/group/member/cell can 
+    format,  for example  label_format = "{0.Group}: {0}"
+    The cell_format string can contain whatever the cell can format, eg
+    cell_format = "${0[0].Value} XXX"
      
     """
     

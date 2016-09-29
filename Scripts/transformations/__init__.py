@@ -13,7 +13,7 @@ from pptx_data import PowerPointDataManipulator as PptxData
 
 __version__ = '4.3.0'
 
-class MatrixManipulator(Series,Categories,Data,PptxData):
+class MatrixManipulator(Series, Categories, Data, PptxData):
     r"""Class for manipulating labels or values from the series, categories,
     or data values of a matrix, or PowerPoint Chart or Table.
     
@@ -56,7 +56,7 @@ class MatrixManipulator(Series,Categories,Data,PptxData):
     def __init__(self, matrix):
         """Functions for formatting labels or data cells"""
 
-        self.matrix = matrix       
+        self.matrix = matrix
     pass
 
 if __name__ == "__main__":
