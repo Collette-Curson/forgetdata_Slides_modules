@@ -355,7 +355,7 @@ def create_test_matrix():
            [5,6,7,8,109]]
 
     try:
-        fail
+        #fail
         Matrix = matrixFromArray(a)
     except:
         Matrix = make_fake_matrix(a)
