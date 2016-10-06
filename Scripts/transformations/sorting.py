@@ -29,7 +29,7 @@ class MatrixDataSortManipulator():
     >>> m = matrixfuncs.create_test_matrix()
     >>> _my_class = sorting.MatrixDataSortManipulator(m)
     >>> _my_class.sort_rows(by_column=2)
-    Nested dictionary from axis:  {0: {'NumericValue': '330.0', 'Label': 'Group: myRowGroup 0::: myRow 0'}, 1: {'NumericValue': '108.0', 'Label': 'Group: myRowGroup 1::: myRow 1'}, 2: {'NumericValue': '3.0', 'Label': 'Group: myRowGroup 2::: myRow 2'}, 3: {'NumericValue': '12.0', 'Label': 'Group: myRowGroup 3::: myRow 3'}, 4: {'NumericValue': '7.0', 'Label': 'Group: myRowGroup 4::: myRow 4'}}
+    Nested dictionary from axis:  {0: {'NumericValue': '330.0', 'Label': 'Group:myRowGroup 0::: myRow 0'}, 1: {'NumericValue': '108.0', 'Label': 'Group:myRowGroup 1::: myRow 1'}, 2: {'NumericValue': '3.0', 'Label': 'Group:myRowGroup 2::: myRow 2'}, 3: {'NumericValue': '12.0', 'Label': 'Group:myRowGroup 3::: myRow 3'}, 4: {'NumericValue': '7.0', 'Label': 'Group:myRowGroup 4::: myRow 4'}}
     <BLANKLINE>
     >>> print m[0][0][0].Value
     101
@@ -43,12 +43,12 @@ class MatrixDataSortManipulator():
     >>> print m[0].Member.Label
     myRow 0
     >>> _my_class.sort_rows(client_name="Agree")
-    Nested dictionary from axis:  {0: {'NumericValue': '101.0', 'Label': 'Group: myRowGroup 0::: myRow 0'}, 1: {'NumericValue': '6.0', 'Label': 'Group: myRowGroup 1::: myRow 1'}, 2: {'NumericValue': '1.0', 'Label': 'Group: myRowGroup 2::: myRow 2'}, 3: {'NumericValue': '100.0', 'Label': 'Group: myRowGroup 3::: myRow 3'}, 4: {'NumericValue': '5.0', 'Label': 'Group: myRowGroup 4::: myRow 4'}}
+    Nested dictionary from axis:  {0: {'NumericValue': '101.0', 'Label': 'Group:myRowGroup 0::: myRow 0'}, 1: {'NumericValue': '6.0', 'Label': 'Group:myRowGroup 1::: myRow 1'}, 2: {'NumericValue': '1.0', 'Label': 'Group:myRowGroup 2::: myRow 2'}, 3: {'NumericValue': '100.0', 'Label': 'Group:myRowGroup 3::: myRow 3'}, 4: {'NumericValue': '5.0', 'Label': 'Group:myRowGroup 4::: myRow 4'}}
     <BLANKLINE>
     >>> print m[0].Member.Label
     myRow 0
     >>> _my_class.sort_rows(descending=False)
-    Nested dictionary from axis:  {0: {'NumericValue': '101.0', 'Label': 'Group: myRowGroup 0::: myRow 0'}, 1: {'NumericValue': '6.0', 'Label': 'Group: myRowGroup 1::: myRow 1'}, 2: {'NumericValue': '1.0', 'Label': 'Group: myRowGroup 2::: myRow 2'}, 3: {'NumericValue': '100.0', 'Label': 'Group: myRowGroup 3::: myRow 3'}, 4: {'NumericValue': '5.0', 'Label': 'Group: myRowGroup 4::: myRow 4'}}
+    Nested dictionary from axis:  {0: {'NumericValue': '101.0', 'Label': 'Group:myRowGroup 0::: myRow 0'}, 1: {'NumericValue': '6.0', 'Label': 'Group:myRowGroup 1::: myRow 1'}, 2: {'NumericValue': '1.0', 'Label': 'Group:myRowGroup 2::: myRow 2'}, 3: {'NumericValue': '100.0', 'Label': 'Group:myRowGroup 3::: myRow 3'}, 4: {'NumericValue': '5.0', 'Label': 'Group:myRowGroup 4::: myRow 4'}}
     <BLANKLINE>
     >>> print m[0].Member.Label
     myRow 0
@@ -95,7 +95,7 @@ class MatrixDataSortManipulator():
         if sort_row:
             for row in self.matrix:
                 if row.Member.Group.Label != "":
-                    settings = FormatSettings(label_format="Group: {0.Group}::: {0.Label}")
+                    settings = FormatSettings(label_format="Group:{0.Group}::: {0.Label}")
                 else:
                     settings = FormatSettings(label_format="{0.Label}")
                 label = settings.label_format(row.Member)
@@ -103,7 +103,7 @@ class MatrixDataSortManipulator():
         else:
             for col in self.matrix[0]:
                 if col.TopMember.Group.Label != "":
-                    settings = FormatSettings(label_format="Group: {0.Group}::: {0.Label}")
+                    settings = FormatSettings(label_format="Group:{0.Group}::: {0.Label}")
                 else:
                     settings = FormatSettings(label_format="{0.Label}")
                 label = settings.label_format(col.TopMember)
@@ -130,7 +130,7 @@ class MatrixDataSortManipulator():
                     try:
                         full_label = row.Member.Label.split("::: ")
                         row.Member.Label = full_label[1]
-                        _grp = full_label[0].split("Group: ")[1].split("::: ")[0]                        
+                        _grp = full_label[0].split("Group:")[1].split("::: ")[0]                        
                         row.Member.Group.Label = _grp
                     except:
                         pass
