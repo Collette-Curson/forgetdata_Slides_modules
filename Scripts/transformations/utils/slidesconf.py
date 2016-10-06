@@ -4,7 +4,10 @@ Module to configure a slides environment for testing purposes
 import os
 import sys
 import platform
-import clr
+try:
+    import clr
+except:
+    pass
 from Microsoft.Win32 import Registry
 
 
@@ -19,10 +22,13 @@ TEMPLATES_PATH=Registry.GetValue("HKEY_CURRENT_USER\\Software\\forgetdata\\Repor
 
 if not MATRIX_PATH in sys.path:
     sys.path.insert(1,MATRIX_PATH)
-    import clr
-    clr.AddReference("ForgetData.Matrix")
-    clr.AddReference("ForgetData.Slides.Programability")
-    clr.AddReference("PowerPointHandler")
+    try:
+        import clr
+        clr.AddReference("ForgetData.Matrix")
+        clr.AddReference("ForgetData.Slides.Programability")
+        clr.AddReference("PowerPointHandler")
+    except:
+        pass
 
 if not TEMPLATES_PATH in sys.path:
     sys.path.insert(1,TEMPLATES_PATH)
@@ -45,9 +51,15 @@ def initRootContainer():
         from log4net import LogManager
         LogManager.GetLogger("logfile"),MatrixHandler.Create()
     except ImportError:
-        clr.AddReference("log4net")
-        from log4net import LogManager
-    return LogManager.GetLogger("logfile"),MatrixHandler.Create()
+        try:
+            clr.AddReference("log4net")
+            from log4net import LogManager
+        except:
+            pass
+    try:
+        return LogManager.GetLogger("logfile"),MatrixHandler.Create()
+    except:
+        return None
 
 # this initialization will happen at module import
 Log,Handler = initRootContainer()
