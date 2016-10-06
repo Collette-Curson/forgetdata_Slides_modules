@@ -44,14 +44,17 @@ if not LOCAL_PYLIB in sys.path:
 def initRootContainer():
     """updated to also return a matrix handler"""
 
-    from Forgetdata.Slides.PowerPointHandler import CustomActionFactory
-    from Forgetdata.Matrix import RootCompositionContainer,MatrixHandler
-    from System import Array
+    try:
+        
+        from Forgetdata.Slides.PowerPointHandler import CustomActionFactory
+        from Forgetdata.Matrix import RootCompositionContainer,MatrixHandler
+        from System import Array
 
-    arr = Array[str]([TEMPLATES_PATH])
-    if not RootCompositionContainer.IsInitialized:
-        RootCompositionContainer.Initialize(CustomActionFactory(arr))
-
+        arr = Array[str]([TEMPLATES_PATH])
+        if not RootCompositionContainer.IsInitialized:
+            RootCompositionContainer.Initialize(CustomActionFactory(arr))
+    except:
+        pass
     try:
         from log4net import LogManager
         LogManager.GetLogger("logfile"),MatrixHandler.Create()
@@ -64,7 +67,7 @@ def initRootContainer():
     try:
         return LogManager.GetLogger("logfile"),MatrixHandler.Create()
     except:
-        return None
+        return None,None
 
 # this initialization will happen at module import
 Log,Handler = initRootContainer()
@@ -72,30 +75,35 @@ Log,Handler = initRootContainer()
 def connect(path,name=None, provider_name=None):
     """uses the matrix handler to create a connection to a
     file based datasource"""
-    from os.path import splitext
+    try:
+        from os.path import splitext
 
-    if not provider_name:
-        ext = splitext(path)[-1]
-        ext = ext[1:4].lower()
+        if not provider_name:
+            ext = splitext(path)[-1]
+            ext = ext[1:4].lower()
 
-        p_map = {"mtd":"SPSS MTD File"
-                , "xml":"Tabs ML"
-                , "xls":"Excel 2007/2010 Provider"}
+            p_map = {"mtd":"SPSS MTD File"
+                    , "xml":"Tabs ML"
+                    , "xls":"Excel 2007/2010 Provider"}
 
-        provider_name = p_map.get(ext, "Matrix File")
+            provider_name = p_map.get(ext, "Matrix File")
 
-    if not name:
-        name = path
-    from Forgetdata.Matrix import ConnectionDefinition
-    defn = ConnectionDefinition()
-    defn.Name = name
-    defn.Provider = provider_name
-    defn.ConnectionString = path
+        if not name:
+            name = path
+        
+        from Forgetdata.Matrix import ConnectionDefinition
+        
+        defn = ConnectionDefinition()
+        defn.Name = name
+        defn.Provider = provider_name
+        defn.ConnectionString = path
 
-    c = Handler.CreateConnection(defn)
-    if(c == None):
-        raise Exception("Unable to open a matrix connection to file:"+ path)
-    return c    
+        c = Handler.CreateConnection(defn)
+        if(c == None):
+            raise Exception("Unable to open a matrix connection to file:"+ path)
+        return c    
+    except:
+        return None
     
 ###not tested..
 @property
