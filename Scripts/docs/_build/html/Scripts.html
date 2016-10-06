@@ -1228,12 +1228,32 @@ order.  Default = None</li>
 </div>
 </dd></dl>
 
+<dl class="method">
+<dt id="Scripts.transformations.MatrixManipulator.wrap_matrix_logger_sort">
+<tt class="descname">wrap_matrix_logger_sort</tt><big>(</big><em>func</em><big>)</big><a class="headerlink" href="#Scripts.transformations.MatrixManipulator.wrap_matrix_logger_sort" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wrapper function - Wrap all functions within the class so that
+the matrix and logger and all sorting parameters are passed to
+functions with given parameters. This wrapper also passes the
+sorting variables for sorting functions.</p>
+</dd></dl>
+
 </dd></dl>
 
 </div>
 <div class="section" id="module-Scripts.transformations.utils.utilities">
 <span id="scripts-transformations-utils-utilities-module"></span><h2>Scripts.transformations.utils.utilities module<a class="headerlink" href="#module-Scripts.transformations.utils.utilities" title="Permalink to this headline">¶</a></h2>
 <p>Provides utility functions for use with the Scripts installed with Slides!</p>
+<dl class="function">
+<dt id="Scripts.transformations.utils.utilities.find_table">
+<tt class="descclassname">Scripts.transformations.utils.utilities.</tt><tt class="descname">find_table</tt><big>(</big><em>Connections</em>, <em>query_item</em><big>)</big><a class="headerlink" href="#Scripts.transformations.utils.utilities.find_table" title="Permalink to this definition">¶</a></dt>
+<dd><p>Using the Queryitems, look up the Table name and return the connected
+table.  For example:</p>
+<p>&gt;&gt;&gt;for i in range(0, Query.Items.Count):
+&gt;&gt;&gt;    table = findTable(Query.Items[i]) 
+&gt;&gt;&gt;    if table is not None:
+&gt;&gt;&gt;        return table</p>
+</dd></dl>
+
 <dl class="function">
 <dt id="Scripts.transformations.utils.utilities.print_matrix">
 <tt class="descclassname">Scripts.transformations.utils.utilities.</tt><tt class="descname">print_matrix</tt><big>(</big><em>matrix</em>, <em>colWidth=11</em>, <em>maxWidth=80</em><big>)</big><a class="headerlink" href="#Scripts.transformations.utils.utilities.print_matrix" title="Permalink to this definition">¶</a></dt>

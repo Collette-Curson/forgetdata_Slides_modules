@@ -20,6 +20,10 @@ import os
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 sys.path.insert(0, os.path.abspath('../../OtherModules'))
 sys.path.insert(0, os.path.abspath('../..'))
+<<<<<<< HEAD
+=======
+
+>>>>>>> 0edf0b07a71f1e00bec7e517582ca34a59ead373
 
 # -- General configuration ------------------------------------------------
 

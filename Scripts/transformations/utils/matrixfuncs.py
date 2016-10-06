@@ -215,6 +215,32 @@ def make_fake_matrix(arr):
     class Container(object):
         
         def Label(self):
+            return str()
+        
+        def Name(self):
+            return self.Label
+        
+        def __str__(self):
+            return self.Label
+         
+        def GetNumericValue(self):
+            return self.NumericValue
+        
+        def DataIndex(self):
+            return 0
+        
+    class MyStringContainer(object):
+        
+        def Label(self):
+            return str()
+        
+        def Left(self):
+            pass
+        
+        def Right(self):
+            pass
+        
+        def Center(self):
             pass
         
         def __str__(self):
@@ -222,23 +248,35 @@ def make_fake_matrix(arr):
         
         pass 
     
-    class MyDict(dict):
+    class MyList(list):
         
         def Label(self):
-            pass
-        
+            return str()
+
         def __str__(self):
             return self.Label
         
-        pass
-    
-    class MyList(list):
-        
-        def __init__(self):
-            pass
+        def Name(self):
+            return str()
         
         def Count(self):
             pass
+    
+        def Add(self,a):
+            member = Container()
+            member.Label = a
+            return member
+        
+        def AddNewMember(self,a,b,c,d,e):
+            member = Container()
+            member.Label = a          
+            return member
+        
+        def Group(self):
+            return MyList()
+        
+        def AddNew(self,a,b,c):
+            return MyList()
         
         def SwitchRows(self,a,b):
             pass
@@ -246,18 +284,26 @@ def make_fake_matrix(arr):
         def SwitchColumns(self,a,b):
             pass
         
-        def Label(self):
-            pass
-        
         def DeleteRow(self, val):
-            list.pop([val])
+            self.pop(val)
         
         def DeleteColumn(self, val):
-            list.pop([val])
+            self.pop(val)
+            
+        def InsertBlankRowAfter(self,a,b,c):
+            return 0
+        
+        def InsertBlankColumnAfter(self,a,b,c):
+            return 0
+        
+        def RemoveValueAt(self,a):
+            pass
         
         def __str__(self):
             return self.Label
         
+        def AddValue(self,a,b):
+            pass
         pass
     
     matrix = MyList()
@@ -266,7 +312,6 @@ def make_fake_matrix(arr):
     cols = arr[0].__len__()
     cellitems = 1 
     
-    #matrix = [MyDict() for i in range(0, rows)]
     
     matrix.SideAxis = Container()
     matrix.SideAxis.DataMembers = MyList()
@@ -279,10 +324,10 @@ def make_fake_matrix(arr):
         matrix.Count = rows
         matrix.SideAxis.DataMembers.append(Container())
         matrix.SideAxis.DataMembers[i].Label = str()
-        matrix.SideAxis.DataMembers[i].Group = Container()
+        matrix.SideAxis.DataMembers[i].Group = MyList()
         matrix.SideAxis.DataMembers[i].Group.Label = str()
         matrix.SideAxis.DataMembers[i].MemberSigTestHeading = str()
-        matrix.SideAxis.Groups = Container()
+        matrix.SideAxis.Groups = MyList()
         matrix.SideAxis.Groups.Count = 1
           
     
@@ -293,10 +338,10 @@ def make_fake_matrix(arr):
     for j in range(0, cols):        
         matrix.TopAxis.DataMembers.append(Container())
         matrix.TopAxis.DataMembers[j].Label = str()
-        matrix.TopAxis.DataMembers[j].Group = Container()
+        matrix.TopAxis.DataMembers[j].Group = MyList()
         matrix.TopAxis.DataMembers[j].Group.Label = str()
         matrix.TopAxis.DataMembers[j].MemberSigTestHeading = str()
-        matrix.TopAxis.Groups = Container()
+        matrix.TopAxis.Groups = MyList()
         matrix.TopAxis.Groups.Count = 1
         
           
@@ -306,43 +351,35 @@ def make_fake_matrix(arr):
         matrix[i].Member.Label = str()
         matrix[i].Member.DataIndex = i
         matrix[i].Member.IndentLevel = 0
-        matrix[i].Member.Group = Container()
+        matrix[i].Member.Group = MyList()
         matrix[i].Member.Group.Label = matrix.SideAxis.DataMembers[i].Group.Label
         
         for j in range(0, cols): # columns
             matrix[i].append(MyList()) # appeand for each col
             matrix[i][j].Count = cols
             matrix[i][j].TopMember = Container()
+            matrix[i][j].TopMember.Label = matrix.TopAxis.DataMembers[j].Label
             matrix[i][j].TopMember.DataIndex = j
             matrix[i][j].TopMember.IndentLevel = 0
-            matrix[i][j].TopMember.Label = matrix.TopAxis.DataMembers[j].Label
-            matrix[i][j].TopMember.Group = Container()
+            matrix[i][j].TopMember.Group = MyList()
             matrix[i][j].TopMember.Group.Label = matrix.TopAxis.DataMembers[j].Group.Label
             matrix[i][j].SideMember = Container()
             matrix[i][j].SideMember.Label = matrix.SideAxis.DataMembers[i].Label
-            matrix[i][j].SideMember.Group = Container()
+            matrix[i][j].SideMember.Group = MyList()
             matrix[i][j].SideMember.Group.Label = matrix.SideAxis.DataMembers[i].Group.Label
             matrix[i][j].SigTestResult = str()
             
             for k in range(0, cellitems): # cells
-                matrix[i][j].append(MyDict())
+                matrix[i][j].append(Container())
                 matrix[i][j][k].Count = cellitems
                 matrix[i][j][k].Value = str(arr[i][j])
                 matrix[i][j][k].Label = str(arr[i][j])
-                #matrix[i][j][k].GetNumericValue() = 1.0
+                #matrix[i][j][k].GetNumericValue()
                 matrix[i][j][k].NumericValue = float(arr[i][j])
                 #matrix[i][j][k].FormatString() = "0"
     
-    matrix.Header = Container()
-    matrix.Header.Left = str()
-    matrix.Header.Right = str()
-    matrix.Header.Center = str()
-    matrix.Footer = Container()
-    matrix.Footer.Left = str()
-    matrix.Footer.Right = str()
-    matrix.Footer.Center = str()
-    matrix.Label = str()
-    matrix.Name = str()    
+    matrix.Header = MyStringContainer()
+    matrix.Footer = MyStringContainer()
     
     return matrix
     
@@ -355,7 +392,7 @@ def create_test_matrix():
            [5,6,7,8,109]]
 
     try:
-        #fail
+        #fails #when running doctest via readthedocs.
         Matrix = matrixFromArray(a)
     except:
         Matrix = make_fake_matrix(a)
@@ -363,8 +400,7 @@ def create_test_matrix():
     for row in Matrix:
         row.Member.Label = "myRow " + str(row.Member.DataIndex)
         row.Member.Group.Label = "myRowGroup " + str(row.Member.DataIndex)
-    
-    
+        
     for col in range(0, Matrix.TopAxis.DataMembers.Count):
         Matrix.TopAxis.DataMembers[col].Label = "myColumn " + str(col)
         Matrix.TopAxis.DataMembers[col].Group.Label = "myColumnGroup " + str(col)
@@ -388,6 +424,7 @@ def create_test_matrix():
     Matrix.Footer.Left = "Footer Left"
     Matrix.Footer.Right = "Footer Right"
     Matrix.Label = "Matrix Label"
+    
     return Matrix
 
 def add_dummy_stats_tests_to_test_matrix(Matrix):

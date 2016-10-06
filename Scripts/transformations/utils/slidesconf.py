@@ -4,7 +4,10 @@ Module to configure a slides environment for testing purposes
 import os
 import sys
 import platform
-import clr
+try:
+    import clr
+except:
+    pass
 from Microsoft.Win32 import Registry
 
 

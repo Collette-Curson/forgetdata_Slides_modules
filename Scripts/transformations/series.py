@@ -17,23 +17,22 @@ class MatrixSeriesManipulator():
     transformations package
 
     Examples:
-    >>> import utils.slidesconf as slidesconf 
     >>> import series as Series
     >>> import utils.matrixfuncs as matrixfuncs
     >>> m = matrixfuncs.create_test_matrix()
     >>> _my_class = Series.MatrixSeriesManipulator(m)
     >>> print _my_class.get_series_labels()  #taken from series module
-    [u'myRow 0', u'myRow 1', u'myRow 2', u'myRow 3', u'myRow 4']
+    ['myRow 0', 'myRow 1', 'myRow 2', 'myRow 3', 'myRow 4']
     >>> print _my_class.get_series_base_summary()
-    myRow 0: 4, myRow 1: 6, myRow 2: 1, myRow 3: 100, myRow 4: 5
+    myRow 0: 101, myRow 1: 6, myRow 2: 1, myRow 3: 100, myRow 4: 5
     >>> _my_class.select_series(["myRow 1"])
     >>> print _my_class.get_series_labels()
-    [u'myRow 1']
+    ['myRow 1']
     >>> m = matrixfuncs.create_test_matrix()
     >>> _my_class = Series.MatrixSeriesManipulator(m)
     >>> _my_class.del_series(["myRow 1"])
     >>> print _my_class.get_series_labels()
-    [u'myRow 0', u'myRow 2', u'myRow 3', u'myRow 4']
+    ['myRow 0', 'myRow 2', 'myRow 3', 'myRow 4']
     
     """
 
@@ -525,7 +524,7 @@ class MatrixSeriesManipulator():
 
     #   End of class
 
-if __name__ == "__main__":
+if __name__ == "__main__":    
     import doctest
     doctest.testmod()
 
