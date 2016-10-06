@@ -20,14 +20,8 @@ import os
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 sys.path.insert(0, os.path.abspath('../../OtherModules'))
 sys.path.insert(0, os.path.abspath('../..'))
-<<<<<<< HEAD
-=======
 
-<<<<<<< HEAD
->>>>>>> 0edf0b07a71f1e00bec7e517582ca34a59ead373
 
-=======
->>>>>>> 6bf369a1323ac3b37b9c5401f892c8d50a234f5b
 # -- General configuration ------------------------------------------------
 
 # If your documentation needs a minimal Sphinx version, state it here.
