@@ -26,7 +26,7 @@ class PowerPointDataManipulator():
     >>> import transformations.pptx_data as Pptx_data
     >>> import transformations.utils.matrixfuncs as matrixfuncs
     >>> m = matrixfuncs.create_test_matrix()
-    >>> prefill_matrix = matrixfuncs.create_test_matrix()## TODO update this
+    >>> prefill_matrix = matrixfuncs.create_test_matrix()   ## TODO update this
     >>> Shape = "shape"  ## TODO update this
     >>> _my_class = Pptx_data.PowerPointDataManipulator(prefill_matrix,m, Shape)
     

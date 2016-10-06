@@ -182,7 +182,7 @@ class Test(TestCase):
     def test_set_category_formatted_labels_bad(self):
         m,x =  make_matrix()
         _matrix_labels = [c.TopMember.Group.Label + " :: " + c.TopMember.Label for c in m[0]]
-        with self.assertRaisesRegexp(AttributeError, 'CDataCell'):
+        with self.assertRaisesRegexp(AttributeError, 'Group'):
             x.set_category_formatted_labels(label_format = "{0.Group.Label} :: {0.Label}")
             _labels = x.get_category_labels()
             self.assertEqual(_labels,_matrix_labels)

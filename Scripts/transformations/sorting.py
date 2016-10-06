@@ -24,35 +24,34 @@ class MatrixDataSortManipulator():
     the transformations package.
 
     Examples:
-    >>> import utils.slidesconf
     >>> import sorting
     >>> import utils.matrixfuncs as matrixfuncs
     >>> m = matrixfuncs.create_test_matrix()
     >>> _my_class = sorting.MatrixDataSortManipulator(m)
     >>> _my_class.sort_rows(by_column=2)
-    Nested dictionary from axis:  {0: {'Value': '33.0', 'Label': u'myRow 0'}, 1: {'Value': '108.0', 'Label': u'myRow 1'}, 2: {'Value': '3.0', 'Label': u'myRow 2'}, 3: {'Value': '12.0', 'Label': u'myRow 3'}, 4: {'Value': '7.0', 'Label': u'myRow 4'}}
+    Nested dictionary from axis:  {0: {'NumericValue': '330.0', 'Label': 'Group: myRowGroup 0::: myRow 0'}, 1: {'NumericValue': '108.0', 'Label': 'Group: myRowGroup 1::: myRow 1'}, 2: {'NumericValue': '3.0', 'Label': 'Group: myRowGroup 2::: myRow 2'}, 3: {'NumericValue': '12.0', 'Label': 'Group: myRowGroup 3::: myRow 3'}, 4: {'NumericValue': '7.0', 'Label': 'Group: myRowGroup 4::: myRow 4'}}
     <BLANKLINE>
     >>> print m[0][0][0].Value
-    6
+    101
     >>> print m[0].Member.Label
-    myRow 1
+    myRow 0
     >>> _my_class.sort_columns(by_row=2)
-    Nested dictionary from axis:  {0: {'Value': '100.0', 'Label': u'myColumn 0'}, 1: {'Value': '10.0', 'Label': u'myColumn 1'}, 2: {'Value': '12.0', 'Label': u'myColumn 2'}, 3: {'Value': '13.0', 'Label': u'myColumn 3'}, 4: {'Value': '14.0', 'Label': u'myColumn 4'}}
+    Nested dictionary from axis:  {0: {'NumericValue': '1.0', 'Label': 'myColumn 0'}, 1: {'NumericValue': '102.0', 'Label': 'myColumn 1'}, 2: {'NumericValue': '3.0', 'Label': 'myColumn 2'}, 3: {'NumericValue': '4.0', 'Label': 'myColumn 3'}, 4: {'NumericValue': '5.0', 'Label': 'myColumn 4'}}
     <BLANKLINE>
     >>> print m[0][0][0].Value
-    6
+    101
     >>> print m[0].Member.Label
-    myRow 1
+    myRow 0
     >>> _my_class.sort_rows(client_name="Agree")
-    Nested dictionary from axis:  {0: {'Value': '6.0', 'Label': u'myRow 1'}, 1: {'Value': '4.0', 'Label': u'myRow 0'}, 2: {'Value': '100.0', 'Label': u'myRow 3'}, 3: {'Value': '5.0', 'Label': u'myRow 4'}, 4: {'Value': '1.0', 'Label': u'myRow 2'}}
+    Nested dictionary from axis:  {0: {'NumericValue': '101.0', 'Label': 'Group: myRowGroup 0::: myRow 0'}, 1: {'NumericValue': '6.0', 'Label': 'Group: myRowGroup 1::: myRow 1'}, 2: {'NumericValue': '1.0', 'Label': 'Group: myRowGroup 2::: myRow 2'}, 3: {'NumericValue': '100.0', 'Label': 'Group: myRowGroup 3::: myRow 3'}, 4: {'NumericValue': '5.0', 'Label': 'Group: myRowGroup 4::: myRow 4'}}
     <BLANKLINE>
     >>> print m[0].Member.Label
-    myRow 3
+    myRow 0
     >>> _my_class.sort_rows(descending=False)
-    Nested dictionary from axis:  {0: {'Value': '100.0', 'Label': u'myRow 3'}, 1: {'Value': '6.0', 'Label': u'myRow 1'}, 2: {'Value': '5.0', 'Label': u'myRow 4'}, 3: {'Value': '4.0', 'Label': u'myRow 0'}, 4: {'Value': '1.0', 'Label': u'myRow 2'}}
+    Nested dictionary from axis:  {0: {'NumericValue': '101.0', 'Label': 'Group: myRowGroup 0::: myRow 0'}, 1: {'NumericValue': '6.0', 'Label': 'Group: myRowGroup 1::: myRow 1'}, 2: {'NumericValue': '1.0', 'Label': 'Group: myRowGroup 2::: myRow 2'}, 3: {'NumericValue': '100.0', 'Label': 'Group: myRowGroup 3::: myRow 3'}, 4: {'NumericValue': '5.0', 'Label': 'Group: myRowGroup 4::: myRow 4'}}
     <BLANKLINE>
     >>> print m[0].Member.Label
-    myRow 2
+    myRow 0
 
     """
 
@@ -174,15 +173,15 @@ class MatrixDataSortManipulator():
         Example:
         
         dict[ElementIndex][Label]
-        dict[ElementIndex][Value]
+        dict[ElementIndex][NumericValue]
         dict[NetIndex][Label]
-        dict[NetIndex][Value]
+        dict[NetIndex][NumericValue]
         dict[NetIndex][ElementIndex][label]
-        dict[NetIndex][ElementIndex][Value]
+        dict[NetIndex][ElementIndex][NumericValue]
         dict[NetIndex][InnerNetIndex][Label]
-        dict[NetIndex][InnerNetIndex][Value]
+        dict[NetIndex][InnerNetIndex][Numeric Value]
         dict[NetIndex][InnerNetIndex][ElementIndex][label]
-        dict[NetIndex][InnerNetIndex][ElementIndex][Value]
+        dict[NetIndex][InnerNetIndex][ElementIndex][NumericValue]
 
         """
                 
@@ -191,11 +190,11 @@ class MatrixDataSortManipulator():
             _index = member.DataIndex
             _d[_index] = dict()
             _d[_index]["Label"] = member.Label
-            _d[_index]["Value"] = val
+            _d[_index]["NumericValue"] = val
 
         _dict = dict()
 
-        _net_index = None
+        net_index = None
         if sort_row:
             for row in matrix:
                 val = str(row[by_column][using_cell_value].NumericValue)
@@ -221,7 +220,7 @@ class MatrixDataSortManipulator():
                     net_index2 = col.TopMember.DataIndex
                 if col.TopMember.IndentLevel == 2:
                     _make_dict(_dict[net_index][net_index2], member, val)
-
+                
         print "Nested dictionary from axis: ", _dict
         print ""
 
@@ -230,7 +229,7 @@ class MatrixDataSortManipulator():
     def _sorted_list_from_dict(self, matrix, descending, file_name,
                                client_name, _dict, sort_row):
         """Return a sorted list of tuples including:
-        (DataIndex, Label, Value).
+        (DataIndex, Label, NumericValue).
 
         The sorted list represents the order for the axis to be displayed,
         keeping nets in place, and sorting items within the nets.
@@ -274,8 +273,8 @@ class MatrixDataSortManipulator():
 
                 return _ret_list
 
-            _list_of_tuples = [(k, _d[k]["Label"], _d[k]["Value"]) for k
-                               in _d.keys() if k != "Value" and k != "Label"]
+            _list_of_tuples = [(k, _d[k]["Label"], _d[k]["NumericValue"]) for k
+                               in _d.keys() if k != "NumericValue" and k != "Label"]
             
             _order = [l[2] for l in _list_of_tuples]
             

@@ -470,6 +470,7 @@ class Test(TestCase):
         #update Matrix to include multiple groups
         sideGroup=m.SideAxis.Groups.AddNew(None,"newgroup","newgroup")
         newMember = sideGroup.AddNewMember("abc","abc",True,False,0)
+        
         ###TODO Write a bug as this behaves differently in IronPython vs Python.
         try: # IronPython
             m.SideAxis.DataMembers.Add(newMember)
@@ -477,6 +478,7 @@ class Test(TestCase):
             pass
             #This line is not needed to be run for Python
             #m.TopAxis.DataMembers.Add.Overloads[type(newMember)](newMember) 
+        
         for col in m[5]:
             col.AddValue("10%",None)
         m.SideAxis.DataMembers[5].Label = "New Label"

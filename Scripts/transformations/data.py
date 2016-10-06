@@ -18,28 +18,25 @@ class MatrixDataManipulator(SortRowsColumns):
     transformations package
 
     Examples:
-    >>> import utils.slidesconf
     >>> import data as Data
     >>> import utils.matrixfuncs as matrixfuncs
     >>> m = matrixfuncs.create_test_matrix()
     >>> _my_class = Data.MatrixDataManipulator(m)
     >>> print _my_class.get_data_values()[0:9]
-    [u'4', u'20', u'33', u'102', u'51', u'6', u'7', u'108', u'9']
+    ['101', '20', '330', '102', '51', '6', '7', '108', '9']
     >>> m[0].Member.Label = "Base"
     >>> print _my_class.get_base_row_values()
-    4, 20, 33, 102, 51
+    101, 20, 330, 102, 51
     >>> _my_class.category_difference(1,2)
     >>> print m[0][3][0].Value
-    13
+    102
     >>> _my_class.sort_rows()
-    Nested dictionary from axis:  {0: {'Value': u'4', 'Label': u'Base'}, 1: {'Value': u'6', 'Label': u'myRow 1'}, 2: {'Value': u'1', 'Label': u'myRow 2'}, 3: {'Value': u'100', 'Label': u'myRow 3'}, 4: {'Value': u'5', 'Label': u'myRow 4'}}
-    <BLANKLINE>
-    sorted_list:  [(3, u'myRow 3', u'100'), (1, u'myRow 1', u'6'), (4, u'myRow 4', u'5'), (0, u'Base', u'4'), (2, u'myRow 2', u'1')]
+    Nested dictionary from axis:  {0: {'NumericValue': '101.0', 'Label': 'Group: myRowGroup 0::: Base'}, 1: {'NumericValue': '6.0', 'Label': 'Group: myRowGroup 1::: myRow 1'}, 2: {'NumericValue': '1.0', 'Label': 'Group: myRowGroup 2::: myRow 2'}, 3: {'NumericValue': '100.0', 'Label': 'Group: myRowGroup 3::: myRow 3'}, 4: {'NumericValue': '5.0', 'Label': 'Group: myRowGroup 4::: myRow 4'}}
     <BLANKLINE>
     >>> print m[0][3][0].Value
-    2
+    102
     >>> print _my_class.get_data_values()[0:9]
-    [u'100', u'10', u'12', u'2', u'13', u'14', u'6', u'7', u'108']
+    ['101', '20', '330', '102', '51', '6', '7', '108', '9']
     
     """
 
