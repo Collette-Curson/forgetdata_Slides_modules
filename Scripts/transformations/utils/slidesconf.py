@@ -6,19 +6,24 @@ import sys
 import platform
 try:
     import clr
+    from Microsoft.Win32 import Registry
 except:
     pass
-from Microsoft.Win32 import Registry
 
 
-MATRIX_PATH= Registry.GetValue("HKEY_CURRENT_USER\\Software\\forgetdata\\Reporting Suite 4.0", "InstallLocation",None)
-#MATRIX_PATH= Registry.GetValue("HKEY_CURRENT_USER\\Software\\forgetdata\\Reporting Suite Debug", "InstallLocation",None)
+try:
+    MATRIX_PATH= Registry.GetValue("HKEY_CURRENT_USER\\Software\\forgetdata\\Reporting Suite 4.0", "InstallLocation",None)
+    #MATRIX_PATH= Registry.GetValue("HKEY_CURRENT_USER\\Software\\forgetdata\\Reporting Suite Debug", "InstallLocation",None)
 
-LOCAL_PYLIB=MATRIX_PATH+"\\Lib"
-TEMPLATES_PATH=Registry.GetValue("HKEY_CURRENT_USER\\Software\\forgetdata\\Reporting Suite 4.0", "TemplateInstallLocation",None)
-#TEMPLATES_PATH=Registry.GetValue("HKEY_CURRENT_USER\\Software\\forgetdata\\Reporting Suite Debug", "TemplateInstallLocation",None)
+    LOCAL_PYLIB=MATRIX_PATH+"\\Lib"
+    TEMPLATES_PATH=Registry.GetValue("HKEY_CURRENT_USER\\Software\\forgetdata\\Reporting Suite 4.0", "TemplateInstallLocation",None)
+    #TEMPLATES_PATH=Registry.GetValue("HKEY_CURRENT_USER\\Software\\forgetdata\\Reporting Suite Debug", "TemplateInstallLocation",None)
 
-#print "using matrix objects at " + MATRIX_PATH
+    #print "using matrix objects at " + MATRIX_PATH
+except:
+    MATRIX_PATH = ""
+    LOCAL_PYLIB = ""
+    TEMPLATES_PATH = ""
 
 if not MATRIX_PATH in sys.path:
     sys.path.insert(1,MATRIX_PATH)
