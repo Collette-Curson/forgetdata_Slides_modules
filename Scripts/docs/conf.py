@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # -*- coding: utf-8 -*-
 #
 # Slides Documentation documentation build configuration file, created by
@@ -548,4 +547,3 @@ texinfo_domain_indices = True
 
 # If true, do not generate a @detailmenu in the "Top" node's menu.
 #texinfo_no_detailmenu = False
->>>>>>> 8bed181bce0e571979d09a7f3d60a5c63497ba79
