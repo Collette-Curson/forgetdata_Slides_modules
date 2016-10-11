@@ -23,22 +23,24 @@ class MatrixDataManipulator(SortRowsColumns):
     >>> m = matrixfuncs.create_test_matrix()
     >>> _my_class = Data.MatrixDataManipulator(m)
     >>> print _my_class.get_data_values()[0:9]
-    ['101', '20', '330', '102', '51', '6', '7', '108', '9']
+    [u'101', u'20', u'330', u'102', u'51', u'6', u'7', u'108', u'9']
     >>> m[0].Member.Label = "Base"
     >>> print _my_class.get_base_row_values()
     101, 20, 330, 102, 51
-    >>> _my_class.category_difference(1,2)
-    >>> print m[0][3][0].Value
-    102
     >>> _my_class.sort_rows()
-    Nested dictionary from axis:  {0: {'NumericValue': '101.0', 'Label': 'Group: myRowGroup 0::: Base'}, 1: {'NumericValue': '6.0', 'Label': 'Group: myRowGroup 1::: myRow 1'}, 2: {'NumericValue': '1.0', 'Label': 'Group: myRowGroup 2::: myRow 2'}, 3: {'NumericValue': '100.0', 'Label': 'Group: myRowGroup 3::: myRow 3'}, 4: {'NumericValue': '5.0', 'Label': 'Group: myRowGroup 4::: myRow 4'}}
-    <BLANKLINE>
+    >>> print m[1].Member.Label
+    myRow 3
     >>> print m[0][3][0].Value
     102
     >>> print _my_class.get_data_values()[0:9]
-    ['101', '20', '330', '102', '51', '6', '7', '108', '9']
+    [u'101', u'20', u'330', u'102', u'51', u'100', u'10', u'12', u'13']
     
     """
+    '''
+    >>> _my_class.category_difference(1,2)
+    >>> print m[0][3][0].Value
+    310
+    '''
 
     def __init__(self, matrix):
         self.matrix = matrix

@@ -112,11 +112,11 @@ class Test(TestCase):
             
         def _get_list_without_excluded_items(client_name,_keep_at_end):
             if len(_keep_at_end)> 0:
-                return [str(r[by_column][using_cell_value].Value) + " " + r.Member.Label for r in m if not r.Member.Label in _keep_at_end]
+                return [str(r[by_column][using_cell_value].Value) + " " + str(r.Member.Label) for r in m if not r.Member.Label in _keep_at_end]
             elif client_name is not None:
-                return [str(r[by_column][using_cell_value].Value) + " " + r.Member.Label for r in m if  r.Member.Label != client_name]
+                return [str(r[by_column][using_cell_value].Value) + " " + str(r.Member.Label) for r in m if  r.Member.Label != client_name]
             else:
-                return [str(r[by_column][using_cell_value].Value) + " " + r.Member.Label for r in m]
+                return [str(r[by_column][using_cell_value].Value) + " " + str(r.Member.Label) for r in m]
             
         _keep_at_end = self._get_keep_at_end(file_name)
         
@@ -138,11 +138,11 @@ class Test(TestCase):
             
         def _get_list_without_excluded_items(client_name,_keep_at_end):
             if _keep_at_end != []:
-                return [str(c[using_cell_value].Value) + " " + c.TopMember.Label for c in m[by_row] if not c.TopMember.Label in _keep_at_end]                
+                return [str(c[using_cell_value].Value) + " " + str(c.TopMember.Label) for c in m[by_row] if not c.TopMember.Label in _keep_at_end]
             elif client_name != None:
-                return [str(c[using_cell_value].Value) + " " + c.TopMember.Label for c in m[by_row] if c.TopMember.Label != client_name]                
+                return [str(c[using_cell_value].Value) + " " + str(c.TopMember.Label) for c in m[by_row] if c.TopMember.Label != client_name]
             else:
-                return [str(c[using_cell_value].Value) + " " + c.TopMember.Label for c in m[by_row]]        
+                return [str(c[using_cell_value].Value) + " " + str(c.TopMember.Label) for c in m[by_row]]
         
         _keep_at_end = self._get_keep_at_end(file_name)    
         _lst = _get_list_without_excluded_items(client_name, _keep_at_end)
@@ -443,8 +443,8 @@ class Test(TestCase):
     def test_sort_columns_default(self):
         m,x = _make_matrix()
         _sort_row = 0
-        _matrix_labels = self._sorting_order_columns(m, by_row =_sort_row)
         x.sort_columns()
+        _matrix_labels = self._sorting_order_columns(m, by_row =_sort_row)
         _labels = self._get_labels_from_m_columns(m, by_row =_sort_row)        
         self.assertTrue(_labels.difference(_matrix_labels)  == set([]))
         print "test_sort_columns_default", _labels
@@ -452,8 +452,8 @@ class Test(TestCase):
     def test_sort_columns_by_row(self):
         m,x = _make_matrix()
         _sort_row = 2
-        _matrix_labels = self._sorting_order_columns(m, by_row =_sort_row)
         x.sort_columns(by_row =_sort_row)
+        _matrix_labels = self._sorting_order_columns(m, by_row =_sort_row)
         _labels = self._get_labels_from_m_columns(m, by_row =_sort_row)
         self.assertTrue(_labels.difference(_matrix_labels)  == set([]))
         print "test_sort_columns_by_row", _labels            
@@ -468,8 +468,8 @@ class Test(TestCase):
     def test_sort_columns_using_cell_value(self):
         m,x = _make_matrix()
         _using_cell_value = 0
-        _matrix_labels = self._sorting_order_columns(m, using_cell_value = _using_cell_value)
         x.sort_columns(using_cell_value = _using_cell_value)
+        _matrix_labels = self._sorting_order_columns(m, using_cell_value = _using_cell_value)
         _labels = self._get_labels_from_m_columns(m, using_cell_value = _using_cell_value)
         self.assertTrue(_labels.difference(_matrix_labels)  == set([]))
         print "test_sort_columns_using_cell_value", _labels
@@ -484,8 +484,8 @@ class Test(TestCase):
     def test_sort_columns_descending(self):
         m,x = _make_matrix()
         _descending = True
-        _matrix_labels = self._sorting_order_columns(m, descending = _descending)
         x.sort_columns(descending = _descending)
+        _matrix_labels = self._sorting_order_columns(m, descending = _descending)
         _labels = self._get_labels_from_m_columns(m, descending = _descending)
         self.assertTrue(_labels.difference(_matrix_labels)  == set([]))
         print "test_sort_columns_descending", _labels
@@ -494,8 +494,8 @@ class Test(TestCase):
         m,x = _make_matrix()
         utilities.print_matrix(m)
         _descending = False
-        _matrix_labels = self._sorting_order_columns(m, descending = _descending)
         x.sort_columns(descending = _descending)
+        _matrix_labels = self._sorting_order_columns(m, descending = _descending)
         _labels = self._get_labels_from_m_columns(m, descending = _descending)
         self.assertTrue(_labels.difference(_matrix_labels)  == set([]))
         print "test_sort_columns_ascending", _labels
@@ -503,8 +503,8 @@ class Test(TestCase):
     def test_sort_columns_file_name(self):
         m,x = _make_matrix()
         _file_name = "utils\\file_name.txt"
-        _matrix_labels = self._sorting_order_columns(m, file_name = _file_name)
         x.sort_columns(file_name = _file_name)
+        _matrix_labels = self._sorting_order_columns(m, file_name = _file_name)
         _labels = self._get_labels_from_m_columns(m, file_name = _file_name)
         self.assertTrue(_labels.difference(_matrix_labels)  == set([]))
         print "test_sort_columns_file_name", _labels        
@@ -512,8 +512,8 @@ class Test(TestCase):
     def test_sort_columns_filename_invalid(self):
         m,x = _make_matrix()
         _file_name = "file_name.txt"
-        _matrix_labels = self._sorting_order_columns(m, file_name = _file_name)
         x.sort_columns(file_name = _file_name)
+        _matrix_labels = self._sorting_order_columns(m, file_name = _file_name)
         _labels = self._get_labels_from_m_columns(m, file_name = _file_name)
         self.assertTrue(_labels.difference(_matrix_labels)  == set([]))        
         print "test_sort_columns_filename_invalid", _labels        
@@ -521,8 +521,8 @@ class Test(TestCase):
     def test_sort_columns_filename_blank(self):
         m,x = _make_matrix()
         _file_name = "utils\\file_name_blank.txt"
-        _matrix_labels = self._sorting_order_columns(m, file_name = _file_name)
         x.sort_columns(file_name = _file_name)
+        _matrix_labels = self._sorting_order_columns(m, file_name = _file_name)
         _labels = self._get_labels_from_m_columns(m, file_name = _file_name)
         self.assertTrue(_labels.difference(_matrix_labels)  == set([]))        
         print "test_sort_columns_filename_blank", _labels        

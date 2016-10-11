@@ -24,34 +24,28 @@ class MatrixDataSortManipulator():
     the transformations package.
 
     Examples:
+    >>> import utils.slidesconf as slidesconf
     >>> import sorting
     >>> import utils.matrixfuncs as matrixfuncs
+    >>> import utils.utilities as utilities
     >>> m = matrixfuncs.create_test_matrix()
     >>> _my_class = sorting.MatrixDataSortManipulator(m)
-    >>> _my_class.sort_rows(by_column=2)
-    Nested dictionary from axis:  {0: {'NumericValue': '330.0', 'Label': 'Group: myRowGroup 0::: myRow 0'}, 1: {'NumericValue': '108.0', 'Label': 'Group: myRowGroup 1::: myRow 1'}, 2: {'NumericValue': '3.0', 'Label': 'Group: myRowGroup 2::: myRow 2'}, 3: {'NumericValue': '12.0', 'Label': 'Group: myRowGroup 3::: myRow 3'}, 4: {'NumericValue': '7.0', 'Label': 'Group: myRowGroup 4::: myRow 4'}}
-    <BLANKLINE>
+    >>> _my_class.sort_rows(by_column=1)
     >>> print m[0][0][0].Value
-    101
+    1
     >>> print m[0].Member.Label
-    myRow 0
+    myRow 2
     >>> _my_class.sort_columns(by_row=2)
-    Nested dictionary from axis:  {0: {'NumericValue': '1.0', 'Label': 'myColumn 0'}, 1: {'NumericValue': '102.0', 'Label': 'myColumn 1'}, 2: {'NumericValue': '3.0', 'Label': 'myColumn 2'}, 3: {'NumericValue': '4.0', 'Label': 'myColumn 3'}, 4: {'NumericValue': '5.0', 'Label': 'myColumn 4'}}
-    <BLANKLINE>
     >>> print m[0][0][0].Value
-    101
+    1
     >>> print m[0].Member.Label
-    myRow 0
-    >>> _my_class.sort_rows(client_name="Agree")
-    Nested dictionary from axis:  {0: {'NumericValue': '101.0', 'Label': 'Group: myRowGroup 0::: myRow 0'}, 1: {'NumericValue': '6.0', 'Label': 'Group: myRowGroup 1::: myRow 1'}, 2: {'NumericValue': '1.0', 'Label': 'Group: myRowGroup 2::: myRow 2'}, 3: {'NumericValue': '100.0', 'Label': 'Group: myRowGroup 3::: myRow 3'}, 4: {'NumericValue': '5.0', 'Label': 'Group: myRowGroup 4::: myRow 4'}}
-    <BLANKLINE>
+    myRow 2
+    >>> _my_class.sort_rows(client_name="myRow 4")
     >>> print m[0].Member.Label
-    myRow 0
+    myRow 4
     >>> _my_class.sort_rows(descending=False)
-    Nested dictionary from axis:  {0: {'NumericValue': '101.0', 'Label': 'Group: myRowGroup 0::: myRow 0'}, 1: {'NumericValue': '6.0', 'Label': 'Group: myRowGroup 1::: myRow 1'}, 2: {'NumericValue': '1.0', 'Label': 'Group: myRowGroup 2::: myRow 2'}, 3: {'NumericValue': '100.0', 'Label': 'Group: myRowGroup 3::: myRow 3'}, 4: {'NumericValue': '5.0', 'Label': 'Group: myRowGroup 4::: myRow 4'}}
-    <BLANKLINE>
     >>> print m[0].Member.Label
-    myRow 0
+    myRow 2
 
     """
 
@@ -94,20 +88,22 @@ class MatrixDataSortManipulator():
         
         if sort_row:
             for row in self.matrix:
+                
                 if row.Member.Group.Label != "":
-                    settings = FormatSettings(label_format="Group: {0.Group}::: {0.Label}")
+                    settings = FormatSettings(label_format="Group:{0.Group}::: {0.Label}")
                 else:
                     settings = FormatSettings(label_format="{0.Label}")
                 label = settings.label_format(row.Member)
-                row.Member.Label = label
+                row.Member.Label = unicode(label)
         else:
             for col in self.matrix[0]:
+                
                 if col.TopMember.Group.Label != "":
-                    settings = FormatSettings(label_format="Group: {0.Group}::: {0.Label}")
+                    settings = FormatSettings(label_format="Group:{0.Group}::: {0.Label}")
                 else:
                     settings = FormatSettings(label_format="{0.Label}")
                 label = settings.label_format(col.TopMember)
-                col.TopMember.Label = label
+                col.TopMember.Label = unicode(label)
 
     def _update_labels_remove_groups(self, sort_row):
         """Update the labels to remove the group labels added by
@@ -130,7 +126,7 @@ class MatrixDataSortManipulator():
                     try:
                         full_label = row.Member.Label.split("::: ")
                         row.Member.Label = full_label[1]
-                        _grp = full_label[0].split("Group: ")[1].split("::: ")[0]                        
+                        _grp = full_label[0].split("Group:")[1].split("::: ")[0]                        
                         row.Member.Group.Label = _grp
                     except:
                         pass
@@ -221,8 +217,8 @@ class MatrixDataSortManipulator():
                 if col.TopMember.IndentLevel == 2:
                     _make_dict(_dict[net_index][net_index2], member, val)
                 
-        print "Nested dictionary from axis: ", _dict
-        print ""
+        #print "Nested dictionary from axis: ", _dict
+        #print ""
 
         return _dict
 
@@ -337,8 +333,6 @@ class MatrixDataSortManipulator():
                     from utils.utilities import read_comma_separated_file
                     _keep_at_end = read_comma_separated_file(file_name)
                     
-                    print "_keep_at_end: ", _keep_at_end
-                    
                     if _keep_at_end is not None:
                         if sort_row:
                             _keep_end = [x for x in sorted_list for item
@@ -357,7 +351,7 @@ class MatrixDataSortManipulator():
                     print "Unable to read _file_name: " + file_name
 
         _find_keep_items(self)
-
+        
         return sorted_list
 
     def _reorder_rows_and_cols(self, matrix, sorted_list, sort_row):
@@ -370,19 +364,24 @@ class MatrixDataSortManipulator():
             for required_row in reversed(sorted_list):
                 # matrix labels will be rechecked on each iteration as the
                 # positions of the rows can move each time.
-                matrix_labels = [(r.Member.Label, r.Member.DataIndex)
-                                 for r in matrix]
+                matrix_labels = list()
+                i = 0  
+                # note DataIndex is not used (i used instead) due to matrixfuncs
+                # using a fake matrix which cannot reset DataIndex 
+                for r in matrix:
+                    matrix_labels.append((r.Member.Label, i))
+                    i += 1
                 
                 for r in matrix_labels:
                     label = required_row[1]
                     current_position = r[1]
-
                     if r[0] == label:
+                        
                         if current_position < new_position:
                             for _i in range(current_position, new_position):
                                 matrix.SwitchRows(_i, _i+1)
                         elif current_position > new_position:
-                            for i in reversed(range(new_position,
+                            for _i in reversed(range(new_position,
                                                     current_position)):
                                 matrix.SwitchRows(_i+1, _i)                        
                 new_position -= 1
@@ -392,8 +391,11 @@ class MatrixDataSortManipulator():
             for required_col in reversed(sorted_list):
                 # matrix labels will be rechecked on each iteration as the
                 # positions of the columns can move each time.
-                matrix_labels = [(c.TopMember.Label, c.TopMember.DataIndex)
-                                 for c in matrix[0]]
+                matrix_labels = list()
+                i = 0
+                for c in matrix[0]:
+                    matrix_labels.append((c.TopMember.Label, i))
+                    i += 1
                 
                 for c in matrix_labels:
                     label = required_col[1]

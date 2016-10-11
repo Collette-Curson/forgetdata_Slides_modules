@@ -16,22 +16,23 @@ class MatrixCategoryManipulator():
     transformations package
 
     Examples:
+    >>> import utils.slidesconf as slidesconf
     >>> import categories as Categories
     >>> import utils.matrixfuncs as matrixfuncs
     >>> m = matrixfuncs.create_test_matrix()
     >>> _my_class = Categories.MatrixCategoryManipulator(m)
     >>> print _my_class.get_category_labels()  #taken from categories module
-    ['myColumn 0', 'myColumn 1', 'myColumn 2', 'myColumn 3', 'myColumn 4']
+    [u'myColumn 0', u'myColumn 1', u'myColumn 2', u'myColumn 3', u'myColumn 4']
     >>> print _my_class.get_category_base_summary()
     myColumn 0: 101, myColumn 1: 20, myColumn 2: 330, myColumn 3: 102, myColumn 4: 51
     >>> _my_class.select_categories(["myColumn 1"])
     >>> print _my_class.get_category_labels()
-    ['myColumn 0', 'myColumn 1', 'myColumn 2', 'myColumn 3', 'myColumn 4']
+    [u'myColumn 1']
     >>> m = matrixfuncs.create_test_matrix()
     >>> _my_class = Categories.MatrixCategoryManipulator(m)
     >>> _my_class.del_categories(["myColumn 1"])
     >>> print _my_class.get_category_labels()
-    ['myColumn 0', 'myColumn 1', 'myColumn 2', 'myColumn 3', 'myColumn 4']
+    [u'myColumn 0', u'myColumn 2', u'myColumn 3', u'myColumn 4']
 
     """
 

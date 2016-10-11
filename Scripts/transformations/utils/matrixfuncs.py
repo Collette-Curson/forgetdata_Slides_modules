@@ -223,11 +223,14 @@ def make_fake_matrix(arr):
         def __str__(self):
             return self.Label
          
+        def __repr__(self):
+            return self.Label
+        
         def GetNumericValue(self):
             return self.NumericValue
         
         def DataIndex(self):
-            return 0
+            pass
         
     class MyStringContainer(object):
         
@@ -246,6 +249,9 @@ def make_fake_matrix(arr):
         def __str__(self):
             return self.Label
         
+        def __repr__(self):
+            return self.Label
+        
         pass 
     
     class MyList(list):
@@ -255,6 +261,12 @@ def make_fake_matrix(arr):
 
         def __str__(self):
             return self.Label
+        
+        def Name(self):
+            return self.Label
+        
+        #def __repr__(self):
+        #    return self.Label
         
         def Name(self):
             return str()
@@ -275,26 +287,67 @@ def make_fake_matrix(arr):
         def Group(self):
             return MyList()
         
+        def TopAxis(self):
+            return Container()
+        
+        def SideAxis(self):
+            return Container()
+        
         def AddNew(self,a,b,c):
             return MyList()
         
         def SwitchRows(self,a,b):
-            pass
+            sorted_list = sorted([a,b])
+            min = sorted_list[0]
+            max = sorted_list[1]
+            
+            self.insert(max, self[min])
+            self.insert(min, self[max+1])
+            self.pop(min+1)
+            self.pop(max+1) 
+            
         
         def SwitchColumns(self,a,b):
-            pass
-        
-        def DeleteRow(self, val):
-            self.pop(val)
-        
-        def DeleteColumn(self, val):
+            sorted_list = sorted([a,b])
+            min = sorted_list[0]
+            max = sorted_list[1]
+            
+            self.TopAxis.DataMembers.insert(max, self.TopAxis.DataMembers[min])
+            self.TopAxis.DataMembers.insert(min, self.TopAxis.DataMembers[max+1])
+            self.TopAxis.DataMembers.pop(min + 1)
+            self.TopAxis.DataMembers.pop(max + 1)
+            
+            for i in range(0, self.__len__()):
+                self[i].insert(max, self[i][min])
+                self[i].insert(min, self[i][max+1])
+                self[i].pop(min+1)
+                self[i].pop(max+1)
+                
+        def DeleteRow(self, val):            
             self.pop(val)
             
+        def DeleteColumn(self, val):
+            self.TopAxis.DataMembers.pop(val)
+            for i in range(0, self.__len__()):
+                self[i].pop(val)
+           
+            
         def InsertBlankRowAfter(self,a,b,c):
-            return 0
+            '''self.SideAxis.DataMembers.insert(a.DataIndex, c)
+            self.insert(a.DataIndex, c)
+            '''
+            pass
         
         def InsertBlankColumnAfter(self,a,b,c):
-            return 0
+            '''
+            self.TopAxis.DataMembers.insert(a.DataIndex,c)
+            for i in range(0,self.Count):
+                self[i].insert(a.DataIndex, c)
+                self[i][a.DataIndex+1]=MyList()
+                self[i][a.DataIndex+1].append(Container())
+            return a.DataIndex +1
+            '''
+            pass
         
         def RemoveValueAt(self,a):
             pass
@@ -304,6 +357,7 @@ def make_fake_matrix(arr):
         
         def AddValue(self,a,b):
             pass
+        
         pass
     
     matrix = MyList()
@@ -312,73 +366,82 @@ def make_fake_matrix(arr):
     cols = arr[0].__len__()
     cellitems = 1 
     
-    
     matrix.SideAxis = Container()
-    matrix.SideAxis.DataMembers = MyList()
-    
+    matrix.SideAxis.DataMembers = MyList()    
     matrix.SideAxis.DataMembers.Count = rows
-    matrix.SideAxis.DataMembers = MyList()
     
+    matrix.SideAxis.Groups = MyList()
+    matrix.SideAxis.Groups.append(Container())
+    matrix.SideAxis.Groups.Count = 1
     
     for i in range(0, rows):
         matrix.Count = rows
         matrix.SideAxis.DataMembers.append(Container())
         matrix.SideAxis.DataMembers[i].Label = str()
-        matrix.SideAxis.DataMembers[i].Group = MyList()
+        matrix.SideAxis.DataMembers[i].Group = matrix.SideAxis.Groups[0]
         matrix.SideAxis.DataMembers[i].Group.Label = str()
         matrix.SideAxis.DataMembers[i].MemberSigTestHeading = str()
-        matrix.SideAxis.Groups = MyList()
-        matrix.SideAxis.Groups.Count = 1
-          
     
     matrix.TopAxis = Container()  
     matrix.TopAxis.DataMembers = MyList()
     matrix.TopAxis.DataMembers.Count = cols
     
+    
+    matrix.TopAxis.Groups = MyList()
+    matrix.TopAxis.Groups.append(Container())
+    matrix.TopAxis.Groups.Count = 1
+    
     for j in range(0, cols):        
-        matrix.TopAxis.DataMembers.append(Container())
+        matrix.TopAxis.DataMembers.append(MyList())
         matrix.TopAxis.DataMembers[j].Label = str()
-        matrix.TopAxis.DataMembers[j].Group = MyList()
+        matrix.TopAxis.DataMembers[j].Group = matrix.TopAxis.Groups[0]
         matrix.TopAxis.DataMembers[j].Group.Label = str()
         matrix.TopAxis.DataMembers[j].MemberSigTestHeading = str()
-        matrix.TopAxis.Groups = MyList()
-        matrix.TopAxis.Groups.Count = 1
         
-          
     for i in range(0, rows): # rows
         matrix.append(MyList())
-        matrix[i].Member = Container()
-        matrix[i].Member.Label = str()
+        #matrix[i] = MyList()
+        matrix[i].Member = matrix.SideAxis.DataMembers[i]
+        
+        matrix[i].TopAxis = matrix.TopAxis
+        matrix[i].TopAxis.DataMembers = matrix.TopAxis.DataMembers
+        #matrix[i].Member.Label = str()
         matrix[i].Member.DataIndex = i
         matrix[i].Member.IndentLevel = 0
-        matrix[i].Member.Group = MyList()
+        matrix[i].Member.Group = matrix.SideAxis.Groups[0]
         matrix[i].Member.Group.Label = matrix.SideAxis.DataMembers[i].Group.Label
         
         for j in range(0, cols): # columns
             matrix[i].append(MyList()) # appeand for each col
-            matrix[i][j].Count = cols
-            matrix[i][j].TopMember = Container()
-            matrix[i][j].TopMember.Label = matrix.TopAxis.DataMembers[j].Label
+            #matrix[i][j] = matrix[i].TopAxis.DataMembers[j]
+            #matrix[i][j].Count = cols
+            matrix[i][j].TopMember = matrix.TopAxis.DataMembers[j] # Container()
+            #matrix[i][j].TopMember.Label = matrix.TopAxis.DataMembers[j].Label
+            
             matrix[i][j].TopMember.DataIndex = j
             matrix[i][j].TopMember.IndentLevel = 0
-            matrix[i][j].TopMember.Group = MyList()
-            matrix[i][j].TopMember.Group.Label = matrix.TopAxis.DataMembers[j].Group.Label
-            matrix[i][j].SideMember = Container()
-            matrix[i][j].SideMember.Label = matrix.SideAxis.DataMembers[i].Label
-            matrix[i][j].SideMember.Group = MyList()
-            matrix[i][j].SideMember.Group.Label = matrix.SideAxis.DataMembers[i].Group.Label
+            matrix[i][j].TopMember.Group = matrix.TopAxis.Groups[0] #MyList()
+            #matrix[i][j].TopMember.Group.Label = matrix.TopAxis.DataMembers[j].Group.Label
+            matrix[i][j].SideMember = matrix.SideAxis.DataMembers[i] #Container()
+            #matrix[i][j].SideMember.Label = matrix.SideAxis.DataMembers[i].Label
+            matrix[i][j].SideMember.Group =  matrix.SideAxis.Groups[0] #MyList()
+            #matrix[i][j].SideMember.Group.Label = matrix.SideAxis.DataMembers[i].Group.Label
             matrix[i][j].SigTestResult = str()
             
-            for k in range(0, cellitems): # cells
-                matrix[i][j].append(Container())
-                matrix[i][j][k].Count = cellitems
-                matrix[i][j][k].Value = str(arr[i][j])
-                matrix[i][j][k].Label = str(arr[i][j])
-                #matrix[i][j][k].GetNumericValue()
-                matrix[i][j][k].NumericValue = float(arr[i][j])
-                #matrix[i][j][k].FormatString() = "0"
-    
-    matrix.Header = MyStringContainer()
+            matrix[i][j].append(Container())
+            
+    for i in range(0, rows): # rows
+        for j in range(0, cols): # columns
+            # 1 cell item
+            
+            matrix[i][j][0].Count = 1
+            matrix[i][j][0].Value = unicode(arr[i][j])
+            matrix[i][j][0].Label = str(arr[i][j])
+            #matrix[i][j][k].GetNumericValue()
+            matrix[i][j][0].NumericValue = float(str(arr[i][j]))
+            #matrix[i][j][k].FormatString() = "0"
+
+    matrix.Header = MyStringContainer() 
     matrix.Footer = MyStringContainer()
     
     return matrix
@@ -393,17 +456,20 @@ def create_test_matrix():
 
     try:
         #fails #when running doctest via readthedocs.
+        import slidesconf
         Matrix = matrixFromArray(a)
+        #print "matrixFromArray failed as slidesconf not imported"
     except:
         Matrix = make_fake_matrix(a)
     
     for row in Matrix:
-        row.Member.Label = "myRow " + str(row.Member.DataIndex)
-        row.Member.Group.Label = "myRowGroup " + str(row.Member.DataIndex)
+        row.Member.Label = u"myRow " + str(row.Member.DataIndex)
+        row.Member.Group.Label = u"myRowGroup " + str(row.Member.DataIndex)
         
     for col in range(0, Matrix.TopAxis.DataMembers.Count):
-        Matrix.TopAxis.DataMembers[col].Label = "myColumn " + str(col)
-        Matrix.TopAxis.DataMembers[col].Group.Label = "myColumnGroup " + str(col)
+        Matrix.TopAxis.DataMembers[col].Label = u"myColumn " + str(col)
+        Matrix.TopAxis.DataMembers[col].Label
+        Matrix.TopAxis.DataMembers[col].Group.Label = u"myColumnGroup " + str(col)
     
     for i in range(0, Matrix.Count):
         for j in range(0, Matrix.TopAxis.DataMembers.Count):
@@ -419,11 +485,12 @@ def create_test_matrix():
                 Matrix.SideAxis.DataMembers[i].Group.Label = Matrix[i][j].SideMember.Group.Label 
     
     
-    Matrix.Header.Left = "Header Left"
-    Matrix.Header.Right = "Header Right"
-    Matrix.Footer.Left = "Footer Left"
-    Matrix.Footer.Right = "Footer Right"
-    Matrix.Label = "Matrix Label"
+    Matrix.Header.Left = u"Header Left"
+    Matrix.Header.Right = u"Header Right"
+    Matrix.Footer.Left = u"Footer Left"
+    Matrix.Footer.Right = u"Footer Right"
+    Matrix.Label = u"Matrix Label"
+    Matrix.Name = u"Matrix Label"
     
     return Matrix
 

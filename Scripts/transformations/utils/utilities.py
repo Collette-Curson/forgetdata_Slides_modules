@@ -89,9 +89,10 @@ def print_matrix(matrix,colWidth=11,maxWidth=80):
     header = ("X" * colFmtWidth) + "|"
 
     for top in matrix.TopAxis.DataMembers:
-        if top.MemberSigTestHeading != "":
-            stat = " (" + top.MemberSigTestHeading + ")"
-        else:
+        try:
+            if top.MemberSigTestHeading != "":
+                stat = " (" + top.MemberSigTestHeading + ")"
+        except:
             stat = ""
         header += stringFmt % ( top.Label ) + stat + "|"
 
