@@ -92,8 +92,11 @@ def print_matrix(matrix,colWidth=11,maxWidth=80):
         try:
             if top.MemberSigTestHeading != "":
                 stat = " (" + top.MemberSigTestHeading + ")"
+            else:
+                stat = ""
         except:
             stat = ""
+            
         header += stringFmt % ( top.Label ) + stat + "|"
 
     print header

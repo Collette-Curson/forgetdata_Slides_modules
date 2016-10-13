@@ -4,7 +4,6 @@ modules into one class called MatrixManipulator.
 """
 
 import utils.slidesconf as slidesconf
-import utils.utilities as utilities
 
 from series import MatrixSeriesManipulator as Series
 from categories import MatrixCategoryManipulator as Categories
@@ -24,40 +23,28 @@ class MatrixManipulator(Series, Categories, Data, PptxData):
     
     _my_class = MatrixManipulator(Matrix)
 
-    Examples from Script:
+    Examples:
     
     >>> import utils.matrixfuncs as matrixfuncs
     >>> m = matrixfuncs.create_test_matrix()
     >>> _my_class = MatrixManipulator(m)
-    >>> utilities.print_matrix(m)
-    <BLANKLINE>
-    Label : None
-    XXXXXXXXXX|myColumn 0|myColumn 1|myColumn 2|myColumn 3|myColumn 4|
-    ==================================================================
-       myRow 0|         4|        20|        33|       102|        51|
-       myRow 1|         6|         7|       108|         9|        10|
-       myRow 2|         1|       102|         3|         4|         5|
-       myRow 3|       100|        10|        12|        13|        14|
-       myRow 4|         5|         6|         7|         8|       109|
-    Matrix Label =  
     >>> print _my_class.get_series_labels()  #taken from series module
     [u'myRow 0', u'myRow 1', u'myRow 2', u'myRow 3', u'myRow 4']
     >>> print _my_class.get_category_labels() #taken from categories module
     [u'myColumn 0', u'myColumn 1', u'myColumn 2', u'myColumn 3', u'myColumn 4']
     >>> print _my_class.get_series_base_summary() 
-    myRow 0: 4, myRow 1: 6, myRow 2: 1, myRow 3: 100, myRow 4: 5
+    myRow 0: 101, myRow 1: 6, myRow 2: 1, myRow 3: 100, myRow 4: 5
     >>> print _my_class.get_category_base_summary()
-    myColumn 0: 4, myColumn 1: 20, myColumn 2: 33, myColumn 3: 102, myColumn 4: 51
+    myColumn 0: 101, myColumn 1: 20, myColumn 2: 330, myColumn 3: 102, myColumn 4: 51
     >>> _my_class.get_data_values() #taken from data module
-    [u'4', u'20', u'33', u'102', u'51', u'6', u'7', u'108', u'9', u'10', u'1', u'102', u'3', u'4', u'5', u'100', u'10', u'12', u'13', u'14', u'5', u'6', u'7', u'8', u'109']
+    [u'101', u'20', u'330', u'102', u'51', u'6', u'7', u'108', u'9', u'10', u'1', u'102', u'3', u'4', u'5', u'100', u'10', u'12', u'13', u'14', u'5', u'6', u'7', u'8', u'109']
     
     """
     
     def __init__(self, matrix):
         """Functions for formatting labels or data cells"""
-
         self.matrix = matrix
-    pass
+    
 
 if __name__ == "__main__":
     import doctest
