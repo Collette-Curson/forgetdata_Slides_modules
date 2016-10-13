@@ -24,7 +24,6 @@ class MatrixDataSortManipulator():
     the transformations package.
 
     Examples:
-    >>> import utils.slidesconf as slidesconf
     >>> import sorting
     >>> import utils.matrixfuncs as matrixfuncs
     >>> import utils.utilities as utilities

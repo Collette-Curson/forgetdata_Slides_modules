@@ -17,7 +17,6 @@ class MatrixSeriesManipulator():
     transformations package
 
     Examples:
-    >>> import utils.slidesconf as slidesconf
     >>> import series as Series
     >>> import utils.matrixfuncs as matrixfuncs
     >>> m = matrixfuncs.create_test_matrix()

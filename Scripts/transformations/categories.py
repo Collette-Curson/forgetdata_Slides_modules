@@ -16,7 +16,6 @@ class MatrixCategoryManipulator():
     transformations package
 
     Examples:
-    >>> import utils.slidesconf as slidesconf
     >>> import categories as Categories
     >>> import utils.matrixfuncs as matrixfuncs
     >>> m = matrixfuncs.create_test_matrix()
