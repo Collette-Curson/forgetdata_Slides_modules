@@ -114,7 +114,7 @@ class MatrixCategoryManipulator():
         """
 
         try:
-            return [grp.Label for grp in matrix.TopAxis.Groups]
+            return [_grp.Label for _grp in matrix.TopAxis.Groups]
         except:
             logger("Index Error: Index was out of range")
 
@@ -150,8 +150,8 @@ class MatrixCategoryManipulator():
         from labels.format_labels import FormatSettings
         settings = FormatSettings(
             label_format="{0.TopMember.Label} (n={0[0].Value})")
-        for c in matrix[0]:
-            c.TopMember.Label = settings.label_format(c) if c.Count > 0 else ""
+        for _c in matrix[0]:
+            _c.TopMember.Label = settings.label_format(_c) if _c.Count > 0 else ""
         matrix.DeleteRow(0)
 
     @wrap_matrix_logger_format
@@ -174,9 +174,8 @@ class MatrixCategoryManipulator():
         settings = FormatSettings(
             label_format=label_format, cell_format=cell_format)
         if label_format != "{0}":
-            for c in matrix[0]:
-                c.TopMember.Label = settings.label_format(
-                    c) if c.Count > 0 else ""
+            for _c in matrix[0]:
+                _c.TopMember.Label = settings.label_format(_c) if _c.Count > 0 else ""
 
     @wrap_matrix_logger_format
     def set_category_groups_formatted_labels(
@@ -198,8 +197,8 @@ class MatrixCategoryManipulator():
         settings = FormatSettings(
             label_format=label_format, cell_format=cell_format)
         if label_format != "{0}":
-            for grp in matrix.TopAxis.Groups:
-                grp.Label = settings.label_format(grp)
+            for _grp in matrix.TopAxis.Groups:
+                _grp.Label = settings.label_format(_grp)
 
     # Other functions for Selecting or Deleting
     @wrap_matrix_logger
@@ -472,6 +471,9 @@ class MatrixCategoryManipulator():
         _member = matrix[0][column_number].TopMember
         _name = "new_column" + str(column_number)
         _new_column = matrix.InsertBlankColumnAfter(_member, _name, label)
+        
+        import utils.utilities as utilities
+        utilities.print_matrix(matrix)
         matrix.SwitchColumns(_member.DataIndex, _new_column.DataIndex)
 
 

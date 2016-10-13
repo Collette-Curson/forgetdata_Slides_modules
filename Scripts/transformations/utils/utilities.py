@@ -113,9 +113,12 @@ def print_matrix(matrix,colWidth=11,maxWidth=80):
         strRow = stringFmt % row.Member.Label +  "|"
 
         for cell in row:
-            if cell.SigTestResult != "":
-                statResult = " (" + cell.SigTestResult + ")"
-            else:
+            try:
+                if cell.SigTestResult != "":
+                    statResult = " (" + cell.SigTestResult + ")"
+                else:
+                    statResult = ""
+            except:
                 statResult = ""
             if(cell.Count == 0):
                 strRow +=stringFmt % ""
