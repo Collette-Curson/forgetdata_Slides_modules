@@ -23,8 +23,8 @@ class PowerPointDataManipulator():
     selection is applied. 
     
     Examples:
-    >>> import transformations.pptx_data as Pptx_data
-    >>> import transformations.utils.matrixfuncs as matrixfuncs
+    >>> import pptx_data as Pptx_data
+    >>> import utils.matrixfuncs as matrixfuncs
     >>> m = matrixfuncs.create_test_matrix()
     >>> prefill_matrix = matrixfuncs.create_test_matrix()## TODO update this
     >>> Shape = "shape"  ## TODO update this
