@@ -3,5 +3,5 @@ forgetdata Slides modules and documentation
 
 These modules work with forgetdata Ltd's Slides v4.2 or later.
 
-Documentation can be found on readthedocs - https://readthedocs.org/projects/slides-packaged-modules/
+Documentation can be found on readthedocs - http://readthedocs.org/projects/forgetdata-slides-modules/
 
