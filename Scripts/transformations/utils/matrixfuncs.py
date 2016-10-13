@@ -511,7 +511,7 @@ def create_test_matrix():
            [5,6,7,8,109]]
 
     try:
-        fails #when running doctest via readthedocs.
+        #fails #when running doctest via readthedocs.
         import slidesconf
         Matrix = matrixFromArray(a)
         #print "matrixFromArray failed as slidesconf not imported"
