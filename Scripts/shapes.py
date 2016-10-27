@@ -43,8 +43,9 @@ def find_shape(Shapes, shape_name):
     | else:
     |     break
 
-    param: Shapes: PowerPoint Shapes.
-    param: shape_name: Text name of the shape.
+
+    :param Shapes: PowerPoint Shapes.
+    :param shape_name: Text name of the shape.
     
     """
 
