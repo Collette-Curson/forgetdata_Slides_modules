@@ -236,9 +236,10 @@ def make_topN_shapes_on_chart(Chart, Matrix, list_of_topN_scores):
         This function assumes that the shape_name exists, and they are moved one 
         at a time using a script. For example:
     
-        for i in range(1,Matrix.TopAxis.DataMembers.Count + 1):
-            shape_name = "Rectangle " + str(i)
-            charts.align_topN_shape(shape_name, i,list_of_topN_scores[i])
+        | list_of_topN_scores = ['10.3%', '12.5%', '8.7%', '29.6%', '22.2%', '30.0%']
+        | for i in range(1,Matrix.TopAxis.DataMembers.Count + 1):
+        |     shape_name = "Rectangle " + str(i)
+        |     charts.align_topN_shape(shape_name, i,list_of_topN_scores[i])
       
         """
 
