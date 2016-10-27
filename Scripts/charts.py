@@ -156,7 +156,7 @@ def convert_glyphs_to_color_wingdings(Chart, Matrix=None):
     display the correct character values, chr(0xE9), chr(0xEA).
     
     For example, convert_significance_results_to_arrows() in
-    transformations\\data.py.
+    "transformations\\data.py".
 
     """
 
