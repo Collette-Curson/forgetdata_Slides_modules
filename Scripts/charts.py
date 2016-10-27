@@ -155,12 +155,21 @@ def convert_glyphs_to_color_wingdings(Chart, Matrix=None, rgb = list()):
     :param rgb: list containing RGB values. Default is [255,255,255], which
                 will display as white.
     
-    Used in conjunction with a transformation script which sets the significant
-    results to display the correct character values, chr(0xE9), chr(0xEA).
+    Used in conjunction with a transformation script, 
+    convert_significance_results_to_arrows, which sets the significant
+    results to display the character values, chr(0xE9), chr(0xEA) which will
+    then be converted into arrows when this function is run.
     
-    For example, convert_significance_results_to_arrows() in
-    "transformations\\data.py".
-
+    Example, in the transformations script:
+    
+    | tr = transformations.MatrixManipulator(Matrix)
+    | tr.convert_significance_results_to_arrows()
+    
+    And in the afterfill action:
+    
+    | import charts
+    | charts.convert_glyphs_to_color_wingdings(Chart, Matrix, rgb=[0,0,0])
+    
     """
 
     if Matrix is None:
