@@ -146,14 +146,17 @@ def set_colors_on_chart(Chart, Matrix, fileName=None):
     _set_colours()
 
 
-def convert_glyphs_to_color_wingdings(Chart, Matrix=None):
+def convert_glyphs_to_color_wingdings(Chart, Matrix=None, rgb = list()):
     r"""Convert your significant results into up and down arrows within the
     chart.
 
     :param Chart: Chart shape
+    :param Matrix: Matrix associated with the selection, default = None
+    :param rgb: list containing RGB values. Default is [255,255,255], which
+                will display as white.
     
-    Used in conjunction with a script which sets the significant results to
-    display the correct character values, chr(0xE9), chr(0xEA).
+    Used in conjunction with a transformation script which sets the significant
+    results to display the correct character values, chr(0xE9), chr(0xEA).
     
     For example, convert_significance_results_to_arrows() in
     "transformations\\data.py".
@@ -182,7 +185,10 @@ def convert_glyphs_to_color_wingdings(Chart, Matrix=None):
                     if sig == character:
                         _char = _pt.DataLabel.Characters(i, 1)
                         _char.Font.Name = "Wingdings"
-                        _char.Font.Color = RGB(255, 255, 255)
+                        if rgb != []: # user defined
+                            _char.Font.Color = RGB(rgb[0], rgb[1], rgb[2]) 
+                        else:
+                            _char.Font.Color = RGB(255, 255, 255) #white
                 i += 1
             _pointNumber += 1
     Log.Info("Updated arrows to Wingdings")
