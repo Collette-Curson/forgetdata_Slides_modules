@@ -7,7 +7,8 @@ __version__ = '4.3.0'
 
 
 def set_bg_image_and_size(_image_file_path, Shape=None):
-    r"""Set the background of the shape to the image passed in, and resize.
+    r"""Set the background of the shape to the image passed in, and resize the
+    shape to the size of the image.
 
     Example:
 
@@ -96,7 +97,7 @@ def set_bg_image(_image_file_path, Shape=None):
 
 
 def set_bg_picture_center_tile(_image_file_path, Shape):
-    r"""Centres the Background image within the shape, and tile.
+    r"""Centre the Background image within the shape, and tile.
 
     Rescale the image to the current shape.
 
