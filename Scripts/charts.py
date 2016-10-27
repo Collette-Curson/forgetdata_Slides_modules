@@ -8,15 +8,15 @@ __version__ = '4.3.0'
 
 def set_colors_on_chart(Chart, Matrix, fileName=None):
     """Assign a specific color to each brand within a column, bar, pie, line
-    chart, based upon an input text file.
+    chart, based upon values in an input text file.
 
-    It is often used when a chart has been sorted as the display order will be
-    updated between refreshes of data.
+    This function is often used when a chart has been sorted as the display
+    order will be updated between refreshes of data.
     
     :param Chart: Chart shape
     :param Matrix: Matrix associated with the Chart
-    :param fileName: path and file containing the colours to be used for the
-                   chart for each series.
+    :param fileName: path and file containing the brands and colours to be used
+                   for the chart series.
 
     The script expects an input file to be passed as a parameter, or else will
     use "colors.txt" in the same folder as the pptx file, and contains the
@@ -147,7 +147,7 @@ def set_colors_on_chart(Chart, Matrix, fileName=None):
 
 
 def convert_glyphs_to_color_wingdings(Chart, Matrix=None):
-    """Convert your significant results into up and down arrows within the
+    r"""Convert your significant results into up and down arrows within the
     chart.
 
     :param Chart: Chart shape
@@ -156,7 +156,7 @@ def convert_glyphs_to_color_wingdings(Chart, Matrix=None):
     display the correct character values, chr(0xE9), chr(0xEA).
     
     For example, convert_significance_results_to_arrows() in
-    transformations\data.py.
+    transformations\\data.py.
 
     """
 
@@ -189,19 +189,20 @@ def convert_glyphs_to_color_wingdings(Chart, Matrix=None):
 
 def make_topN_shapes_on_chart(Chart, Matrix, list_of_topN_scores):
     """Make and align TopN text shapes within the chart to the top or side of
-    each category column or bar within a clustered or stacked chart.
+    each category column or bar, within a clustered or stacked chart.
     
     The topN text shape will be placed outside the top or side of the plot area, 
     within the chart shape.  
     
     :param Chart: Chart shape
     :param Matrix: Matrix associated with the Chart
-    :param list_of_topN_scores: the Top N scores from the Matrix, or calculated
+    :param list_of_topN_scores: the Top N scores from either within the Matrix,
+                                or calculated from existing rows of the Matrix.
 
     For example:
     
     | list_of_topN_scores = ['10.3%', '12.5%', '8.7%', '29.6%', '22.2%', '30.0%']
-    | charts.make_topN_shapes_on_chart(Chart, Matrix, globallist_of_top2)
+    | charts.make_topN_shapes_on_chart(Chart, Matrix, list_of_topN_scores)
     
     """
     
