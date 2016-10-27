@@ -163,6 +163,7 @@ def convert_glyphs_to_color_wingdings(Chart, Matrix=None):
     if Matrix is None:
         from globals import Matrix
     from globals import Log
+    from shapes import RGB
 
     _series_collections = Chart.SeriesCollection()
 
