@@ -256,8 +256,22 @@ def make_fake_matrix(arr):
             return self.Label
         
         def Name(self):
-            return self.Label        
+            return self.Label    
+        
+        def AddNew(self,a,b,c):
+            return MyList()
+        
+        def AddNewMember(self,a,b,c,d,e):
+            member = Container()
+            member.Label = a          
+            return member
+            
+        def AddValue(self,a,b):
+            pass
 
+        def RemoveValueAt(self,a):
+            self.pop(a)
+        
     class AddAxis(MyList):
             
         class TopAxis():
@@ -267,9 +281,6 @@ def make_fake_matrix(arr):
         class SideAxis():
             def __init__(self):
                 self = Container()
-    
-        def AddNew(self,a,b,c):
-            return MyList()
         
         def SwitchRows(self,a,b):
             sorted_list = sorted([a,b])
@@ -281,7 +292,6 @@ def make_fake_matrix(arr):
             self.pop(min+1)
             self.pop(max+1) 
             
-        
         def SwitchColumns(self,a,b):
             sorted_list = sorted([a,b])
             min = sorted_list[0]
@@ -306,9 +316,7 @@ def make_fake_matrix(arr):
             for i in range(0, self.__len__()):
                 self[i].pop(val)
            
-            
         def InsertBlankRowAfter(self,a,b,c):
-            
             index = a.DataIndex + 1
             self.insert(index, MyList())
             
@@ -327,11 +335,9 @@ def make_fake_matrix(arr):
                 self[index][i].append(MyList())
                 self[index][i][0]= Container()
                 self[index][i][0]= Label = str()
-            
             return self[index].Member
         
         def InsertBlankColumnAfter(self,a,b,c):
-            
             index = a.DataIndex + 1
             for i in range(0, self.Count):
                 self[i].insert(index, MyList())
@@ -348,13 +354,7 @@ def make_fake_matrix(arr):
             self.TopAxis.DataMembers[index].Label = c
             self.TopAxis.DataMembers[index].DataIndex = index
             self.TopAxis.DataMembers[index].Count = 0 
-            
             return self[0][index].TopMember
-        
-        
-        def RemoveValueAt(self,a):
-            self.pop(a)
-    
     
     def AddGroups(axis):
         axis.Groups = MyList()
@@ -362,7 +362,6 @@ def make_fake_matrix(arr):
         axis.Groups.Count = 1
         axis.Groups[0].SortIndex = 1
         axis.Groups[0].Label = str()
-        
         return axis.Groups
          
     def AddDataMembers(axis,num):
@@ -377,7 +376,6 @@ def make_fake_matrix(arr):
             axis.DataMembers[i].DataIndex = i
             axis.DataMembers[i].IndentLevel = 0
             axis.DataMembers[i].SortIndex = i
-        
         return axis.DataMembers
     
     def AddMembers(axis, rows, cols):
@@ -401,8 +399,6 @@ def make_fake_matrix(arr):
                 axj[0].Label = str(arr[i][j])
                 axj[0].NumericValue = float(str(arr[i][j]))
                 axj[0].FormatString = "0"
-         
-        
                    
     rows = arr.__len__()
     cols = arr[0].__len__()
@@ -435,7 +431,7 @@ def create_test_matrix():
            [5,6,7,8,109]]
 
     try:
-        fails #when running doctest via readthedocs.
+        #fails #when running doctest via readthedocs.
         import slidesconf
         Matrix = matrixFromArray(a)
         #print "matrixFromArray failed as slidesconf not imported"
