@@ -7,10 +7,11 @@ __version__ = '4.3.0'
 
 
 def add_group_names_to_table_column_header(Table, Matrix=None):
-    """Adds group names to first row, and merges the headings per group.
+    """Add group names to first row table, and merge the heading cells within
+    this row, where the headings match.
 
-    NOTE: This MUST be run with delete_table_row_before_fill() which will
-    delete any previous cell merging from the table.  Otherwise the cell
+    NOTE: This function MUST be run with delete_table_row_before_fill() which
+    will delete any previous cell merging from the table.  Otherwise the cell
     merges will be applied to the rows of the filled table.
 
     :param Table: Table shape
@@ -61,10 +62,11 @@ def add_group_names_to_table_column_header(Table, Matrix=None):
 
 
 def replace_row_labels_with_group_names(Table, Matrix=None):
-    """Pre-pend every row in the table with the Group Name.
+    """Prepend every row in the table with the Group Name.
 
-    This is typically used with making a summary table, for example displaying
-    Top 2 scores from a selection of scores or tables.
+    This function is typically used when making a summary table, for example,
+    displaying Top 2 scores from a selection of scores or tables. Rather than
+    displaying Top 2 for each row, display the group label.
 
     :param Table: Table shape
     :param Matrix: Matrix associated with the Table. Default is None
@@ -165,11 +167,11 @@ def insert_rows_for_group_labels(Table, Matrix=None):
 
 
 def delete_table_row_before_fill():
-    """Manipulate the table before it is filled.
-    Delete first row so that any merged cells are removed before the fill.
+    """Manipulate the table before it is filled. Delete first row so that any
+    merged cells are removed before the fill.
 
-    NOTE: This needs to be run from the transformations script, and is run
-    before any script that will merge cells in the first row.
+    NOTE: This needs to be run from the transformations script (not after fill),
+    and is run before any script that will merge cells in the first row.
     
     Note, the Table object is not available from the Transformation
     script, and therefore the active object is used to find the Table.
@@ -187,7 +189,7 @@ def delete_table_row_before_fill():
 
 def indent_net_items(Table, Matrix=None):
     """Indent Net items within a table. Supported up to 1 level of net in the 
-    axis
+    axis.
     
     :param Table: Table shape
     :param Matrix: Matrix associated with the Table. Default is None
