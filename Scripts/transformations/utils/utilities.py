@@ -8,7 +8,7 @@ def read_comma_separated_file(_file_name, val = None):
     
     """
     
-    from logger import import logger
+    from logger import logger
 
     import _csv
     global _f

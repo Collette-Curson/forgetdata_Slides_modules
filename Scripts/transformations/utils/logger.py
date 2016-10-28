@@ -2,7 +2,7 @@ from functools import wraps
 import inspect
 import warnings
 
-def wrap_func_names(func):
+def _wrap_func_names(func):
     # Return a list of calling functions in hierarchical order.
     # Used for logging purposes.
     @wraps(func)
@@ -27,7 +27,7 @@ def wrap_func_names(func):
                 return func(str(_calling_func_names), *args, **kwargs)
     return func_wrapper
 
-@wrap_func_names
+@_wrap_func_names
 def logger(*args):
     """Logging functions for writing Log.* messages when run from within PowerPoint
     or warnings.* messages if run from the command line
