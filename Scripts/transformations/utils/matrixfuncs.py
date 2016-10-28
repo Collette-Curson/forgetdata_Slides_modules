@@ -434,7 +434,6 @@ def create_test_matrix():
         #fails #when running doctest via readthedocs.
         import slidesconf
         Matrix = matrixFromArray(a)
-        #print "matrixFromArray failed as slidesconf not imported"
     except:
         Matrix = make_fake_matrix(a)
     

@@ -212,9 +212,6 @@ class MatrixDataSortManipulator():
                     net_index2 = col.TopMember.DataIndex
                 if col.TopMember.IndentLevel == 2:
                     _make_dict(_dict[net_index][net_index2], member, val)
-                
-        #print "Nested dictionary from axis: ", _dict
-        #print ""
 
         return _dict
 
@@ -241,6 +238,8 @@ class MatrixDataSortManipulator():
 
             """
 
+            from utils.logger import logger
+            
             def _sort_tuple_nicely(l, _list=list()):
                 """Return a list of tuples in sorted order, key based on item 2
                 in the tuple, and reading values as numeric, not alpha
@@ -344,7 +343,7 @@ class MatrixDataSortManipulator():
                                 sorted_list.remove(item)
                                 sorted_list.append(item)
                 except:
-                    print "Unable to read _file_name: " + file_name
+                    logger("Unable to read _file_name: " + file_name)
 
         _find_keep_items(self)
         
@@ -441,9 +440,8 @@ class MatrixDataSortManipulator():
         """
 
         if (matrix.Count < 2):
-            print IndexError("index out of range " +
+            raise IndexError("index out of range " +
                              str(matrix.Count) + " row in table")
-            pass
 
         if (matrix.TopAxis.DataMembers.Count <= by_column):
             raise IndexError("index out of range " +

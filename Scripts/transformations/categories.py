@@ -254,13 +254,10 @@ class MatrixCategoryManipulator():
                           str(r) == x and str(r).__len__() > 1]
             except:
                 pass
-            # print "_match rows by label = ", _match
             if _match.__len__() > 0:  # labels found, find indexes for items
                 _match_by_index = [
                     r.Member.DataIndex for r in matrix for x in _match
                     if str(x) in r.Member.Label]
-                # print "_match_by_index from those found by label = ",
-                # _match_by_index
 
                 if _match.__len__() < _list_to_del.__len__():
                     _non_match = [
@@ -270,7 +267,6 @@ class MatrixCategoryManipulator():
                 return _match_by_index
             else:  # identify if indexes match
                 _rows = matrix.Count
-                # print "_list_to_del ==== ", _list_to_del
                 _match = [
                     r for r in _list_to_del if r >= 0 and r < _rows]
                 if _match.__len__() > 0:
@@ -279,7 +275,6 @@ class MatrixCategoryManipulator():
                             r for r in _list_to_del if r < 0 or r >= _rows]
                         logger(str(_non_match) +
                                ": items not found in the matrix")
-                    # print "_match bt index only = ", _match
                     return _match
                 else:
                     logger(str(_list_to_del) + ": No match found in list")

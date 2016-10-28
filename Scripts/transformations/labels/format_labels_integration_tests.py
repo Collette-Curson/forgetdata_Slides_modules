@@ -3,7 +3,6 @@ import sys, os
 lib_path = os.path.abspath(os.path.join('..'))   #relative path to transformations\utils\
 sys.path.append(lib_path)
 import slidesconf
-#print sys.path
 import utils.matrixfuncs as t
 
 class MatrixFillSimulation(TestCase):

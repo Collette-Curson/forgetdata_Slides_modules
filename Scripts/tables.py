@@ -21,20 +21,20 @@ def add_group_names_to_table_column_header(Table, Matrix=None):
 
     if Matrix is None:
         from globals import Matrix
-    from globals import Log
+    from transformations.utils.logger import logger
 
     _col_count = Table.Columns.Count
 
     def _add_group_headers():
         """Add the group headings to the first column per group"""
-
+        
         # Add a new first row for group headers
         Table.Rows.Add(1)
 
         _previous_group = ""
         for col in range(0, Matrix.TopAxis.DataMembers.Count):
             if _col_count < col+2:
-                print "not enough cols: ", str(col+2)
+                logger("not enough cols: ", str(col+2))
                 return
 
             _cell = Table.Cell(1, col+2)  # row1, col starting from 2.
@@ -42,7 +42,7 @@ def add_group_names_to_table_column_header(Table, Matrix=None):
                 _label = Matrix.TopAxis.DataMembers[col].Group.Label
                 _cell.Shape.TextFrame.TextRange.Text = _label
             _previous_group = _label
-        Log.Info("Added Group Labels to row 1")
+        logger("Added Group Labels to row 1")
 
     def _merge_header_cells():
         """Then merge the cells for the group headings"""
@@ -55,7 +55,7 @@ def add_group_names_to_table_column_header(Table, Matrix=None):
                     _cell.Merge(Table.Cell(1, col-1))
                 except:
                     pass
-        Log.Info("Merged group Header Cells")
+        logger("Merged group Header Cells")
 
     _add_group_headers()
     _merge_header_cells()
@@ -75,8 +75,8 @@ def replace_row_labels_with_group_names(Table, Matrix=None):
 
     if Matrix is None:
         from globals import Matrix
-    from globals import Log
-
+    from transformations.utils.logger import logger
+    
     _row_count = Table.Rows.Count
 
     try:
@@ -85,18 +85,20 @@ def replace_row_labels_with_group_names(Table, Matrix=None):
             _label = Matrix.SideAxis.DataMembers[row-2].Group.Label
             _text = _cell.Shape.TextFrame.TextRange.Text
             _cell.Shape.TextFrame.TextRange.Text = _label + " - " + _text
-        Log.Info("Updating row labels with group names")
+        logger("Updating row labels with group names")
     except:
-        Log.Warn("replace_row_labels_with_group_names failed to run")
+        logger("replace_row_labels_with_group_names failed to run")
 
 
 def _unset_bold(Table, Log):
     """unset Bold Font of group headings on refresh."""
+    
+    from transformations.utils.logger import logger
 
     for row in range(2, Table.Rows.Count+1):
         _cell = Table.Cell(row, 1)  # 1st column
         _cell.Shape.TextFrame.TextRange.Font.Bold = False
-    Log.Info("resetting fonts Bold = False")
+    logger("resetting fonts Bold = False")
 
 
 def insert_rows_for_group_labels(Table, Matrix=None):
@@ -112,7 +114,7 @@ def insert_rows_for_group_labels(Table, Matrix=None):
 
     if Matrix is None:
         from globals import Matrix
-    from globals import Log
+    from transformations.utils.logger import logger
 
     def _which_rows_to_insert():
         """Calculate which rows need to be inserted for each outer nest"""
@@ -144,12 +146,14 @@ def insert_rows_for_group_labels(Table, Matrix=None):
                 _rows_for_group[row.Member.DataIndex + 1] = _group_text
                 _previous_group_text = _group_text
 
-        Log.Info("Rows to insert into table " + str(_rows_for_group))
+        logger("Rows to insert into table " + str(_rows_for_group))
         return _rows_for_group
 
     def _insert_rows_and_text():
         """Insert rows, and set the text to the nested group label"""
 
+        from transformations.utils.logger import logger
+        
         keys = sorted(_rows_for_group.keys())
 
         for i in reversed(keys):
@@ -159,7 +163,7 @@ def insert_rows_for_group_labels(Table, Matrix=None):
             _cell.Shape.TextFrame.TextRange.Text = _rows_for_group[i]
             # make font bold for this _cell.
             _cell.Shape.TextFrame.TextRange.Font.Bold = True
-        Log.Info("set text to Parent Grp Label - Grp Label or Group Label")
+        logger("set text to Parent Grp Label - Grp Label or Group Label")
 
     _unset_bold(Table, Log)
     _rows_for_group = _which_rows_to_insert()
@@ -178,14 +182,15 @@ def delete_table_row_before_fill():
 
     """
 
-    from globals import Log
+    from transformations.utils.logger import logger
     import System
+    
     _ppt_pap = System.Type.GetTypeFromProgID("PowerPoint.Application")
     app = System.Activator.CreateInstance(_ppt_pap)
     activeShape = app.ActiveWindow.Selection.ShapeRange[1]
 
     activeShape.Table.Rows[1].Delete()
-    Log.Info("First Row deleted")
+    logger("First Row deleted")
 
 def indent_net_items(Table, Matrix=None):
     """Indent Net items within a table. Supported up to 1 level of net in the 

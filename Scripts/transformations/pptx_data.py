@@ -141,8 +141,8 @@ class PowerPointDataManipulator():
         for row in range(2, shape.Table.Rows.Count+1):
             rows.append([shape.Table.Cell(row,col).Shape.TextFrame.TextRange.Text for col in range(1,shape.Table.Columns.Count+1)])
         col_labels = [shape.Table.Cell(1,col).Shape.TextFrame.TextRange.Text for col in range(1,shape.Table.Columns.Count+1)]
-        print col_labels
-        print rows
+        logger(col_labels)
+        logger(rows)
     
     @wrap_shape
     def print_powerpoint_chart_data(self, shape, logger, *args):
@@ -151,8 +151,8 @@ class PowerPointDataManipulator():
         rows.append([(shape.Chart.SeriesCollection(row).Name, shape.Chart.SeriesCollection(row).Values[i]) for i in range(1,shape.Chart.SeriesCollection(1).XValues.Count) for row in range(1,shape.Chart.SeriesCollection().Count)]) 
         col_labels = list()
         colLabels.append([shape.Chart.SeriesCollection(1).XValues[i] for col in shape.Chart.SeriesCollection(1).XValues])
-        print rows
-        print col_labels
+        logger(rows)
+        logger(col_labels)
         
         row_labels = list()
         vals=list()
@@ -167,8 +167,8 @@ class PowerPointDataManipulator():
 
         col_labels = [shape.Chart.SeriesCollection(1).XValues[i] for col in shape.Chart.SeriesCollection(1).XValues]
 
-        print col_labels
-        print row_labels
+        logger(col_labels)
+        logger(row_labels)
 
     #   End of class
     '''

@@ -37,7 +37,7 @@ def set_colors_on_chart(Chart, Matrix, fileName=None):
             
     """
 
-    from globals import Log
+    from transformations.utils.logger import logger
     from shapes import RGB
 
     def _make_color_dict_for_series():
@@ -74,7 +74,7 @@ def set_colors_on_chart(Chart, Matrix, fileName=None):
                 if _get_csv_value(_item.Label) is not None:
                     _colors[_item.Label] = _get_csv_value(_item.Label)
                 else:
-                    Log.Info("There is no color match for label " + _item.Label)
+                    logger("There is no color match for label " + _item.Label)
         else:  # This is a single series chart, eg pie.
 
             # for each brand column, look up the csv file, return the RGB value
@@ -82,19 +82,16 @@ def set_colors_on_chart(Chart, Matrix, fileName=None):
                 if _get_csv_value(_item.Label) is not None:
                     _colors[_item.Label] = _get_csv_value(_item.Label)
                 else:
-                    try:
-                        Log.Info("There is no color match for label " + _item.Label)
-                    except:
-                        print "There is no color match for label " + _item.Label
-        try:
-            Log.Info("Brands and colors: " + str(_colors))
-        except:
-            print "Brands and colors: " + str(_colors)
+                    logger("There is no color match for label " + _item.Label)
+                    
+        logger("Brands and colors: " + str(_colors))
 
         return _colors
 
     def _set_colours():
         """Set the colour onto the chart"""
+        
+        from transformations.utils.logger import logger
         
         _series_collections = Chart.SeriesCollection()
         
@@ -137,7 +134,7 @@ def set_colors_on_chart(Chart, Matrix, fileName=None):
                         pass
                     _series.Border.Color = int(_col)
 
-        Log.Info("Updated colours for chart")
+        logger("Updated colours for chart")
 
     if (fileName is None):
         fileName = colors.txt
@@ -174,8 +171,8 @@ def convert_glyphs_to_color_wingdings(Chart, Matrix=None, rgb = list()):
 
     if Matrix is None:
         from globals import Matrix
-    from globals import Log
     from shapes import RGB
+    from transformations.utils.logger import logger
 
     _series_collections = Chart.SeriesCollection()
 
@@ -200,7 +197,7 @@ def convert_glyphs_to_color_wingdings(Chart, Matrix=None, rgb = list()):
                             _char.Font.Color = RGB(255, 255, 255) #white
                 i += 1
             _pointNumber += 1
-    Log.Info("Updated arrows to Wingdings")
+    logger("Updated arrows to Wingdings")
     
 
 def make_topN_shapes_on_chart(Chart, Matrix, list_of_topN_scores):
@@ -296,7 +293,7 @@ def make_topN_shapes_on_chart(Chart, Matrix, list_of_topN_scores):
                 else:
                     _shape.Top =  Chart.PlotArea.InsideTop + Chart.ChartArea.Top + ((_number_categories - column_number-1) * _shape.Height )
             else:
-                print str(Chart.ChartType) + ": Cannot add TopN to this chart type"
+                logger(str(Chart.ChartType) + ": Cannot add TopN to this chart type")
 
         #exit if the column number is > number of categories.
         if(_number_categories < column_number+1):

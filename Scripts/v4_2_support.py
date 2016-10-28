@@ -3,13 +3,6 @@ released with Slides 4.2.
 
 """
 
-'''
-TODO:
-overlayoverlinnechart.py
-trafficlights.py
-    
-'''
-
 #from Transformations.sorting module
 def SortRows(byColumn = 0, usingCellValue = 0, descending = True, Matrix = None):
     """Adding Backwards compatibility support for v4.2 script
@@ -139,10 +132,11 @@ def TopNSummary(N, Matrix = None):
     if Matrix == None:
         from globals import Matrix 
     import transformations as tr
+    from transformations.utils.logger import logger
     
     #do not run if N too big.
     if (Matrix.Count < N):
-        print "Not enough rows in table to insert a Top " + str(N) + " series"
+        logger("Not enough rows in table to insert a Top " + str(N) + " series")
         return
 
     m = tr.MatrixManipulator(Matrix) 
@@ -357,6 +351,8 @@ def FindShape(Shapes, shape_name):
 def _move_topN_shape(Chart, Shape, column_number):
     """Move shape to the correct location on the Chart"""
     
+    from transformations.utils.logger import logger
+    
     number_series = Chart.SeriesCollection().Count
     number_categories = Chart.SeriesCollection(number_series).Points().Count
     axis = Chart.Axes(1)
@@ -384,7 +380,7 @@ def _move_topN_shape(Chart, Shape, column_number):
         else:
             Shape.Top =  Chart.PlotArea.InsideTop + Chart.ChartArea.Top + ((number_categories - column_number-1) * Shape.Height)
     else:
-        print str(Chart.ChartType) + ": Cannot add TopN to this chart type"
+        logger(str(Chart.ChartType) + ": Cannot add TopN to this chart type")
     
 def TopNStackedColumnAlign(shapeToAlign, chartName, categoryNumber, topN):
     """Adding Backwards compatibility support for v4.2 script.

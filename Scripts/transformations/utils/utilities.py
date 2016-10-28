@@ -7,10 +7,12 @@ def read_comma_separated_file(_file_name, val = None):
     from a fixed.txt file for fixed position rows/columns within the sorting.
     
     """
+    
+    from logger import import logger
 
     import _csv
     global _f
-    print ("_file_name: ", str(_file_name))
+    logger("_file_name: ", str(_file_name))
     try:
         _f = _csv.reader(open(_file_name, "r"))
         for row in _f:
@@ -21,7 +23,7 @@ def read_comma_separated_file(_file_name, val = None):
                 return row
 
     except:
-        print ("_file_name was not found: " + str(_file_name))
+        logger("_file_name was not found: " + str(_file_name))
         _file_name = None
         return
 
