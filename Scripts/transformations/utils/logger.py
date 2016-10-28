@@ -3,11 +3,10 @@ import inspect
 import warnings
 
 def wrap_func_names(func):
+    # Return a list of calling functions in hierarchical order.
+    # Used for logging purposes.
     @wraps(func)
     def func_wrapper(*args, **kwargs):
-        # Return a list of calling functions in hierarchical order.
-        # Used for logging purposes.
-        
         _calling_func_names = list()
         try:  # Running from command line
             _calling_frame = inspect.currentframe().f_back
