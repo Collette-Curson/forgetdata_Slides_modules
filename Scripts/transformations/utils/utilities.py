@@ -38,7 +38,6 @@ def write_js_file(list, OutputFile):
     | a=list()
     | a.append(dict(inp="Some text", outp="Some Replacement Text"))
     | a.append(dict(inp="Some other text", outp="Some Other Replacement Text"))
-    | ...
     | file = "C:\\temp\\outputfile.js"
     | writeJSfile(a,file)
     """
