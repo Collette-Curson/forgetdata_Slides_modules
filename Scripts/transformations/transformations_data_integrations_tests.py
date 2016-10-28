@@ -315,10 +315,8 @@ class Test(TestCase):
         m,x = _make_matrix()
         self._addStatsTestsToMatrix(m)
         x.convert_significance_results_to_arrows()
-        if use_test_data == True:
-            self.assertEqual(m[0][0].SigTestResult, u'\xe9')
-        else:
-            self.assertEqual(m[0][0].SigTestResult, u'\xea')
+        utilities.print_matrix(m)
+        self.assertEqual(m[0][0].SigTestResult, u'\xea')
         print "test_convert_significance_results_to_arrows ", m[0][0].SigTestResult
         
     def test_convert_significance_results_to_arrows_no_stats_results_found(self):
@@ -337,7 +335,6 @@ class Test(TestCase):
     def test_clone_matrix(self):
         m,x = _make_matrix()
         clone_matrix = x.clone_matrix()
-        #utilities.print_matrix(clone_matrix)
         _data_values = x.get_data_values()
         _labels = x.get_series_labels() 
         _matrix_data_values = list()
