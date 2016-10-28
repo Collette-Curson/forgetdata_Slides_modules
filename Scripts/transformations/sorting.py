@@ -55,13 +55,10 @@ class MatrixDataSortManipulator():
     logger = log.logger
 
     def wrap_matrix_logger_sort(func):
-        """Wrapper function - Wrap all functions within the class so that
-        the matrix and logger and all sorting parameters are passed to
-        functions with given parameters. This wrapper also passes the
-        sorting variables for sorting functions.
+        # Wrapper function - Wrap all functions within the class so that
+        # the matrix and logger and all sorting parameters are passed to
+        # functions with given parameters. 
         
-        """
-
 
         @wraps(func)
         def func_wrapper(self, matrix=None, logger=None, by_column=0, by_row=0,
@@ -415,22 +412,22 @@ class MatrixDataSortManipulator():
     @wrap_matrix_logger_sort
     def sort_rows(self, matrix, logger, by_column, by_row,
                   using_cell_value, descending, file_name, client_name, *args):
-        """Sorts the rows in the active matrix numerically, sort within nets
-        and sort nets if present.
+        """Sorts the rows in the active Matrix numerically, sort within nets
+        and sort nets, if present.
 
         :param by_column: Use the values in this column to determine the sort
                 order of the rows. Default = 0
         :param using_cell_value: When there are multiple values within a cell
-                use this to control which value row within each cell is used
+                use this to control which value within each cell is used
                 for sorting (zero-based). Default = 0
         :param descending: Determines the order in which the values should be
                 sorted. Default = True
-        :param file_name: text file containing a list of row names to fix at
+        :param file_name: A text file containing a list of row names to fix at
                 the end of the sort order on the table/chart.  
-                file_name is located in the pptx folder, and contains a comma
-                separated row, e.g.: "Other","Don't know","None of these"
+                The "file_name" file is located in the pptx folder, and contains
+                a comma separated row, e.g."Other","Don't know","None of these"
                 Default = None
-        :param client_name: client_name is a text string which must match the
+        :param client_name: "client_name" is a text string which must match the
                 row label exactly. This row will be placed first in the sort 
                 order.  Default = None
 
@@ -478,23 +475,23 @@ class MatrixDataSortManipulator():
     @wrap_matrix_logger_sort
     def sort_columns(self, matrix, logger, by_column, by_row,
                   using_cell_value, descending, file_name, client_name, *args):
-        """Sorts the columns in the active matrix numerically, sort within nets
-        and sort nets if present.
+        """Sorts the columns in the active Matrix numerically, sort within nets
+        and sort nets, if present.
 
         :param by_row: Use the values in this row to determine the sort
                 order of the columns. Default = 0
         :param using_cell_value: When there are multiple values within a cell
-                use this to control which value row within each cell is used
+                use this to control which value within each cell is used
                 for sorting (zero-based). Default = 0
         :param descending: Determines the order in which the values should be
                 sorted. Default = True
-        :param file_name: text file containing a list of row names to fix at
+        :param file_name: A text file containing a list of row names to fix at
                 the end of the sort order on the table/chart.  
-                file_name is located in the pptx folder, and contains a comma
-                separated row, e.g.: "Other","Don't know","None of these"
+                The "file_name" file is located in the pptx folder, and contains
+                a comma separated row, e.g."Other","Don't know","None of these"
                 Default = None
-        :param client_name: client_name is a text string which must match the
-                column label exactly. This column will be placed first in the 
+        :param client_name: "client_name" is a text string which must match the
+                column label exactly. This column will be placed first in the
                 sort order.  Default = None
         
         Example:
@@ -531,8 +528,9 @@ class MatrixDataSortManipulator():
                                                     file_name, client_name,
                                                     _dict_from_axis, sort_row)
         self._reorder_rows_and_cols(matrix, _ordered_list, sort_row)
+        # This will only remove the group labels if the number of groups
+        # matches the number of columns. 
         self._update_labels_remove_groups(sort_row)
-
 
     #   End of class
 

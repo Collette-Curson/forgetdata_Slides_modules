@@ -140,13 +140,8 @@ def print_matrix(matrix,colWidth=11,maxWidth=80):
     print ""
 
 def find_table(Connections, query_item):
-    """Using the Queryitems, look up the Table name and return the connected
-    table.  For example:
-    
-    >>>for i in range(0, Query.Items.Count):
-    >>>    table = findTable(Query.Items[i]) 
-    >>>    if table is not None:
-    >>>        return table
+    """Using the Queryitems from the selection within the Matrix, look up the
+    Table name and return the connected table.  
     
     """
     

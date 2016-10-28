@@ -121,7 +121,8 @@ class MatrixCategoryManipulator():
     @wrap_matrix_logger
     def get_category_base_summary(self, matrix, logger, *args):
         """Return the Base summary of the Row, using the format:
-        Column Label: Base, Column Label: Base
+        
+        Column Label: Base Value, Column Label: Base Value
 
         Example:
         
@@ -138,7 +139,9 @@ class MatrixCategoryManipulator():
 
     @wrap_matrix_logger
     def set_category_base_summary(self, matrix, logger, *args):
-        """Set Labels to category (column) labels with Base Value
+        """Set Labels to category (column) labels with Base Value, using format:
+        
+        Column Label (Base Value)
         
         Example:
         
@@ -157,7 +160,7 @@ class MatrixCategoryManipulator():
     @wrap_matrix_logger_format
     def set_category_formatted_labels(
             self, matrix, logger, label_format="{0}", cell_format={0}, *args):
-        """Set Labels to contain formatted labels of the users choice.
+        """Set Labels to contain formatted labels of the users' choice.
         
         :param label_format: Text format using FormatSettings class to format
                 the labels. 
@@ -180,7 +183,7 @@ class MatrixCategoryManipulator():
     @wrap_matrix_logger_format
     def set_category_groups_formatted_labels(
             self, matrix, logger, label_format="{0}", cell_format={0}, *args):
-        """Set Group Labels to contain formatted labels of the users choice.
+        """Set Group Labels to contain formatted labels of the users' choice.
         
         :param label_format: Text format using FormatSettings class to format
                 the labels. 
@@ -420,7 +423,7 @@ class MatrixCategoryManipulator():
 
     @wrap_matrix_logger
     def insert_gap_between_category_groups(self, matrix, logger, *args):
-        """Insert a blank column between category groups within the Matrix for
+        """Insert a blank column between category groups within the Matrix, for
         charts or tables
         
         Example:
@@ -452,7 +455,7 @@ class MatrixCategoryManipulator():
     @wrap_matrix_logger_insert
     def insert_category(self, matrix, logger, row_number=0,
                         column_number=0, label="", *args):
-        """Insert a column into the matrix.
+        """Insert a column into the Matrix.
 
         :param column_number: position to insert the column. Default = 0
         :param label: label for the inserted column. Default = ""

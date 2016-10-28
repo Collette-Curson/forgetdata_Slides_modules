@@ -117,7 +117,8 @@ class MatrixSeriesManipulator():
     def get_series_base_summary(self, matrix, logger, *args):
         """Return the Base summary of the Row with base taken from the first
         column, using the format:
-        Row Label: Base, Row Label: Base
+        
+        Row Label: Base Value, Row Label: Base Value
         
         Example:
         
@@ -133,7 +134,11 @@ class MatrixSeriesManipulator():
 
     @wrap_matrix_logger
     def set_series_base_summary(self, matrix, logger, *args):
-        """Set Labels to contain the series (row) labels with Base Value
+        """Set Labels to contain the series (row) labels with Base Value, using
+        format:
+        
+        Row Label (Base Value)
+        
         
         Example:
         
@@ -154,7 +159,7 @@ class MatrixSeriesManipulator():
     def set_series_formatted_labels(self, matrix, logger,
                                     label_format="{0}", cell_format={0},
                                     *args):
-        """Set Labels to contain formatted labels of the users choice.
+        """Set Labels to contain formatted labels of the users' choice.
 
         Example:
         
@@ -179,7 +184,7 @@ class MatrixSeriesManipulator():
     def set_series_groups_formatted_labels(self, matrix, logger,
                                            label_format="{0}", cell_format={0},
                                            *args):
-        """Set Group Labels to contain formatted labels of the users choice.
+        """Set Group Labels to contain formatted labels of the users' choice.
 
         Example:
         
@@ -204,7 +209,7 @@ class MatrixSeriesManipulator():
         """Number the questions in sequential order in the row headings
 
         :param delimiter: Value to be placed after the statement number, eg "."
-            Default ""  
+                          Default ""  
 
         Example:
         
@@ -426,7 +431,7 @@ class MatrixSeriesManipulator():
 
     @wrap_matrix_logger
     def insert_gap_between_series_groups(self, matrix, logger, *args):
-        """Insert a blank row between series groups within the Matrix for
+        """Insert a blank row between series groups within the Matrix, for
         charts or tables
         
         Example:
@@ -456,7 +461,7 @@ class MatrixSeriesManipulator():
             _new_row = matrix.InsertBlankRowAfter(_row, "", "")
 
     @wrap_matrix_logger
-    def insert_topN_into_series(self, matrix, logger, _N, *args):
+    def insert_topN_into_series(self, matrix, logger, N, *args):
         """Insert a new row at the top of the series containing
         topN result
 
@@ -501,7 +506,7 @@ class MatrixSeriesManipulator():
     @wrap_matrix_logger_insert
     def insert_series(self, matrix, logger, row_number=0,
                       col_number=0, label="", *args):
-        """Insert a row into the matrix.
+        """Insert a row into the Matrix.
 
         :param row_number: position to insert the row. Default = 0
         :param label: label for the inserted row. Default = ""

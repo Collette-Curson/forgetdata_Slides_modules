@@ -97,7 +97,7 @@ class MatrixDataManipulator(SortRowsColumns):
     @wrap_matrix_logger
     def get_base_row_values(self, matrix, logger, *args):
         """Return a list of base values from the base (first) column of the
-        matrix
+        matrix. Bases will be returned from rows with Label, Total or Base.
 
         Example:
         
@@ -116,7 +116,7 @@ class MatrixDataManipulator(SortRowsColumns):
     @wrap_matrix_logger
     def get_base_column_values(self, matrix, logger, *args):
         """Return a list of base values from the base (first) row of the
-        matrix
+        matrix. Bases will be returned from columns with Label, Total or Base.
 
         Example:
         
@@ -145,13 +145,13 @@ class MatrixDataManipulator(SortRowsColumns):
         | {
         | 'row1':
         |     {
-        |     'col1': [cellValue1, cellValue2],
-        |     'col2': [cellValue1, cellValue2]
+        |     'col1': [cell Value1, cell Value2],
+        |     'col2': [cell Value1, cell Value2]
         |     },
         | 'row2':
         |     {
-        |     'col1': [cellValue1, cellValue2],
-        |     'col2': [cellValue1, cellValue2]
+        |     'col1': [cell Value1, cell Value2],
+        |     'col2': [cell Value1, cell Value2]
         |     }
         | }
 
@@ -180,7 +180,7 @@ class MatrixDataManipulator(SortRowsColumns):
     def set_data_formatted_labels(self, matrix, logger, label_format="{0}",
                                   cell_format="{0}", *args):
         """Set Labels of the data cells to contain formatted labels of the
-        users choice.
+        users' choice.
 
         :param cell_format: Text format using FormatSettings class to format
             the cell values.
@@ -192,6 +192,7 @@ class MatrixDataManipulator(SortRowsColumns):
         |         "{0[0].Value} - {0.SideMember.Label} : {0.TopMember.Label}")
 
         """
+        
         if cell_format == "{0}":
             return
         from labels.format_labels import FormatSettings
@@ -415,9 +416,9 @@ class MatrixDataManipulator(SortRowsColumns):
 
     @wrap_matrix_logger
     def make_series_from_grid_slices(self, matrix, logger, *args):
-        """Performs a gridification of a flat table where you have grid slices
-        appended down the side of the table, and wish these selections to 
-        appear as one series.
+        """Creates a grid format table from a flat table where you have grid
+        slices appended down the side of the table, and wish these selections
+        to appear as one series.
         
         For example (3 series):
         
@@ -428,9 +429,9 @@ class MatrixDataManipulator(SortRowsColumns):
         
         This will appear as (1 series):
         
-        |      Statement 1, Statement 2, Statement 3
-        | Top2           X            X            X
-        |
+        |   ______|Statement 1|Statement 2|Statement 3|
+        |     Top2|
+        | 
         
         Note, this does not work when there is nesting or concatenation on the
         top axis.
