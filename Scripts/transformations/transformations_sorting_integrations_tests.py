@@ -599,7 +599,7 @@ class Test(TestCase):
         print ""
 
         m,x = _make_matrix(table_selected=table_selected)
-        _sort_row = 5
+        _sort_row = 4
         _using_cell_value = 0
         _descending = False
         _file_name = None
