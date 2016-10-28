@@ -476,7 +476,7 @@ class MatrixSeriesManipulator():
         """
 
         # if the table hasn't got enough rows do nothing
-        n = _N[0]
+        n = N[0]
         if (matrix.Count < n):
             logger("Not enough rows in table to insert a Top "
                    + str(n) + " series")
