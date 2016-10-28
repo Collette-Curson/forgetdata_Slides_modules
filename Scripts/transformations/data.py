@@ -429,8 +429,8 @@ class MatrixDataManipulator(SortRowsColumns):
         
         This will appear as (1 series):
         
-        |   ______|Statement 1|Statement 2|Statement 3|
-        |     Top2|
+        | ____|Statement 1|Statement 2|Statement 3|
+        | Top2|
         | 
         
         Note, this does not work when there is nesting or concatenation on the
