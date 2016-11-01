@@ -235,7 +235,7 @@ class MatrixSeriesManipulator():
         parameter.
         
         :param: _list_of_bases: list of texts to be treated as bases. 
-            Default = 'Base'
+            Default = ["Base", "Unweighted Base", "Weighted Base"]
         
         Example:
         
@@ -251,7 +251,7 @@ class MatrixSeriesManipulator():
             if args[0][0].__len__() > 0:
                 bases = args[0][0]
         except:
-            bases = ["Base"]
+            bases = ["Base", "Unweighted Base", "Weighted Base"]
         
         _delete_rows = [r.Member.DataIndex for r in matrix if
                         r.Member.Label in bases]

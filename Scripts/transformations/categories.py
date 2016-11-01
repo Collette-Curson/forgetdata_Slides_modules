@@ -212,7 +212,7 @@ class MatrixCategoryManipulator():
         parameter.
         
         :param _list_of_bases: list of texts to be treated as bases. 
-            Default = 'Base'
+            Default = ["Base", "Unweighted Base", "Weighted Base"]
         
         Example:
         
@@ -228,7 +228,7 @@ class MatrixCategoryManipulator():
             if args[0][0].__len__() > 0:
                 bases = args[0][0]
         except:
-            bases = ["Base"]
+            bases = ["Base", "Unweighted Base", "Weighted Base"]
         
         
         _delete_cols = [c.TopMember.DataIndex for c in matrix[
