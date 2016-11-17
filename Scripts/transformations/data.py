@@ -206,7 +206,7 @@ class MatrixDataManipulator(SortRowsColumns):
                     c.TopMember.DataIndex]) if c[
                     0].GetNumericValue() is not None else c[0].Value
 
-    @wrap_matrix_logger_format
+    @wrap_matrix_logger
     def format_percent_as_whole_number(self, matrix, logger, *args):
         """Set data values that are stored as percentages to be whole numbers
                 
@@ -223,7 +223,7 @@ class MatrixDataManipulator(SortRowsColumns):
                     c[0].NumericValue = c[0].NumericValue * 100
                     c[0].FormatString = "0"
     
-    @wrap_matrix_logger_format
+    @wrap_matrix_logger
     def format_whole_number_as_percent(self, matrix, logger, *args):
         """Set data values that are stored as whole number to be percentages
                 
