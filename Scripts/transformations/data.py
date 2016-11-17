@@ -206,6 +206,41 @@ class MatrixDataManipulator(SortRowsColumns):
                     c.TopMember.DataIndex]) if c[
                     0].GetNumericValue() is not None else c[0].Value
 
+    @wrap_matrix_logger_format
+    def format_percent_as_whole_number(self, matrix, logger, *args):
+        """Set data values that are stored as percentages to be whole numbers
+                
+        Example:
+        
+        | myclass = transformations.MatrixManipulator(Matrix)
+        | myclass.format_percent_as_whole_number()
+
+        """
+        
+        for r in matrix:
+            for c in r:
+                if c[0].FormatString == "0%" or c[0].FormatString == "0.00%":
+                    c[0].NumericValue = c[0].NumericValue * 100
+                    c[0].FormatString = "0"
+    
+    @wrap_matrix_logger_format
+    def format_whole_number_as_percent(self, matrix, logger, *args):
+        """Set data values that are stored as whole number to be percentages
+                
+        Example:
+        
+        | myclass = transformations.MatrixManipulator(Matrix)
+        | myclass.format_whole_number_as_percent()
+
+        """
+        
+        for r in matrix:
+            for c in r:
+                if c[0].FormatString == "0" or c[0].FormatString == "0.00":
+                    c[0].NumericValue = c[0].NumericValue / 100
+                    c[0].FormatString = "0%"
+                    
+                                    
     @wrap_matrix_logger
     def category_difference(self, matrix, logger, *args):
         """Insert a new column and insert the difference between the

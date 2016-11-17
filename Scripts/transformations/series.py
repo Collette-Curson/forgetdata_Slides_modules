@@ -527,6 +527,56 @@ class MatrixSeriesManipulator():
         _new_row = matrix.InsertBlankRowAfter(_member, _name, label)
         matrix.SwitchRows(_member.DataIndex, _new_row.DataIndex)
 
+    @wrap_matrix_logger
+    def create_and_fill_dummy_series(self, matrix, logger, *args):
+        """Used with Horizontal stacked charts. Create a dummy series, between
+        each real series (ie every other row) and fill them with values which
+        will pad out a horizontal chart to appear as multiple horizontal charts
+        which are correctly lined up.
+        
+        Example:
+        
+        | tr = transformations.MatrixManipulator(Matrix)
+        | tr.create_and_fill_dummy_series()
+        
+        """
+        
+        def create_blank_rows():
+            """insert blank rows into chart for filling with dummy data"""
+            
+            num_rows = matrix.SideAxis.DataMembers.Count    
+            for row in reversed(range(0,num_rows)):    
+                newcol = matrix.InsertBlankRowAfter(matrix[row].Member,"blank","Blank")
+
+        
+        def fill_blank_cells():
+            """Calculate the highest value within the matrix, and from this, fill the
+            blank series, so that all series pairings add up to the same value, and
+            line up the charts
+            
+            """
+            
+            def find_highest_value():
+                """within the selections, find the highest value"""
+                vals = [c[0].NumericValue for r in matrix for c in r if c.Count > 0]
+                return sorted(vals, reverse=True)[0]    
+    
+            # This value is used to calculate the blank series between the
+            # filled series                 
+            filler = find_highest_value() * 1.2
+    
+            for row in matrix:
+                for cell in row:
+                    if cell.Count == 0:
+                        try:
+                            previous_cell = matrix[row.Member.DataIndex-1][cell.TopMember.DataIndex][0]
+                            cell.AddValue(str(filler - previous_cell.NumericValue))
+                            cell[0].FormatString = previous_cell.FormatString
+                        except:
+                            cell.AddValue(str(filler))
+       
+        create_blank_rows() 
+        fill_blank_cells()
     #   End of class
 
 if __name__ == "__main__":    
