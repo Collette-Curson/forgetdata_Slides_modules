@@ -1,6 +1,13 @@
 """Provides basic matrix manipulation functions for filling the matrix from the
 existing current selections.
 
+
+Note this module is not included in the main transformations class as it
+requires Connections and Query to be passed as parameters to this class. 
+These are used as the lookup for the Table which as used for the selection.
+Transformations classes only require the Matrix as a parameter.
+ 
+
 Updated October 2016
 @author: ccurson
 
@@ -27,21 +34,7 @@ class FillMatrix():
     | import transformations.auto_fill_matrix as fill
     | myfillclass = fill.FillMatrix(Matrix, Connections, Query)
     | myfillclass.auto_fill_rows(5, sort=True)
-    
-    # Examples:
-    
-    #>>> from globals import Connections, Query
-    #>>> import utils.matrixfuncs as matrixfuncs
-    #>>> m = matrixfuncs.create_test_matrix()
-    #>>> import transformations.auto_fill_matrix as fill
-    #>>> mycls = fill(m, Connections, Query[0])        
-    #>>> mycls.auto_fill_columns()
-    #>>> print matrix[0][0].TopMember.Label
-    #myColumn 0
-    #>>> mycls.auto_fill_rows()
-    #>>> print matrix[0].Member.Label
-    #myRow 0
-    
+        
     """
     
     def __init__(self, matrix, connections, query):    
