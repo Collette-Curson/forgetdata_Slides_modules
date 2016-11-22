@@ -37,16 +37,8 @@ Scripts.transformations class
 -----------------------------
 
 .. automodule:: Scripts.transformations
-    :members: 
-    :inherited-members: series, categories, labels.format_labels, data, sorting, pptxdata
-    :show-inheritance:
-
-Scripts.transformations.auto_fill.auto_fill_matrix module
----------------------------------------------------------
-
-.. automodule:: Scripts.transformations.auto_fill.auto_fill_matrix
-    :members: 
-    :undoc-members:
+    :members: labels.format_labels, auto_fill.auto_fill_matrix
+    :inherited-members: series, categories, data, sorting, pptxdata
     :show-inheritance:
     
 Scripts.transformations.utils.utilities module
