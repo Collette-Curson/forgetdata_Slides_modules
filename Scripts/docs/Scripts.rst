@@ -41,16 +41,16 @@ Scripts.transformations class
     :inherited-members: series, categories, data, sorting, pptxdata
     :show-inheritance:
 
-Scripts.transformations.auto_fill class
----------------------------------------
+Scripts.transformations.auto_fill module
+----------------------------------------
 
 .. automodule:: Scripts.transformations.auto_fill
     :members: 
     :inherited-members: 
     :show-inheritance:
 
-Scripts.transformations.labels class
-------------------------------------
+Scripts.transformations.labels module
+-------------------------------------
 
 .. automodule:: Scripts.transformations.labels
     :members: 
