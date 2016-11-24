@@ -30,8 +30,8 @@ class FillMatrix():
             Matrix.    
 
     Example:
-    
-    | import transformations.auto_fill_matrix as fill
+        
+    | import auto_fill_matrix as fill
     | myfillclass = fill.FillMatrix(Matrix, Connections, Query)
     | myfillclass.auto_fill_rows(5, sort=True)
         
@@ -118,7 +118,6 @@ class FillMatrix():
             
             # get a full list of all rows/cols in the table for inserting into the matrix.
             if fill_rows:
-                print "fill rows"
                 set_of_items = ([col.TopMember.Group.Label + " :: " + col.TopMember.Label, number,
                                  col.TopMember.DataIndex,
                                  col[cell_item].GetNumericValue(),
@@ -129,7 +128,6 @@ class FillMatrix():
                                  col.TopMember.IsVisible == True)
                 #print "set_of_items" , list(set_of_items)
             else:
-                print "fill columns"
                 set_of_items = ([row.Member.Group.Label + " :: " + row.Member.Label, row.Member.DataIndex,
                                  number, row[number][cell_item].GetNumericValue(),
                                  row[number][cell_item].FormatString, query_item] 
@@ -373,7 +371,7 @@ class FillMatrix():
         | myfillclass.auto_fill_rows(5, sort=True)
         
         """
-        print "auto_fill_rows!"
+
         table = self._get_table(0)
         
         fill_rows = True
@@ -384,7 +382,7 @@ class FillMatrix():
         
         if self.query.SimplifyOutput == True or num_cols > 120:
             self._get_table_from_connection_and_fill(fill_rows, limit_series, sort)
-            print "auto_fill_rows - manual"
+
         else:            
             self._set_selection_to_all(fill_rows)
             
@@ -393,7 +391,6 @@ class FillMatrix():
                 
             if limit_series is not None:
                 self._do_limit_series(limit_series, fill_rows)
-            print "auto_fill_rows - default"
             
     def auto_fill_columns(self, limit_series = None, sort=False):
         """Automatically fill the columns of the selected Matrix from the
@@ -410,11 +407,11 @@ class FillMatrix():
         columns to the selection.
         
         Example:
-        
+    
         | import transformations.auto_fill_matrix as fill
         | myfillclass = fill.FillMatrix(Matrix, Connections, Query)
         | myfillclass.auto_fill_columns(5, sort=True)
-
+    
         """
         
         table = self._get_table(0) 
@@ -436,16 +433,4 @@ class FillMatrix():
             
             if limit_series is not None: # delete the remaining rows
                 self._do_limit_series(limit_series, fill_rows)
-                
-if __name__ == "__main__":
-    import doctest
-    doctest.testmod()
 
-
-"""
-To run doctest, using a command prompt, go to:
-
-cd C:\Projects\RepSuite\Releases\4.3\Forgetdata\Libraries\Lib\forgetdata\Scripts>
->python transformations\auto_fill_matrix.py
-
-"""
