@@ -8,8 +8,9 @@ Updated 14th Jan 2016
 This set of regression tests will test all of the functions within the
 "data" module of the transformations package installed with Slides.
 
-This class is to be used for other data formats, eg pandas, so run these without the 
-matrixfuncs.py to generate the Matrix from a List.
+This class is to be used for other data formats, eg pandas, so if slidesconf.py
+cannot be imported, ie slides not present, then it will create a test matrix
+using make_fake_matrix.py from matrixfuncs.
 
 Also to be run using Matrix created using Slides.
 
@@ -249,6 +250,28 @@ class Test(TestCase):
             self.assertEqual(_labels,_matrix_labels)
         print "test_set_data_formatted_labels_bad = AttributeError: 'CDataCell' does not contain 'Group'"
     
+    '''
+    def test_format_percent_as_whole_number(self):
+        m,x =  _make_matrix()
+        _matrix_labels = [c[0].Value for r in m for c in r]
+        x.format_percent_as_whole_number()
+        with self.assertRaisesRegexp(AttributeError, 'CDataCell'):
+            _labels = x.get_data_values()   
+            self.assertEqual(_labels,_matrix_labels)
+        print "test_format_percent_as_whole_number", _matrix_labels
+    
+    
+    def test_format_whole_number_as_percent(self):
+        m,x =  _make_matrix()
+        _matrix_labels = [c[0].Value for r in m for c in r]
+        x.format_whole_number_as_percent()
+        with self.assertRaisesRegexp(AttributeError, 'CDataCell'):
+            _labels = x.get_data_values()   
+            self.assertEqual(_labels,_matrix_labels)
+        print "test_format_whole_number_as_percent", _matrix_labels
+    
+    '''
+        
     def test_category_difference(self):
         m,x =  _make_matrix()
         a=1
