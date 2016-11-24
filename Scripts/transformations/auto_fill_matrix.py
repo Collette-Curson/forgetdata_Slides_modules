@@ -373,7 +373,7 @@ class FillMatrix():
         | myfillclass.auto_fill_rows(5, sort=True)
         
         """
-    
+        print "auto_fill_rows!"
         table = self._get_table(0)
         
         fill_rows = True
@@ -381,19 +381,19 @@ class FillMatrix():
         # enabled, or if the table is large
         num_cols = table.TopAxis.DataMembers.Count
         ##TODO change this back to 200
-        try:
-            if self.query.SimplifyOutput == True or num_cols > 120:
-                self._get_table_from_connection_and_fill(fill_rows, limit_series, sort)
         
-        except: # update basic selection to all rows
+        if self.query.SimplifyOutput == True or num_cols > 120:
+            self._get_table_from_connection_and_fill(fill_rows, limit_series, sort)
+            print "auto_fill_rows - manual"
+        else:            
             self._set_selection_to_all(fill_rows)
-       
+            
             if sort == True:
                 self._do_sort(fill_rows)
                 
             if limit_series is not None:
                 self._do_limit_series(limit_series, fill_rows)
-            
+            print "auto_fill_rows - default"
             
     def auto_fill_columns(self, limit_series = None, sort=False):
         """Automatically fill the columns of the selected Matrix from the
@@ -425,13 +425,12 @@ class FillMatrix():
         # enabled, or if the table is large
         
         ##TODO change this back to 200
-        try:
-            if self.query.SimplifyOutput == True or table.Count > 120:
-                self._get_table_from_connection_and_fill(fill_rows, limit_series, sort)
-        except: # update basic selection to all rows
+        
+        if self.query.SimplifyOutput == True or table.Count > 120:
+            self._get_table_from_connection_and_fill(fill_rows, limit_series, sort)
+        else:
             self._set_selection_to_all(fill_rows)
     
-        
             if sort == True:
                 self._do_sort(fill_rows)
             
