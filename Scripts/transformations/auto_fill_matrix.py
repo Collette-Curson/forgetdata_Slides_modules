@@ -58,7 +58,7 @@ class FillMatrix():
         
         """        
         
-        import transformations.utils.utilities as utilities
+        import utils.utilities as utilities
             
         def _get_selected(table, query_item, fill_rows):
             """Return the column or rows of the table that are selected, using
@@ -311,7 +311,7 @@ class FillMatrix():
     def _get_table(self, item):
         """Return the connected table"""
         
-        import transformations.utils.utilities as utilities
+        import utils.utilities as utilities
         try:
             return utilities.find_table(self.connections, self.query_items[item])
         except:
