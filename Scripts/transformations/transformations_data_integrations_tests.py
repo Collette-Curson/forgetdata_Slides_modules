@@ -20,7 +20,7 @@ See $RepSuite\Releases\4.3\Forgetdata\Libraries\Lib\forgetdata\Scripts\transform
 #import matrixfuncs
 
 ########Variables that can be reset when running this test###############
-use_test_data = False
+use_test_data = True
 
 #Real data only used when use_test_data == False. 
 import os
@@ -62,7 +62,8 @@ def _make_matrix(table_selected=0):
         liveConnection = slidesconf.connect(conn.ConnectionString,name=conn.Name,provider_name=conn.Provider)
         m = liveConnection[table_selected]
         
-        print "connected table: ", m.Label    
+        print "connected table: ", m.Label
+        print m.Name    
     x=tr.MatrixManipulator(m)
     #utilities.print_matrix(m)
     #print ""
@@ -250,28 +251,32 @@ class Test(TestCase):
             self.assertEqual(_labels,_matrix_labels)
         print "test_set_data_formatted_labels_bad = AttributeError: 'CDataCell' does not contain 'Group'"
     
-    '''
+    ''' These 2 tests fail when run via unit test. They work via powerpoint.
     def test_format_percent_as_whole_number(self):
         m,x =  _make_matrix()
-        _matrix_labels = [c[0].Value for r in m for c in r]
+        
+        if use_test_data == False:
+            m.DeleteRow(0)
+            m.DeleteRow(0)
+        
+        _matrix_labels = [str(int(c[0].NumericValue*100)) if c.Count > 0 and c[0].NumericValue is not None and c[0].FormatString == "0%" else str(int(c[0].NumericValue)) if c[0].NumericValue is not None else c[0].NumericValue for r in m for c in r]        
         x.format_percent_as_whole_number()
-        with self.assertRaisesRegexp(AttributeError, 'CDataCell'):
-            _labels = x.get_data_values()   
-            self.assertEqual(_labels,_matrix_labels)
+        #utilities.print_matrix(m)     
+        _labels = x.get_data_values() 
+            
+        self.assertEqual(_matrix_labels, _labels)
         print "test_format_percent_as_whole_number", _matrix_labels
-    
-    
+        
+    #These 2 tests fail when run via unit test. They work via powerpoint.
     def test_format_whole_number_as_percent(self):
         m,x =  _make_matrix()
-        _matrix_labels = [c[0].Value for r in m for c in r]
-        x.format_whole_number_as_percent()
-        with self.assertRaisesRegexp(AttributeError, 'CDataCell'):
-            _labels = x.get_data_values()   
-            self.assertEqual(_labels,_matrix_labels)
+        _matrix_labels = [str(float(c[0].NumericValue/100)) + "%" if c.Count > 0 and c[0].NumericValue is not None and c[0].FormatString == "0" else str(int(c[0].Value)) if c[0].NumericValue is not None else c[0].Value for r in m for c in r]
+        x.format_whole_number_as_percent()   
+        _labels = x.get_data_values()   
+        self.assertEqual(_labels,_matrix_labels)
         print "test_format_whole_number_as_percent", _matrix_labels
-    
     '''
-        
+                
     def test_category_difference(self):
         m,x =  _make_matrix()
         a=1

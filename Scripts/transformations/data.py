@@ -219,10 +219,11 @@ class MatrixDataManipulator(SortRowsColumns):
         
         for r in matrix:
             for c in r:
-                if c[0].FormatString == "0%" or c[0].FormatString == "0.00%":
-                    c[0].NumericValue = c[0].NumericValue * 100
+                if (c[0].FormatString == "0%" or c[0].FormatString == "0.0%" 
+                     or c[0].FormatString == "0.00%"):
+                    c[0].NumericValue = c[0].NumericValue * 100.00
                     c[0].FormatString = "0"
-    
+                    
     @wrap_matrix_logger
     def format_whole_number_as_percent(self, matrix, logger, *args):
         """Set data values that are stored as whole number to be percentages
@@ -236,11 +237,11 @@ class MatrixDataManipulator(SortRowsColumns):
         
         for r in matrix:
             for c in r:
-                if c[0].FormatString == "0" or c[0].FormatString == "0.00":
-                    c[0].NumericValue = c[0].NumericValue / 100
+                if (c[0].FormatString == "0" or c[0].FormatString == "0.0" 
+                    or c[0].FormatString == "0.00"):
+                    c[0].NumericValue = c[0].NumericValue / 100.00
                     c[0].FormatString = "0%"
-                    
-                                    
+
     @wrap_matrix_logger
     def category_difference(self, matrix, logger, *args):
         """Insert a new column and insert the difference between the
