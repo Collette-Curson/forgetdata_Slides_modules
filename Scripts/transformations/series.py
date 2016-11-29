@@ -570,10 +570,22 @@ class MatrixSeriesManipulator():
                     if cell.Count == 0:
                         try:
                             previous_cell = matrix[row.Member.DataIndex-1][cell.TopMember.DataIndex][0]
-                            cell.AddValue(str(filler - previous_cell.NumericValue))
+                            try:
+                                cell.AddValue(str(filler - previous_cell.NumericValue))
+                            except:
+                                try:
+                                    cell.AddValue(str(filler - previous_cell.NumericValue), None)
+                                except:
+                                    pass
                             cell[0].FormatString = previous_cell.FormatString
                         except:
-                            cell.AddValue(str(filler))
+                            try:
+                                cell.AddValue(str(filler))
+                            except:
+                                try:
+                                    cell.AddValue(str(filler), None)
+                                except:
+                                    pass
        
         create_blank_rows() 
         fill_blank_cells()

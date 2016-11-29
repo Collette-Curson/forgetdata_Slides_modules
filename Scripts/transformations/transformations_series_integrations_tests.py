@@ -8,8 +8,9 @@ Updated 14th Jan 2016
 This set of regression tests will test all of the functions within the
 "series" module of the transformations package installed with Slides.
 
-This class is to be used for other data formats, eg pandas, so run these without the 
-matrixfuncs.py to generate the Matrix from a List.
+This class is to be used for other data formats, eg pandas, so if slidesconf.py
+cannot be imported, ie slides not present, then it will create a test matrix
+using make_fake_matrix.py from matrixfuncs.
 
 Also to be run using Matrix created using Slides.
 
@@ -18,7 +19,7 @@ See $RepSuite\Releases\4.3\Forgetdata\Libraries\Lib\forgetdata\Scripts\transform
 '''
 
 ########Variables that can be reset when running this test###############
-use_test_data = True
+use_test_data = False
 
 #Real data only used when use_test_data == False. 
 import os
@@ -521,10 +522,20 @@ class Test(TestCase):
     def test_insert_series_too_big(self):
         m,x =  make_matrix()
         _labels = [r.Member.Label for r in m]
-        x.insert_series(row_number = 20, label = "this will fail")
+        x.insert_series(row_number = 20, label = "this will fail to insert")
         _matrix_labels = x.get_series_labels()
         self.assertEqual(_labels,_matrix_labels)  
         print "test_insert_series", _matrix_labels
+        
+    def test_create_and_fill_dummy_series(self):
+        m,x = make_matrix()
+        _labels = [r.Member.Label for r in m]
+        for item in reversed(range(1,_labels.__len__()+1)):
+            _labels.insert(item,'Blank')
+        x.create_and_fill_dummy_series()
+        _matrix_labels = x.get_series_labels()
+        self.assertEqual(_labels,_matrix_labels)  
+        print "test_create_and_fill_dummy_series", _matrix_labels
                                   
 #import sys
 #sys.modules["globals"] = object()
