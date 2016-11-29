@@ -20,7 +20,7 @@ See $RepSuite\Releases\4.3\Forgetdata\Libraries\Lib\forgetdata\Scripts\transform
 #import matrixfuncs
 
 ########Variables that can be reset when running this test###############
-use_test_data = True
+use_test_data = False
 
 #Real data only used when use_test_data == False. 
 import os
