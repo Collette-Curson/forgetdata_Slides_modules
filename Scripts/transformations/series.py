@@ -573,8 +573,8 @@ class MatrixSeriesManipulator():
                             try:
                                 cell.AddValue(str(filler - previous_cell.NumericValue))
                             except:
-                                try:
-                                    cell.AddValue(str(filler - previous_cell.NumericValue), None)
+                                try: # when running in Python
+                                    cell.AddValue(str(filler - previous_cell.NumericValue), None) 
                                 except:
                                     pass
                             cell[0].FormatString = previous_cell.FormatString
@@ -582,7 +582,7 @@ class MatrixSeriesManipulator():
                             try:
                                 cell.AddValue(str(filler))
                             except:
-                                try:
+                                try: # when running in Python
                                     cell.AddValue(str(filler), None)
                                 except:
                                     pass
